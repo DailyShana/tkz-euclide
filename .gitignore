@@ -1,0 +1,35 @@
+# artefacts LaTeX
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.nav
+*.snm
+*.fls
+*.fdb_latexmk
+*.idx
+*.ilg
+*.ind
+*.bbl
+*.blg
+*.zip
+
+# builds locaux
+/build/
+doc/latex/build
+doc/build/
+.DS_Store
+__MACOSX/
+
+# Editors / tools
+.nova/
+.git.bak-*/
+
+# ignorer les scripts en général
+*.sh
+*.zsh
+
+# MAIS garder ceux du dossier scripts/
+!scripts/*.sh
+!scripts/*.zsh
