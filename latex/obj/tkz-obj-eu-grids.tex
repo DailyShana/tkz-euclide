@@ -50,8 +50,8 @@
 \def\tkz@Grid[#1]{\@ifnextchar({\tkz@@Grid[#1]}%
                                {\tkz@@Grid[#1](\tkz@tmp@xa,\tkz@tmp@ya)(\tkz@tmp@xb,\tkz@tmp@yb)}}
 \def\tkz@@Grid[#1](#2,#3)(#4,#5){%
-  \pgfqkeys{/tkzGrid}{#1}
     \begingroup
+  \pgfqkeys{/tkzGrid}{#1}% options local to this grid
    \edef\tkz@gxa{\fpeval{(#2-\tkz@init@xorigine)/\tkz@init@xstep}}
    \edef\tkz@gxb{\fpeval{(#4-\tkz@init@xorigine)/\tkz@init@xstep}}
    \edef\tkz@gya{\fpeval{(#3-\tkz@init@yorigine)/\tkz@init@ystep}}

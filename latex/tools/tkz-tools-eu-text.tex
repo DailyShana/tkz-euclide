@@ -46,8 +46,8 @@
 }
 \def\tkzLegend{\pgfutil@ifnextchar[{\tkz@Legend}{\tkz@Legend[]}}
 \def\tkz@Legend[#1](#2,#3)#4{%
-\pgfqkeys{/tkzlegend}{#1}
 \begingroup
+\pgfqkeys{/tkzlegend}{#1}% options local to this legend
   \c@pgfmath@counta=0 %
   \edef\tkzpt@xa{\fpeval{(#2-\tkz@init@xorigine)/\tkz@init@xstep}}
   \edef\tkzpt@ya{\fpeval{(#3-\tkz@init@yorigine)/\tkz@init@ystep}}

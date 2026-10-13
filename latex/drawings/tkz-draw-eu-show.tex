@@ -23,8 +23,8 @@
 \def\tkzDefEquiPoints{\pgfutil@ifnextchar[{\tkz@DefEquiPoints}{%
                                           \tkz@DefEquiPoints[]}}
 \def\tkz@DefEquiPoints[#1](#2,#3){%
-\pgfqkeys{/tkzEquiPt}{#1}
 \begingroup
+\pgfqkeys{/tkzEquiPt}{#1}% options local to this call
    \tkzUProjection(#2,#3)(\tkz@frompoint)
    \pgfnodealias{tkzEQpoint}{tkzPointResult}
    \tkzVecKNorm[\tkz@equ@dist](tkzEQpoint,#2)

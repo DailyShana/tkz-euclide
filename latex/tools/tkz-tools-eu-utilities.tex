@@ -12,7 +12,7 @@ space    = {}}
 \def\tkzClip{\pgfutil@ifnextchar[{\tkz@Clip}{\tkz@Clip[]}}
 \def\tkz@Clip[#1]{%
 
-\pgfqkeys{/tkzClip}{#1}
+\pgfqkeys{/tkzClip}{space={},#1}% no space by default at each call
 \ifx\tkzutil@empty\tkz@CLI@space
     \clip (\tkz@xa,\tkz@ya) rectangle (\tkz@xb,\tkz@yb);
  \else
