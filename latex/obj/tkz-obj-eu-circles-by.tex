@@ -108,8 +108,8 @@
 \begingroup
     \tkz@@CalcLengthcm(#1,#2){tkz@lna}%
     \tkz@@CalcLengthcm(#1,#3){tkz@lnb}%
-    \gdef\tkzMathResult{\fpeval{round(abs(\tkz@lnb - \tkz@lna),6)}}
-    \ifdim\tkzMathResult pt < 1 pt\relax%
+    \edef\tkzMathResult{\fpeval{round(abs(\tkz@lnb - \tkz@lna),6)}}
+    \ifdim\tkzMathResult pt < 0.0001 pt\relax% the circle passes through the centre of inversion
     \tkzURotateAngle(#1,-90)(#2)
     \pgfnodealias{tkz@a}{tkzPointResult}
     \tkzUInversePoint(#3,#4)(tkz@a)
