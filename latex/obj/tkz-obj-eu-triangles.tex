@@ -357,14 +357,15 @@
    \foreach \name  [count=\i] in {#5} {%
          \global\expandafter\edef\csname tkz@point\i\endcsname{\name}
         }
+   \tkzEulerCenter(#2,#3,#4) \pgfnodealias{tkz@N}{tkzPointResult}% nine-point centre
    \tkzDefExCircle(#2,#3,#4) \tkzGetPoints{tkz@b}{tkz@hb}
    \tkzDefExCircle(#3,#4,#2) \tkzGetPoints{tkz@c}{tkz@hc}
    \tkzDefExCircle(#4,#2,#3) \tkzGetPoints{tkz@a}{tkz@ha}
-   \tkzInterLC[near](#3,tkz@b)(tkz@b,tkz@hb)
+   \tkzInterLC[near](tkz@N,tkz@b)(tkz@b,tkz@hb)
    \tkzGetFirstPoint{\tkz@pttr@name\csname tkz@point2\endcsname}
-   \tkzInterLC[near](#4,tkz@c)(tkz@c,tkz@hc)
+   \tkzInterLC[near](tkz@N,tkz@c)(tkz@c,tkz@hc)
    \tkzGetFirstPoint{\tkz@pttr@name\csname tkz@point3\endcsname}
-   \tkzInterLC[near](#2,tkz@a)(tkz@a,tkz@ha)
+   \tkzInterLC[near](tkz@N,tkz@a)(tkz@a,tkz@ha)
    \tkzGetFirstPoint{\tkz@pttr@name\csname tkz@point1\endcsname}
 \endgroup
 }

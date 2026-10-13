@@ -504,7 +504,8 @@
 \tkzInCenter(#1,#2,#3)
 \pgfnodealias{tkz@in}{tkzPointResult}
 \tkzUProjection(#2,#3)(tkzPointResult)
-\tkzInterLC(tkz@in,tkz@euler)(tkz@in,tkzPointResult)\tkzGetFirstPoint{tkz@fe}
+% the Feuerbach point is the intersection farthest from the nine-point centre
+\tkzInterLC[near](tkz@euler,tkz@in)(tkz@in,tkzPointResult)\tkzGetSecondPoint{tkz@fe}
 \tkzRenamePoint(tkz@fe){tkzPointResult}
 \endpgfinterruptboundingbox
 \endgroup
