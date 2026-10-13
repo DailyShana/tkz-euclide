@@ -5,23 +5,23 @@ From the \tkzimp{PgfManual}:
 The only way to enlarge the clipping path is to end the {pgfscope} in which the clipping was done. At the end of a {pgfscope} the clipping path that was in force at the beginning of the scope is reinstalled."
 
 
-First of all, you don't have to deal with \TIKZ\ the size of the bounding box. Early versions of \tkzNamePack{tkz-euclide} did not control the size of the bounding box, now with \tkzNamePack{\tkznameofpack} 4 the size of the bounding box is limited.
+First of all, with \TIKZ\ you don't have to deal with the size of the bounding box. Early versions of \tkzNamePack{tkz-euclide} did not control it; since version 4, the size of the bounding box is limited.
 
-The initial bounding box after using the macro \tkzcname{tkzInit} is defined by the rectangle based on the points $(0,0)$ and $(10,10)$. The \tkzcname{tkzInit} macro allows this initial bounding box to be modified using the arguments (\tkzname{xmin}, \tkzname{xmax}, \tkzname{ymin}, and \tkzname{ymax}). Of course any external trace modifies the bounding box. \TIKZ\ maintains that bounding box. It is possible to influence this behavior either directly with commands or options in \TIKZ\ such as a command like \tkzcname{useasboundingbox} or the option \tkzname{use as bounding box}. A possible consequence is to reserve a box for a figure but the figure may overflow the box and spread over the main text.
-The following command \tkzcname{pgfresetboundingbox} clears a bounding box and establishes a new one.
+The initial bounding box after using the macro \tkzcname{tkzInit} is defined by the rectangle based on the points $(0,0)$ and $(10,10)$. The macro \tkzcname{tkzInit} modifies this initial bounding box with the arguments \tkzname{xmin}, \tkzname{xmax}, \tkzname{ymin} and \tkzname{ymax}. Of course, anything drawn outside modifies the bounding box, which \TIKZ\ maintains. You can influence this behavior with \TIKZ\ commands or options, such as \tkzcname{useasboundingbox} or the option \tkzname{use as bounding box}. You can then reserve a box for a figure, but the figure may overflow the box and spread over the main text.
+The command \tkzcname{pgfresetboundingbox} clears the bounding box and starts a new one.
 
 \subsection{Utility of \tkzcname{tkzInit}} 
- However, it is sometimes necessary to control the size of what will be displayed.
- To do this, you need to have prepared the bounding box you are going to work in, this is the role of the   macro \tkzNameMacro{tkzInit}.  For some drawings, it is interesting to fix the extreme values (xmin,xmax,ymin and ymax) and to \code{clip} the definition rectangle in order to control the size of the figure as well as possible.
+ However, it is sometimes necessary to control the size of what is displayed.
+ To do this, you need to prepare the bounding box you are going to work in: this is the role of the macro \tkzNameMacro{tkzInit}. For some drawings, it is useful to fix the extreme values (xmin, xmax, ymin and ymax) and to \code{clip} this rectangle, in order to control the size of the figure as well as possible.
 
-The two macros that are useful for controlling the bounding box:
+Two macros are useful to control the bounding box:
 \begin{itemize}
    \item \tkzcname{tkzInit}
    \item \tkzcname{tkzClip}
 \end{itemize}
 \vspace{20pt}
 
-To this, I added macros directly linked to the bounding box. You can now view it, backup it, restore it (see the  section Bounding Box).
+I have also added macros directly linked to the bounding box: you can display it or clip it (see below).
 
 \subsection{\tkzcname{tkzInit}}
 
@@ -40,15 +40,15 @@ options  & default & definition             \\
 
 \medskip 
 
-The role of \tkzcname{tkzInit} is to define a \textcolor{red}{orthogonal} coordinates system and a rectangular part of the plane in which you will place your drawings using Cartesian coordinates. 
-This macro allows you to define your working environment as with a calculator. With \tkzname{\tkznameofpack} 4 \tkzcname{xstep}  and \tkzcname{ystep} are always 1. Logically it is no longer useful to use \tkzcname{tkzInit}, except for an action like \code{Clipping Out}.
+The role of \tkzcname{tkzInit} is to define an \textcolor{red}{orthogonal} coordinate system and a rectangular part of the plane, in which you place your drawings with Cartesian coordinates.
+This macro defines your working area, as on a graphing calculator. Since version 4 of \tkzname{\tkznameofpack}, \tkzcname{xstep} and \tkzcname{ystep} are always 1, so \tkzcname{tkzInit} is mostly useful for actions such as \code{clipping out}.
 \end{NewMacroBox}
 
 
 \subsection{\tkzcname{tkzClip}}
 
 \begin{NewMacroBox}{tkzClip}{\oarg{local options}}
-The role of this macro is to make invisible what is outside the rectangle defined by (xmin~;~ymin) and (xmax~;~ymax).
+This macro hides everything outside the rectangle defined by (xmin~;~ymin) and (xmax~;~ymax).
 
 \medskip
 \begin{tabular}{lll}
@@ -61,12 +61,12 @@ options  & default & definition             \\
 
 \medskip
 
-The role of the \tkzname{space} option is to enlarge the visible part of the drawing. This part becomes the rectangle defined by (xmin-space~;~ymin-space) and (xmax+space~;~ymax+space).  \tkzname{space} can be negative!  The unit is cm and should not be specified.
+The option \tkzname{space} enlarges the visible part of the drawing, which becomes the rectangle defined by (xmin-space~;~ymin-space) and (xmax+space~;~ymax+space). \tkzname{space} can be negative! The unit is the cm and must not be written.
 \end{NewMacroBox}
 
 
 
-The role of this macro is to \code{clip} the initial rectangle so that only the paths contained in this rectangle are drawn.
+This macro \code{clips} the initial rectangle, so that only the paths inside this rectangle are drawn.
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
@@ -79,13 +79,13 @@ The role of this macro is to \code{clip} the initial rectangle so that only the 
 \end{tikzpicture}
 \end{tkzexample} 
 
-It is possible to add a bit of space
+You can add a bit of space:
 \begin{tkzltxexample}[]
   \tkzClip[space=1]
 \end{tkzltxexample} 
 
 \subsection{\tkzcname{tkzClip} and the option \tkzname{space}} 
-This option allows you to add some space around the \code{clipped} rectangle.
+This option adds some space around the \code{clipped} rectangle.
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
  \tkzInit[xmax=4, ymax=3]
@@ -102,9 +102,9 @@ The dimensions of the \code{clipped} rectangle are \tkzname{xmin-1}, \tkzname{ym
 %              tkzShowBB
 %<--------------------------------------------------------------------------->
 \subsection{\tkzcname{tkzShowBB}}
-The simplest macro. 
+The simplest macro.
 \begin{NewMacroBox}{tkzShowBB}{\oarg{local options}}% 
-This macro displays the bounding box. A rectangular frame surrounds the bounding box. This macro accepts \TIKZ\ options.
+This macro displays the bounding box as a rectangular frame. It accepts \TIKZ\ options.
 \end{NewMacroBox} 
 
 
@@ -130,7 +130,7 @@ This macro displays the bounding box. A rectangular frame surrounds the bounding
 %<--------------------------------------------------------------------------->
 \subsection{\tkzcname{tkzClipBB}}
 \begin{NewMacroBox}{tkzClipBB}{}%
-The idea is to limit future constructions to the current bounding box.
+The idea is to limit the next constructions to the current bounding box.
 \end{NewMacroBox}
 
 \subsubsection{Example with \tkzcname{tkzClipBB} and the bisectors}
@@ -157,7 +157,7 @@ The idea is to limit future constructions to the current bounding box.
 
 \subsection{Clipping a polygon} 
  \begin{NewMacroBox}{tkzClipPolygon}{\oarg{local options}\parg{points list}}%
-This macro makes it possible to contain the different plots in the designated polygon.
+This macro restricts the drawings to the given polygon.
 
 \medskip
 \begin{tabular}{lll}%
@@ -250,7 +250,7 @@ options             & default & definition                         \\
 \end{tabular}
 
 \medskip
-It is not necessary to put \tkzname{radius} because that is the default option.
+You don't need to write \tkzname{radius}, because it is the default option.
 \end{NewMacroBox}
 
  \subsubsection{Simple clip} 
@@ -297,10 +297,10 @@ It is not necessary to put \tkzname{radius} because that is the default option.
 \end{tikzpicture}
 \end{tkzexample} 
 
-see a more complex example about clipping here: \ref{About clipping circles}
+See a more complex example of clipping in section \ref{About clipping circles}.
 
 \subsection{Clipping a sector}
-\tkzHandBomb\  Attention the arguments vary according to the options. 
+\tkzHandBomb\  Note that the arguments depend on the options.
 \begin{NewMacroBox}{tkzClipSector}{\oarg{local options}\parg{O,\dots}\parg{\dots}}%
 \begin{tabular}{lll}%
 options             & default & definition                         \\ 
@@ -312,7 +312,7 @@ options             & default & definition                         \\
 \end{tabular} 
 
 \medskip
-You have to add, of course, all the styles of \TIKZ\ for tracings...
+Of course, you can add all the \TIKZ\ styles for the drawings.
 
 \medskip   
 \begin{tabular}{lll}%
@@ -377,10 +377,10 @@ options             & arguments & example                         \\
 
 
 \subsection{\TIKZ\ options: trim left or trim right}
-See the \tkzimp{pgfmanual}
+See the \tkzimp{pgfmanual}.
 
 \subsection{\TIKZ\ Controls \tkzcname{pgfinterruptboundingbox} and \tkzcname{endpgfinterruptboundingbox}}
-This command temporarily interrupts the calculation of the box and configures a new box.
+This command temporarily interrupts the calculation of the bounding box and starts a new one.
 See the \tkzimp{pgfmanual}
 
 \subsubsection{Controlling the bounding box} 
@@ -399,7 +399,7 @@ See the \tkzimp{pgfmanual}
 
 \subsection{Reverse clip: \tkzname{tkzreverseclip}}
 
-In order to use this option, a bounding box must be defined. 
+To use this option, a bounding box must be defined.
 
 \begin{tkzltxexample}[]
   \tikzset{tkzreverseclip/.style={insert path={

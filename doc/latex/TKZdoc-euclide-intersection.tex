@@ -1,12 +1,12 @@
 \section{Intersections}
 
-It is possible to determine the coordinates of the points of intersection between two straight lines, a straight line and a circle, and two circles.
+You can determine the points of intersection of two straight lines, of a straight line and a circle, and of two circles.
 
-The associated commands have no optional arguments and the user must determine the existence of the intersection points himself.
+The associated commands do not check that the intersection points exist: this is up to the user (see the tests \tkzcname{tkzTestInterLC} and \tkzcname{tkzTestInterCC}).
 
 \subsection{Intersection of two straight lines \tkzcname{tkzInterLL}}
 \begin{NewMacroBox}{tkzInterLL}{\parg{$A,B$}\parg{$C,D$}}%
-Defines the intersection point \tkzname{tkzPointResult} of the two lines $(AB)$ and $(CD)$. The known points are given in pairs (two per line) in brackets, and the resulting point can be retrieved with the macro \tkzcname{tkzDefPoint}.
+Defines the intersection point \tkzname{tkzPointResult} of the two lines $(AB)$ and $(CD)$. The known points are given in pairs (two per line) between parentheses, and the resulting point is retrieved with the macro \tkzcname{tkzGetPoint}.
 \end{NewMacroBox}
 
 \subsubsection{Example of intersection between two straight lines}
@@ -27,15 +27,15 @@ Defines the intersection point \tkzname{tkzPointResult} of the two lines $(AB)$ 
 
 \subsection{Intersection of a straight line and a circle  \tkzcname{tkzInterLC}}
 
-As before, the line is defined by a couple of points. The circle
- is also defined by a couple:
+As before, the line is defined by a pair of points. The circle
+ is also defined by a pair:
 \begin{itemize}
-\item $(O,C)$ which is a pair of points, the first is the center and the second is any point on the circle.
-\item $(O,r)$  The $r$ measure is the radius measure.
+\item $(O,C)$, a pair of points: the first one is the center and the second one is any point of the circle;
+\item $(O,r)$, where $r$ is the radius.
 \end{itemize}
 
 \begin{NewMacroBox}{tkzInterLC}{\oarg{options}\parg{$A,B$}\parg{$O,C$} or \parg{$O,r$} or \parg{$O,C,D$}}%
-So the arguments are two couples. 
+So the arguments are two pairs.
 
 \medskip
 \begin{tabular}{lll}%
@@ -51,12 +51,12 @@ options            & default & definition                         \\
 \end{tabular}
 
 \medskip   
-The macro defines the intersection points $I$ and $J$ of the line $(AB)$ and the center circle $O$ with radius $r$ if they exist; otherwise, an error will be reported in the |.log| file. \tkzname{with nodes} avoids you to calculate the radius which is the length of $[CD]$.
-If \tkzname{common} and \tkzname{near} are not used then \tkzname{tkzFirstPoint} is the smallest angle (angle with \tkzname{tkzSecondPoint}  and the center of the circle). 
+The macro defines the intersection points $I$ and $J$ of the line $(AB)$ and the circle with center $O$ and radius $r$, if they exist; otherwise, an error is reported in the |.log| file. With \tkzname{with nodes}, you don't need to calculate the radius, which is the length of $[CD]$.
+If \tkzname{common} and \tkzname{near} are not used, \tkzname{tkzFirstPoint} is the point that gives the smallest angle (formed with \tkzname{tkzSecondPoint} and the center of the circle).
 \end{NewMacroBox}
 
 \begin{NewMacroBox}{tkzTestInterLC}{\parg{$O,A$}\parg{$O',B$}}%
-So the arguments are two couples which define a line and a circle  with a center and a point on the circle. If there is a non empty intersection between these the line and the circle then the test \tkzcname{iftkzFlagLC} gives true.
+The arguments are two pairs, which define a line and a circle (with a center and a point of the circle). If the line and the circle intersect, the test \tkzcname{iftkzFlagLC} is true.
 \end{NewMacroBox}
 
 \subsubsection{Testing a line-circle intersection: \tkzcname{tkzTestInterLC}}
@@ -85,7 +85,7 @@ So the arguments are two couples which define a line and a circle  with a center
 
 \subsubsection{Line-circle intersection}
 
-In the following example, the drawing of the circle uses two points and the intersection of the straight line and the circle uses two pairs of points. We will compare the angles $\widehat{D,E,O}$ and $\widehat{E,D,O}$. These angles are in opposite directions. \tkzname{tkzFirstPoint} is assigned to the point that forms the angle with the smallest measure (counterclockwise direction). The counterclockwide angle  $\widehat{D,E,O}$   has a measure equal to  $360\circ$ minus the measure of  $\widehat{O,E,D}$.
+In the following example, the circle is drawn with two points, and the intersection of the straight line and the circle uses two pairs of points. We will compare the angles $\widehat{D,E,O}$ and $\widehat{E,D,O}$. These angles have opposite orientations. \tkzname{tkzFirstPoint} is assigned to the point that forms the angle with the smallest measure (counterclockwise direction). The counterclockwise angle $\widehat{D,E,O}$ measures $360^\circ$ minus the measure of $\widehat{O,E,D}$.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -107,7 +107,7 @@ In the following example, the drawing of the circle uses two points and the inte
 \end{tkzexample}
 
 \subsubsection{Line passing through the center: option \tkzname{common}}
-This case is special. You cannot compare the angles. In this case, the option \tkzname{near} must be used. \tkzname{tkzFirstPoint} is assigned to the point closest to the first point given for the line. Here we want $A$ to be closest to $Lb$.
+This case is special: the angles cannot be compared, so the option \tkzname{near} must be used. \tkzname{tkzFirstPoint} is assigned to the point closest to the first point given for the line. Here we want $A$ to be closest to $Lb$.
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
@@ -128,7 +128,7 @@ This case is special. You cannot compare the angles. In this case, the option \t
 \end{tkzexample}
 
 \subsubsection{Line-circle intersection with option \tkzname{common}}
-A special case that we often meet, a point of the line is on the circle and we are looking for the other common point.
+A special case that often occurs: a point of the line is on the circle, and we look for the other common point.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.5]
  \tkzDefPoints{0/0/O,-5/0/A,2/-2/B,0/5/D}
@@ -144,9 +144,9 @@ A special case that we often meet, a point of the line is on the circle and we a
 
 
 \subsubsection{Line-circle intersection: order of the points}
-The idea is to compare the angles formed with the first defining point of the line, a resultant point and the center of the circle. The first point is the one that corresponds to the smallest angle.
+The idea is to compare the angles formed by the first point of the line, a resulting point and the center of the circle. The first point is the one that gives the smallest angle.
 
-As you can see $\widehat{BCO} < \widehat{BEO} $. To tell the truth,$ \widehat{BEO}$ is counterclockwise.
+As you can see, $\widehat{BCO} < \widehat{BEO}$; in fact, $\widehat{BEO}$ is counterclockwise.
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -212,7 +212,7 @@ $D$ is the point closest to $b$.
 
 
 \subsubsection{More complex example of a line-circle intersection}
-Figure from  \url{http://gogeometry.com/problem/p190_tangent_circle}
+Figure from \url{http://gogeometry.com/problem/p190_tangent_circle}
 
 \begin{tkzexample}[latex=6.5cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -235,7 +235,7 @@ Figure from  \url{http://gogeometry.com/problem/p190_tangent_circle}
 \end{tkzexample}
 
 \subsubsection{Circle defined by a center and a measure, and special cases}
-Let's look at some special cases like straight lines tangent to the circle.
+Let's look at some special cases, such as straight lines tangent to the circle.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -263,9 +263,9 @@ Let's look at some special cases like straight lines tangent to the circle.
 \subsubsection{Calculation of radius}
  With \tkzname{pgfmath} and \tkzcname{pgfmathsetmacro}
 
-The radius measurement may be the result of a calculation that is not done within the intersection macro, but before.
-A length can be calculated in several ways. It is possible of course,
- to use the module \tkzname{pgfmath} and the macro \tkzcname{pgfmathsetmacro}. In some cases, the results obtained are not precise enough, so the following calculation $0.0002 \div 0.0001$ gives $1.98$ with pgfmath while xfp will give $2$. 
+The radius may be the result of a calculation, done before the intersection macro rather than inside it.
+A length can be calculated in several ways. You can of course
+ use the module \tkzname{pgfmath} and the macro \tkzcname{pgfmathsetmacro}. In some cases the results are not precise enough: the calculation $0.0002 \div 0.0001$ gives $1.98$ with pgfmath, while xfp gives $2$.
 
 With \tkzname{xfp} and \tkzcname{fpeval}:
 
@@ -317,11 +317,11 @@ options       & default & definition                         \\
 \end{tabular}
 
 \medskip
-This macro defines the intersection point(s) $I$ and $J$ of the two center circles $O$ and $O'$. If the two circles do not have a common point then the macro ends with an error that is not handled. If the centers are $O$ and $O'$ and the intersections are $A$ and $B$ then the angles $\widehat{O,A,O'}$ and $\widehat{O,B,O'}$ are in opposite directions. \tkzname{tkzFirstPoint} is assigned to the point that forms the \code{clockwise} angle.
+This macro defines the intersection points $I$ and $J$ of the two circles with centers $O$ and $O'$. If the two circles have no common point, the macro ends with an error that is not handled. If the centers are $O$ and $O'$ and the intersections are $A$ and $B$, the angles $\widehat{O,A,O'}$ and $\widehat{O,B,O'}$ have opposite orientations; \tkzname{tkzFirstPoint} is assigned to the point that forms the \code{clockwise} angle.
 \end{NewMacroBox}
 
 \begin{NewMacroBox}{tkzTestInterCC}{\parg{$O,A$}\parg{$O',B$}}%
-So the arguments are two couples which define two circles with a center and a point on the circle. If there is a non empty intersection between these two circles then the test \tkzcname{iftkzFlagCC} gives true.
+The arguments are two pairs, which define two circles (each with a center and a point of the circle). If the two circles intersect, the test \tkzcname{iftkzFlagCC} is true.
 \end{NewMacroBox}
 
 \subsubsection{Testing a circle-circle intersection: \tkzcname{tkzTestInterCC}}
@@ -360,9 +360,9 @@ So the arguments are two couples which define two circles with a center and a po
 \end{tkzexample}
 
 \subsubsection{Circle-circle intersection: order of the points}
-The idea is to compare the angles formed with the first center, a resultant point and the center of the second circle. The first point is the one that corresponds to the smallest angle.
+The idea is to compare the angles formed by the first center, a resulting point and the center of the second circle. The first point is the one that gives the smallest angle.
 
-As you can see $\widehat{ODB} < \widehat{OBE} $
+As you can see, $\widehat{ODB} < \widehat{OBE}$.
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -387,7 +387,7 @@ As you can see $\widehat{ODB} < \widehat{OBE} $
 \end{tkzexample}
 
 \subsubsection{Construction of an equilateral triangle}
-$\widehat{A,C,B}$ is a clockwise angle
+$\widehat{A,C,B}$ is a clockwise angle.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[trim left=-1cm,scale=.5]
  \tkzDefPoint(1,1){A}
@@ -406,7 +406,7 @@ $\widehat{A,C,B}$ is a clockwise angle
 
 
 \subsubsection{Segment trisection}
- The idea here is to divide a segment with a ruler and a compass into three segments of equal length.
+ The idea here is to divide a segment into three equal parts with a ruler and a compass.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.6]
@@ -475,7 +475,7 @@ $\widehat{A,C,B}$ is a clockwise angle
 
 
 \subsubsection{Altshiller-Court's theorem}
-  The two lines joining the points of intersection of two orthogonal circles to a point on one of the circles met the other circle in two diametricaly oposite points. Altshiller p 176
+  The two lines joining the points of intersection of two orthogonal circles to a point of one of the circles meet the other circle in two diametrically opposite points (Altshiller-Court, p.~176).
 
 
 \begin{tkzexample}[vbox,small]

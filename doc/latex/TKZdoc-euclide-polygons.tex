@@ -1,9 +1,9 @@
 \section{Definition of polygons}
 \subsection{Defining the points of a square} \label{def_square}
-We have seen the definitions of some triangles. Let us look at the definitions of some quadrilaterals and regular polygons.
+We have seen how to define some triangles. Let us look at some quadrilaterals and regular polygons.
 
 \begin{NewMacroBox}{tkzDefSquare}{\parg{pt1,pt2}}%
-The square is defined in the forward direction. From two points, two more points are obtained such that the four taken in order form a square. The square is defined in the forward direction. \\The results are in \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}.\\
+From two points, two more points are obtained such that the four points, taken in order, form a square; the square is defined counterclockwise. \\The results are in \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}.\\
 We can rename them with \tkzcname{tkzGetPoints}.
 
 \medskip
@@ -16,7 +16,7 @@ Arguments             & example & explanation                         \\
 \end{NewMacroBox}
 
 \subsubsection{Using \tkzcname{tkzDefSquare} with two points}
-Note the inversion of the first two points and the result.
+Note how exchanging the first two points changes the result.
 
 \begin{tkzexample}[latex=4cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -30,7 +30,7 @@ Note the inversion of the first two points and the result.
 \end{tikzpicture} 
 \end{tkzexample}
 
- We may only need one point to draw an isosceles right-angled triangle so we use \\ \tkzcname{tkzGetFirstPoint} or \tkzcname{tkzGetSecondPoint}.
+ We may only need one point, to draw an isosceles right triangle, so we use \\ \tkzcname{tkzGetFirstPoint} or \tkzcname{tkzGetSecondPoint}.
 
 \subsubsection{Use of \tkzcname{tkzDefSquare} to obtain an isosceles right-angled triangle}
 \begin{tkzexample}[latex=7cm,small]
@@ -70,7 +70,7 @@ Note the inversion of the first two points and the result.
 .
 
 \begin{NewMacroBox}{tkzDefRectangle}{\parg{pt1,pt2}}%
-The rectangle is defined in the forward direction. From two points, two more points are obtained such that the four taken in order form a rectangle. The two points passed in arguments are the ends of a diagonal of the rectangle. The sides are parallel to the axes.\\
+From two points, two more points are obtained such that the four points, taken in order, form a rectangle; the rectangle is defined counterclockwise. The two points given as arguments are the endpoints of a diagonal, and the sides are parallel to the axes.\\
  The results are in \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}.\\
 We can rename them with \tkzcname{tkzGetPoints}.
 
@@ -94,7 +94,7 @@ Arguments             & example & explanation                         \\
 
 \subsection{Definition of parallelogram} 
 
-Defining the points of a parallelogram. It is a matter of completing three points in order to obtain a parallelogram.
+Defining the points of a parallelogram: a fourth point completes three given points.
 \begin{NewMacroBox}{tkzDefParallelogram}{\parg{pt1,pt2,pt3}}%
 \begin{tabular}{lll}%
 \toprule
@@ -105,9 +105,9 @@ arguments &  default & definition  \\
 \end{tabular}
 \end{NewMacroBox}
 
-From three points, another point is obtained such that the four taken in order form a parallelogram. 
+From three points, another point is obtained such that the four points, taken in order, form a parallelogram.
 \\ The result is in \tkzname{tkzPointResult}. \\
-We can rename it with the name \tkzcname{tkzGetPoint}...
+We can rename it with \tkzcname{tkzGetPoint}.
 
 
 \subsubsection{Example of a parallelogram definition}
@@ -128,9 +128,9 @@ We can rename it with the name \tkzcname{tkzGetPoint}...
 
 \subsection{The golden rectangle} 
  \begin{NewMacroBox}{tkzDefGoldenRectangle}{\parg{point,point}}%
-The macro determines a rectangle whose size ratio is the number $\Phi$.\\
+The macro determines a rectangle whose sides are in the ratio $\Phi$.\\
  The created points are in \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}. \\
- They can be obtained with the macro \tkzcname{tkzGetPoints}. The following macro is used to draw the rectangle.
+ They can be retrieved with the macro \tkzcname{tkzGetPoints}.
 
 \begin{tabular}{lll}%
 \toprule
@@ -156,7 +156,7 @@ arguments             & example & explanation                         \\
 \end{tkzexample}
 
 \subsubsection{Construction of the golden rectangle }
-Without the previous macro here is how to get the golden rectangle.
+Here is how to get the golden rectangle without the previous macro.
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}[scale=.5] 
@@ -185,7 +185,7 @@ Without the previous macro here is how to get the golden rectangle.
 
 \subsection{Regular polygon} 
  \begin{NewMacroBox}{tkzDefRegPolygon}{\oarg{local options}\parg{pt1,pt2}}%
-From the number of sides, depending on the options, this macro determines a regular polygon according to its center or one side.
+Given the number of sides, this macro determines a regular polygon from its center or from one side, depending on the option.
 
 \begin{tabular}{lll}%
 \toprule

@@ -3,7 +3,7 @@
 \subsection{Show the constructions of some lines \tkzcname{tkzShowLine}}
 
  \begin{NewMacroBox}{tkzShowLine}{\oarg{local options}\parg{pt1,pt2} or \parg{pt1,pt2,pt3}}%
-These constructions concern mediatrices, perpendicular or parallel lines passing through a given point and bisectors. The arguments are therefore lists of two or three points. Several options allow the adjustment of the constructions. The idea of this macro comes from \tkzimp{Yves Combe}.
+These constructions concern mediators (perpendicular bisectors), perpendicular or parallel lines through a given point, and bisectors. The arguments are therefore lists of two or three points. Several options adjust the constructions. The idea of this macro comes from \tkzimp{Yves Combe}.
   
 
 \medskip 
@@ -24,7 +24,7 @@ options      & default & definition    \\
 \end{tabular}
 
 \medskip
-You have to add, of course, all the styles of \TIKZ\ for tracings\dots
+Of course, you can add all the \TIKZ\ styles.
 \end{NewMacroBox}
 
 \subsubsection{Example of \tkzcname{tkzShowLine} and \tkzname{parallel}} 
@@ -89,7 +89,7 @@ You have to add, of course, all the styles of \TIKZ\ for tracings\dots
 
 \subsection{Constructions of certain transformations \addbs{tkzShowTransformation}}
 \begin{NewMacroBox}{tkzShowTransformation}{\oarg{local options}\parg{pt1,pt2} or \parg{pt1,pt2,pt3}}%
-These constructions concern orthogonal symmetries, central symmetries, orthogonal projections and translations. Several options allow the adjustment of the constructions. The idea of this macro comes from \tkzimp{Yves Combe}.
+These constructions concern orthogonal symmetries, central symmetries, orthogonal projections and translations. Several options adjust the constructions. The idea of this macro comes from \tkzimp{Yves Combe}.
   
 \medskip 
 \begin{tabular}{lll}%
@@ -142,7 +142,7 @@ options             & default & definition                        \\
 
 \subsubsection{Another example of the use of \tkzcname{tkzShowTransformation}} 
 
-You'll find this figure again, but without the construction features.
+You will find this figure again later, without the construction lines.
 \begin{tkzexample}[latex=7cm,small]  
 \begin{tikzpicture}[scale=.6]
   \tkzDefPoints{0/0/A,8/0/B,3.5/10/I}

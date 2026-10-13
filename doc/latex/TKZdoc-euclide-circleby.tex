@@ -12,15 +12,15 @@ These transformations are:
    \item inversion.
 \end{itemize}
 
-The choice of transformations is made through the options. The macro is \tkzcname{tkzDefCircleBy} and the other for the transformation of a list of points \tkzcname{tkzDefCirclesBy}. For example, we'll write:
+The transformation is chosen with the options. For example, we write:
 \begin{tkzltxexample}[]
 \tkzDefCircleBy[translation= from A to A'](O,M) 
 \end{tkzltxexample}
-$O$ is the center and $M$ is a point on the circle.
-The image is a circle. The new center is |tkzFirstPointResult| and |tkzSecondPointResult| is a point on the new circle. You can get the results with the macro \tkzcname{tkzGetPoints}.
+$O$ is the center and $M$ a point of the circle.
+The image is a circle: the new center is |tkzFirstPointResult|, and |tkzSecondPointResult| is a point of the new circle. You get the results with the macro \tkzcname{tkzGetPoints}. With an inversion, the image of a circle through the center of inversion is a line: the two points are then two points of this line.
 \medskip
 \begin{NewMacroBox}{tkzDefCircleBy}{\oarg{local options}\parg{pt1,pt2}}%
-The argument is a couple of points. The results is a couple of points. If you want to keep these points then the macro \tkzcname{tkzGetPoints\{O'\}\{M'\}} allows you to assign the name \tkzname{O'} to the center and \tkzname{M'} to the point on the circle.
+The argument is a pair of points, and so is the result. To keep these points, \tkzcname{tkzGetPoints\{O'\}\{M'\}} gives the name \tkzname{O'} to the center and \tkzname{M'} to the point of the circle.
 
 \begin{tabular}{lll}%
 \toprule
@@ -45,7 +45,7 @@ options     &     & examples                         \\
 \end{tabular}
 
 \medskip
-\emph{The image is only defined and not drawn.}
+\emph{The image is only defined, not drawn.}
 \end{NewMacroBox} 
 
 \subsubsection{\tkzname{Translation}}

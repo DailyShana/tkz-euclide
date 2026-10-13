@@ -1,7 +1,7 @@
 \section{Labelling points}
 \subsection{Label for a point: \tkzcname{tkzLabelPoint}}
 \hypertarget{tlp}{}
-It is possible to add several labels at the same point by using this macro several times.  
+You can add several labels to the same point by using this macro several times.
 
 \begin{NewMacroBox}{tkzLabelPoint}{\oarg{local options}\parg{point}\var{label}}%
 \begin{tabular}{lll}%
@@ -15,7 +15,7 @@ options  & default & definition\\
 \end{tabular}
 
 \medskip
-Optionally, we can use any style of \TIKZ, especially placement with above, right, dots...
+Optionally, you can use any \TIKZ\ style, in particular placements such as above, right, \dots
 \end{NewMacroBox}
 
 \subsubsection{Example with \tkzcname{tkzLabelPoint}} 
@@ -33,7 +33,7 @@ Optionally, we can use any style of \TIKZ, especially placement with above, righ
 \end{tkzexample} 
 
 \subsubsection{Label and reference}
- The reference of a point is the object that lets you use the point, the label is the name of the point that will be displayed.
+ The reference of a point is what lets you use the point in the code; the label is the name of the point that is displayed.
  
 \begin{tkzexample}[latex=6cm,small]
  \begin{tikzpicture}
@@ -44,7 +44,7 @@ Optionally, we can use any style of \TIKZ, especially placement with above, righ
  \end{tkzexample}
  
 \subsection{Add labels to points \tkzcname{tkzLabelPoints}}
-It is possible to place several labels quickly when the point references are identical to the labels and when the labels are placed in the same way in relation to the points. By default, \tkzname{below right} is chosen.
+You can quickly place several labels when the references of the points are identical to the labels and when all the labels are placed in the same way relative to their points. By default, \tkzname{below right} is used.
 \hypertarget{tlps}{}  
 
 \begin{NewMacroBox}{tkzLabelPoints}{\oarg{local options}\parg{$A_1,A_2,...$}}%
@@ -56,7 +56,7 @@ arguments &  example & result                 \\
 \end{tabular}
 
 \medskip
-This macro reduces the number of lines of code, but it is not obvious that all points need the same label positioning.
+This macro reduces the number of lines of code, but all the points rarely need the same label position.
 \end{NewMacroBox}
 
 \subsubsection{Example with \tkzcname{tkzLabelPoints}}   
@@ -73,7 +73,7 @@ This macro reduces the number of lines of code, but it is not obvious that all p
 %                       tkzAutoLabelPoints
 %<--------------------------------------------------------------------------->
 \subsection{Automatic position of labels \tkzcname{tkzAutoLabelPoints}}
-The label of a point is placed in a direction defined by a center and a point \tkzname{center}. The distance to the point is determined by a percentage of the distance between the center and the point. This percentage is given by \tkzname{dist}.
+The label of a point is placed in the direction defined by a center, given with the option \tkzname{center}, and the point. The distance between the label and the point is a percentage of the distance between the center and the point, given by \tkzname{dist}.
 \begin{NewMacroBox}{tkzAutoLabelPoints}{\oarg{local options}\parg{$A_1,A_2,...$}}%
 \begin{tabular}{lll}
 arguments &  example & result      \\ 
@@ -83,7 +83,7 @@ arguments &  example & result      \\
 \end{NewMacroBox}
 
 \subsubsection{Label for points with \tkzcname{tkzAutoLabelPoints}} 
-Here the points are positioned relative to the center of gravity of $A,B,C \text{ and } O$.
+Here the labels are positioned relative to the centroid of $A$, $B$, $C$ and $O$.
 \begin{tkzexample}[latex=4cm,small]
 \begin{tikzpicture}[scale=1]
  \tkzDefPoint(2,1){O}
@@ -106,7 +106,7 @@ Here the points are positioned relative to the center of gravity of $A,B,C \text
 \subsection{The macros \tkzcname{tkzLabelSegment} and \tkzcname{tkzLabelSegments}}
 \hypertarget{tls}{}  
 \begin{NewMacroBox}{tkzLabelSegment}{\oarg{local options}\parg{pt1,pt2}\marg{label}}
-This macro allows you to place a label along a segment or a line. The options are those of \TIKZ\ for example \tkzname{pos}.
+This macro places a label along a segment or a line. The options are those of \TIKZ, for example \tkzname{pos}.
 
 \medskip
 \begin{tabular}{lll}%%
@@ -188,7 +188,7 @@ options  & default & definition    \\
 
 \hypertarget{tlss}{} 
  \begin{NewMacroBox}{tkzLabelSegments}{\oarg{local options}\parg{pt1,pt2 pt3,pt4 ...}}%
-The arguments are a two-point couple list. The styles of \TIKZ\ are available for plotting.
+The arguments are a list of pairs of points. The \TIKZ\ styles are available.
 \end{NewMacroBox} 
  
 \subsubsection{Labels for an isosceles triangle}      
@@ -219,11 +219,11 @@ options             & default & definition   \\
 \TOline{pos}{.5}{\tkzname{pos} is an option for \TIKZ, but essential in this case\dots} 
 \end{tabular}
 
-As an option, and in addition to the \tkzname{pos}, you can use all styles of \TIKZ, especially the placement with \tkzname{above}, \tkzname{right}, \dots
+As options, in addition to \tkzname{pos}, you can use all the \TIKZ\ styles, in particular placements such as \tkzname{above}, \tkzname{right}, \dots
 \end{NewMacroBox}
 
 \subsubsection{Example with \tkzcname{tkzLabelLine}}
-An important option is \tkzname{pos}, it's the one that allows you to place the label along the right. The value of \tkzname{pos} can be greater than 1 or negative.
+An important option is \tkzname{pos}: it places the label along the line. The value of \tkzname{pos} can be greater than 1 or negative.
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
@@ -240,7 +240,7 @@ An important option is \tkzname{pos}, it's the one that allows you to place the 
 \subsection{The macros \tkzcname{tkzLabelAngle} and \tkzcname{tkzLabelAngles}}
 
 \begin{NewMacroBox}{tkzLabelAngle}{\oarg{local options}\parg{A,O,B}}%
-There is only one option, dist (with or without unit), which can be replaced by the TikZ's pos option (without unit for the latter). By default, the value is in centimeters.
+There is only one option, \tkzname{dist} (with or without unit), which can be replaced by the \TIKZ\ option \tkzname{pos} (without unit). By default, the value is in centimeters.
 
 \begin{tabular}{lll}%
   \toprule
@@ -251,7 +251,7 @@ options             & default & definition                        \\
 \end{tabular} 
 
 \medskip 
-It is possible to move the label with all TikZ options: rotate, shift, below, etc.
+You can move the label with all the \TIKZ\ options: rotate, shift, below, etc.
 \end{NewMacroBox}  
 
 \subsubsection{Example by J. S. Bibra (\TeX.SE)} 
@@ -321,10 +321,10 @@ It is possible to move the label with all TikZ options: rotate, shift, below, et
 
 
 \begin{NewMacroBox}{tkzLabelAngles}{\oarg{local options}\parg{A,O,B}\parg{A',O',B'}etc.}%
-With common options, there is a macro for multiple angles.
+With common options, there is a macro for several angles.
 \end{NewMacroBox}  
 
-It finally remains to be able to give a label to designate a circle and if several possibilities are offered, we will see here \tkzcname{tkzLabelCircle}.
+Finally, we need to give a label to a circle. Several methods are possible; here we look at \tkzcname{tkzLabelCircle}.
 
 \section{Labelling circles}
 \subsection{The macro \tkzcname{tkzLabelCircle}}
@@ -337,7 +337,7 @@ options             & default & definition                         \\
 \end{tabular} 
 
 \medskip
-\emph{ We can use the styles from \TIKZ. The label is created and therefore \code{passed} between braces.}
+\emph{The \TIKZ\ styles can be used. The label is created, so it is \code{passed} between braces.}
 \end{NewMacroBox} 
 
 \subsubsection{Labels around a circle}
@@ -364,7 +364,7 @@ options             & default & definition                         \\
 \subsection{The macro \tkzcname{tkzLabelArc}}
 \hypertarget{tla}{}  
 \begin{NewMacroBox}{tkzLabelArc}{\oarg{local options}\parg{pt1,pt2,pt3}\marg{label}}
-This macro allows you to place a label along an arc. The options are those of \TIKZ\ for example \tkzname{pos}.
+This macro places a label along an arc. The options are those of \TIKZ, for example \tkzname{pos}.
 
 \medskip
 \begin{tabular}{lll}%%

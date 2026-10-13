@@ -12,15 +12,15 @@ These transformations are:
 \end{itemize}
 
 \subsection{\tkzcname{tkzDefPointBy}}
-The choice of transformations is made through the options. There are two macros, one for the transformation of a single point \tkzcname{tkzDefPointBy} and the other for the transformation of a list of points \tkzcname{tkzDefPointsBy}. By default the image of $A$ is $A'$. For example, we'll write:
+The transformation is chosen with the options. There are two macros: \tkzcname{tkzDefPointBy} transforms a single point, and \tkzcname{tkzDefPointsBy} a list of points. By default, the image of $A$ is $A'$. For example, we write:
 \begin{tkzltxexample}[]
 \tkzDefPointBy[translation= from A to A'](B) 
 \end{tkzltxexample}
-The result is in \tkzname{tkzPointResult}
+The result is in \tkzname{tkzPointResult}.
 
 \medskip
 \begin{NewMacroBox}{tkzDefPointBy}{\oarg{local options}\parg{pt}}%
-The argument is a simple existing point and its image is stored in \tkzname{tkzPointResult}. If you want to keep this point then the macro \tkzcname{tkzGetPoint\{M\}} allows you to assign the name \tkzname{M} to the point.
+The argument is an existing point, and its image is stored in \tkzname{tkzPointResult}. To keep this point, \tkzcname{tkzGetPoint\{M\}} gives it the name \tkzname{M}.
 
 \begin{tabular}{lll}%
 \toprule
@@ -47,7 +47,7 @@ options     &     & examples                         \\
 \end{tabular}
 
 \medskip
-\emph{The image is only defined and not drawn.}
+\emph{The image is only defined, not drawn.}
 \end{NewMacroBox} 
 
 \subsubsection{\tkzname{translation}} 
@@ -214,8 +214,8 @@ Some propositions:
 
 Explanation:
 
-Directly 
-(Center O power=$k^2={OA}^2=OP \times OP'$)
+Directly:
+(center $O$, power $k^2={OA}^2=OP \times OP'$)
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -363,7 +363,7 @@ Directly
 \end{tkzexample}
 
 \subsubsection{\tkzname{inversion}: orthogonal circle with inversion circle} 
-The inversion circle itself, circles orthogonal to it, and lines through the inversion center are invariant under inversion. If the circle meets the reference circle, these invariant points of intersection are also on the inverse circle. See I and J in the next figure.
+The inversion circle itself, circles orthogonal to it, and lines through the inversion center are invariant under inversion. If a circle meets the circle of inversion, the points of intersection are invariant, so they also lie on the inverse circle: see $I$ and $J$ in the next figure.
 
 \begin{tkzexample}[latex=5cm,small]
 \begin{tikzpicture}[scale=1]
@@ -387,10 +387,10 @@ The inversion circle itself, circles orthogonal to it, and lines through the inv
 
 
 
-For a more complex example see \tkzname{Pappus} \ref{pappus}
+For a more complex example, see \tkzname{Pappus} \ref{pappus}.
 
 \subsubsection{\tkzname{inversion negative}}
-It's an inversion followed by a symmetry of center $O$
+It is an inversion followed by a symmetry with center $O$.
 \begin{tkzexample}[latex=5cm,small]  
 \begin{tikzpicture}[scale=1.5]
   \tkzDefPoints{1/0/A,0/0/O}
@@ -411,8 +411,8 @@ It's an inversion followed by a symmetry of center $O$
 
 \newpage
 \subsection{Transformation of multiple points: \tkzcname{tkzDefPointsBy} }
-Variant of the previous macro for defining multiple images.
-You must give the names of the images as arguments, or indicate that the names of the images are formed from the names of the antecedents, leaving the argument empty. 
+A variant of the previous macro, to define several images.
+You give the names of the images as arguments, or leave the argument empty: the names of the images are then formed from the names of the original points.
 
 \begin{tkzltxexample}[]
 \tkzDefPointsBy[translation= from A to A'](B,C){}
@@ -437,7 +437,7 @@ arguments &  examples  &                  \\
 \end{tabular}
 
 \medskip
-If the list of images is empty then the name of the image is the name of the antecedent to which " ' " is added.
+If the list of images is empty, the name of each image is the name of the original point followed by " ' ".
 
 \medskip
 \begin{tabular}{lll}%
@@ -458,7 +458,7 @@ options     &     & examples                         \\
 \end{tabular}
 
 \medskip
-The points are only defined and not drawn.
+The points are only defined, not drawn.
 \end{NewMacroBox}
 
 \subsubsection{\tkzname{translation} of multiple points}

@@ -3,7 +3,7 @@
 \hypertarget{tms}{}  
   
  \begin{NewMacroBox}{tkzMarkSegment}{\oarg{local options}\parg{pt1,pt2}}% 
-The macro allows you to place a mark on a segment.
+This macro places a mark on a segment.
 
 \medskip
 \begin{tabular}{lll}%
@@ -50,7 +50,7 @@ Possible marks are those provided by \TIKZ, but other marks have been created ba
 \hypertarget{tmss}{} 
  
 \begin{NewMacroBox}{tkzMarkSegments}{\oarg{local options}\parg{pt1,pt2 pt3,pt4 ...}}%
-Arguments are a list of pairs of points separated by spaces. The styles of \TIKZ\ are available for plots.
+The arguments are a list of pairs of points separated by spaces. The \TIKZ\ styles are available.
 \end{NewMacroBox} 
 
 \subsubsection{Marks for an isosceles triangle}      
@@ -88,7 +88,7 @@ Arguments are a list of pairs of points separated by spaces. The styles of \TIKZ
 \hypertarget{tma}{}  
   
  \begin{NewMacroBox}{tkzMarkArc}{\oarg{local options}\parg{pt1,pt2,pt3}}% 
-The macro allows you to place a mark on an arc. pt1 is the center, pt2 and pt3 are the endpoints of the arc.
+This macro places a mark on an arc: pt1 is the center, pt2 and pt3 are the endpoints of the arc.
 
 \medskip
 \begin{tabular}{lll}%
@@ -152,7 +152,7 @@ More delicate operation because there are many options. The symbols used for mar
 %  % tikz symbols are allowed
 
 \begin{NewMacroBox}{tkzMarkAngle}{\oarg{local options}\parg{A,O,B}}%
-$O$ is the vertex. Attention the arguments vary according to the options. Several markings are possible. You can simply draw an arc or  add a mark on this arc. The style of the arc is chosen with the option \tkzname{arc}, the radius of the arc is given by \tkzname{mksize}, the arc can, of course, be colored.
+$O$ is the vertex. Several markings are possible: you can simply draw an arc, or add a mark on this arc. The style of the arc is chosen with the option \tkzname{arc}, its radius is given by \tkzname{size} and the size of the mark by \tkzname{mksize}; the arc can, of course, be colored.
 
 \medskip
 
@@ -186,13 +186,13 @@ options             & default & definition                        \\
 
 \MakeShortVerb{\|}
 \begin{NewMacroBox}{tkzMarkAngles}{\oarg{local options}\parg{A,O,B}\parg{A',O',B'}etc.}%
-With common options, there is a macro for multiple angles.
+With common options, there is a macro for several angles.
   \end{NewMacroBox}  
 
 \subsection{Marking a small angle: option \tkzname{veclen}}\label{opt-veclen}
-  The problem comes from the "decorate" action and  from the value used in size in 
-  \tkzcname{tkzMarkAngle}. The solution is to enclose the macro  \tkzcname{tkzMarkAngle}.
-  In the next example without the "scope" the result is:  Latex Error:  Dimension too large.
+  The problem comes from the "decorate" action and from the value of \tkzname{size} in
+  \tkzcname{tkzMarkAngle}. The solution is to place \tkzcname{tkzMarkAngle} in a scope with the option \tkzname{veclen}.
+  In the next example, without the scope the result is: LaTeX Error: Dimension too large.
   
   \begin{tkzexample}[latex=6cm,small]
     \begin{tikzpicture}[scale=1]
@@ -221,7 +221,7 @@ With common options, there is a macro for multiple angles.
 \subsection{Marking a right angle: \tkzcname{tkzMarkRightAngle}}
 
 \begin{NewMacroBox}{tkzMarkRightAngle}{\oarg{local options}\parg{A,O,B}}%
-The \tkzname{german} option allows you to change the style of the drawing. The option \tkzname{size} changes the size of the drawing.
+The option \tkzname{german} changes the style of the mark, and the option \tkzname{size} its size.
 
 \medskip
 \begin{tabular}{lll}%
@@ -310,13 +310,13 @@ options             & default & definition         \\
 
 \subsection{\tkzcname{tkzMarkRightAngles}}
 \begin{NewMacroBox}{tkzMarkRightAngles}{\oarg{local options}\parg{A,O,B}\parg{A',O',B'}etc.}%
-With common options, there is a macro for multiple angles.
+With common options, there is a macro for several angles.
 \end{NewMacroBox}
 
 \subsection{The \TIKZ\ library \tkzname{angles}} % (fold)
 \label{sub:angles_library}
 
-If you prefer to use  \TIKZ\ library \tkzname{angles}, you can mark angles with the macro \tkzcname{tkzPicAngle} and \tkzcname{tkzPicRightAngle}.
+If you prefer the \TIKZ\ library \tkzname{angles}, you can mark angles with the macros \tkzcname{tkzPicAngle} and \tkzcname{tkzPicRightAngle}.
 
 \begin{NewMacroBox}{tkzPicAngle}{\oarg{tikz options}\parg{A,O,B}}%
   
@@ -340,7 +340,7 @@ options             & example & definition         \\
 \end{tabular} 
 
 \medskip
-\emph{You need to know possible options of the \tkzname{angles} library}
+\emph{You need to know the options of the library \tkzname{angles}.}
 \end{NewMacroBox} 
 
 \subsubsection{Angle with \TIKZ} % (fold)

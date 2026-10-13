@@ -2,9 +2,9 @@
 
 \subsection{Main macro \tkzcname{tkzCompass}} 
 \begin{NewMacroBox}{tkzCompass}{\oarg{local options}\parg{A,B}}%
-This macro allows you to leave a compass mark, i.e. an arc at a designated point. The center must be indicated. Several specific options will modify the appearance of the arc as well as TikZ options such as style, color, line thickness etc.
+This macro leaves a compass mark, i.e. an arc through a given point; the center must be given. Several specific options change the appearance of the arc, as well as \TIKZ\ options such as style, color, line width, etc.
 
-You can define the length of the arc with the option |length| or the option |delta|.
+You can set the length of the arc with the option |length| or the option |delta|.
 
 \medskip
 \begin{tabular}{lll}%
@@ -49,7 +49,7 @@ options             & default & definition                        \\
 
 \subsection{Multiple constructions \tkzcname{tkzCompasss}} 
 \begin{NewMacroBox}{tkzCompasss}{\oarg{local options}\parg{pt1,pt2 pt3,pt4,\dots}}%
-\tkzHandBomb\ Attention the arguments are lists of two points. This saves a few lines of code.
+\tkzHandBomb\ Note that the arguments are lists of pairs of points. This saves a few lines of code.
 
 \medskip
 \begin{tabular}{lll}%

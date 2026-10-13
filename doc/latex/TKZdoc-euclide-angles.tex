@@ -1,7 +1,7 @@
 \section{Angles} 
 \subsection{Definition and usage with \tkzname{tkz-euclide}}
-In Euclidean geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.[Wikipedia]. A ray with \tkzname{tkz-euclide} is defined by two points also each angle is defined with three points like $\widehat{AOB}$. The vertex $O$ is the second point. Their order is important because it is assumed that the angle is specified in the direct order (counterclockwise). 
-In trigonometry and mathematics in general, plane angles are conventionally measured counterclockwise, starting with $0^\circ$  pointing directly to the right (or east), and $90^\circ$ pointing straight up (or north)[Wikipedia]. 
+In Euclidean geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle [Wikipedia]. With \tkzname{tkz-euclide} a ray is defined by two points, so an angle is defined by three points, as in $\widehat{AOB}$; the vertex $O$ is the second point. Their order matters, because the angle is assumed to be given counterclockwise.
+In trigonometry and mathematics in general, plane angles are conventionally measured counterclockwise, starting with $0^\circ$  pointing directly to the right (or east), and $90^\circ$ pointing straight up (or north) [Wikipedia].
 Let us agree that an angle measured counterclockwise is positive.
 
   \begin{center}
@@ -17,8 +17,8 @@ Let us agree that an angle measured counterclockwise is positive.
     \end{tikzpicture}  
   \end{center}
   
- \tkzname{Angles} are involved in several macros like \tkzcname{tkzDefPoint},\tkzcname{tkzDefPointBy[rotation = \dots]}, \tkzcname{tkzDrawArc}
- and the next one  \tkzcname{tkzGetAngle}. With the exception of the last one, all these macros accept negative angles.
+ Angles are involved in several macros, such as \tkzcname{tkzDefPoint}, \tkzcname{tkzDefPointBy[rotation = \dots]}, \tkzcname{tkzDrawArc}
+ and \tkzcname{tkzGetAngle}, described next. Except for the last one, all these macros accept negative angles.
  
  \begin{figure}[!ht]
  \centering
@@ -78,7 +78,7 @@ As we can see, the $-80^\circ$ rotation defines a clockwise angle but the macro
 
 \subsection{Recovering an angle \tkzcname{tkzGetAngle}}
 \begin{NewMacroBox}{tkzGetAngle}{\parg{name of macro}}%
-Assigns the value in degree of an angle to a macro. The value is positive and between $0^\circ$ and $360^\circ$.  This macro retrieves \tkzcname{tkzAngleResult} and stores the result in a new macro.
+Assigns the value in degrees of an angle to a macro. The value is positive, between $0^\circ$ and $360^\circ$. This macro retrieves \tkzcname{tkzAngleResult} and stores it in a new macro.
 
 \medskip
 
@@ -90,7 +90,7 @@ arguments             & example & explanation             \\
 \end{tabular}
 \end{NewMacroBox}
 
-This is an auxiliary macro that allows you to retrieve the result of the following macro \tkzcname{tkzFindAngle}.
+This auxiliary macro retrieves the result of the next macro, \tkzcname{tkzFindAngle}.
 
 \subsection{Angle formed by three points}
 
@@ -108,7 +108,7 @@ arguments     & example & explanation     \\
 \end{tabular}
 
 \medskip
-The measure is always positive and between $0^\circ$  and $360^\circ$. With the usual conventions, a counterclockwise angle smaller than a straight angle has always a measure between $0^\circ$ and $180^\circ$, while a clockwise angle smaller than a straight angle will have a measurement greater than $180^\circ$. \tkzcname{tkzGetAngle} can retrieve the angle.
+The measure is always positive, between $0^\circ$ and $360^\circ$. With the usual conventions, a counterclockwise angle smaller than a straight angle always measures between $0^\circ$ and $180^\circ$, while a clockwise angle smaller than a straight angle measures more than $180^\circ$. \tkzcname{tkzGetAngle} retrieves the angle.
 \end{NewMacroBox}
  
 \subsubsection{Verification of angle measurement}
@@ -156,7 +156,7 @@ The measure is always positive and between $0^\circ$  and $360^\circ$. With the 
 \end{tkzexample}
 
 \subsubsection{Angle between two circles}
-We are looking for the angle formed by the tangents at a point of intersection
+We look for the angle formed by the tangents at a point of intersection.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.4]
@@ -177,10 +177,10 @@ We are looking for the angle formed by the tangents at a point of intersection
 \end{tkzexample}
 
 \subsection{Angle formed by a straight line with the horizontal axis \tkzcname{tkzFindSlopeAngle}}
-Much more interesting than the last one. The result is between -180 degrees and +180 degrees.
+More interesting than the previous one: the result is between $-180^\circ$ and $+180^\circ$.
 
 \begin{NewMacroBox}{tkzFindSlopeAngle}{\parg{A,B}}%
-Determines the slope of the straight line (AB). The result is stored in a macro \tkzcname{tkzAngleResult}.
+Determines the slope (as an angle) of the straight line $(AB)$. The result is stored in the macro \tkzcname{tkzAngleResult}.
 
 \medskip
 \begin{tabular}{lll}%
@@ -192,12 +192,12 @@ arguments  & example & explanation     \\
 \end{tabular}
 
 \medskip
-\tkzcname{tkzGetAngle} can retrieve the result. If retrieval is not necessary, you can use \tkzcname{tkzAngleResult}.
+\tkzcname{tkzGetAngle} retrieves the result; if you don't need to keep it, you can use \tkzcname{tkzAngleResult}.
 \end{NewMacroBox}
 
 \subsubsection{How to use  \tkzcname{tkzFindSlopeAngle}}
 
- The point here is that $(AB)$ is the bisector of $\widehat{CAD}$, such that the $AD$ slope is zero. We recover the slope of $(AB)$ and then rotate twice.
+ Here $(AB)$ is the bisector of $\widehat{CAD}$, and the slope of $(AD)$ is zero. We get the slope of $(AB)$, then rotate twice.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -218,7 +218,7 @@ arguments  & example & explanation     \\
 \end{tkzexample}
 
 \subsubsection{Use of \tkzcname{tkzFindSlopeAngle} and \tkzcname{tkzGetAngle}}
-Here is another version of the construction of a mediator
+Here is another construction of a perpendicular bisector (mediator).
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}

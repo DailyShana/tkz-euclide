@@ -2,18 +2,19 @@
 %<--------------------------------------------------------------------------->
 %           points random
 %<--------------------------------------------------------------------------->
-At the moment there are four possibilities:
+A random point can be placed:
 \begin{enumerate}
-  \item point in a rectangle;
+  \item in a rectangle;
   \item on a segment;
   \item on a straight line;
-  \item on a circle.
+  \item on a circle;
+  \item in a disc.
 \end{enumerate}
 
 \subsection{Obtaining random points}
-This is the new version that replaces  \tkzcname{tkzGetRandPointOn}.
+This macro replaces the old \tkzcname{tkzGetRandPointOn}.
 \begin{NewMacroBox}{tkzDefRandPointOn}{\oarg{local options}}%
-{The result is a point with a random position that can be named with the macro \tkzcname{tkzGetPoint}. It is possible to use \tkzname{tkzPointResult} if it is not necessary to retain the results.}
+{The result is a point with a random position, which you can name with the macro \tkzcname{tkzGetPoint}. You can use \tkzname{tkzPointResult} directly if you don't need to keep the result.}
 
 \medskip
 \begin{tabular}{lll}%

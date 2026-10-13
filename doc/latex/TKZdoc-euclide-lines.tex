@@ -1,12 +1,12 @@
 \section{Straight lines}
 
-It is of course essential to draw straight lines, but before this can be done, it is necessary to be able to define certain particular lines such as mediators, bisectors, parallels or even perpendiculars. The principle is to determine two points on the straight line. 
+Drawing straight lines is of course essential, but first we must be able to define particular lines such as mediators (perpendicular bisectors), bisectors, parallels and perpendiculars. The principle is to determine two points of the line.
 
 \subsection{Definition of straight lines}
 
 \begin{NewMacroBox}{tkzDefLine}{\oarg{local options}\parg{pt1,pt2} or \parg{pt1,pt2,pt3}}%
-The argument is a list of two or three points. Depending on the case, the macro defines one or two points necessary to obtain the line sought. Either the macro \tkzcname{tkzGetPoint} or the macro \tkzcname{tkzGetPoints} must be used.
-I used the term "mediator" to designate the perpendicular bisector of a segment.
+The argument is a list of two or three points. Depending on the case, the macro defines one or two points needed to obtain the line; retrieve them with \tkzcname{tkzGetPoint} or \tkzcname{tkzGetPoints}.
+I use the term "mediator" for the perpendicular bisector of a segment.
 
 \medskip
 \begin{tabular}{lll}%
@@ -56,7 +56,7 @@ options             & default & definition                         \\
 \end{tkzexample}  
 
 \subsubsection{An envelope with option \tkzname{mediator}}
-Based on a figure from O. Reboux with pst-eucl by D Rodriguez.
+Based on a figure by O. Reboux, made with pst-eucl by D. Rodriguez.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -77,7 +77,7 @@ Based on a figure from O. Reboux with pst-eucl by D Rodriguez.
 
 
 \subsubsection{A parabola with option \tkzname{mediator}}
-Based on a figure from O. Reboux with pst-eucl by D Rodriguez.
+Based on a figure by O. Reboux, made with pst-eucl by D. Rodriguez.
 It is not necessary to name the two points that define the mediator.
 
 \begin{tkzexample}[latex=8cm,small]
@@ -109,7 +109,7 @@ It is not necessary to name the two points that define the mediator.
 
 \subsubsection{With option \tkzname{parallel=through}} % (fold)
 \label{ssub:parallel}
-Archimedes' Book of Lemmas proposition 1
+Archimedes' Book of Lemmas, Proposition 1.
 
 \begin{tkzexample}[latex=7cm,small]
   \begin{tikzpicture}
@@ -204,7 +204,7 @@ Archimedes' Book of Lemmas proposition 1
 
 \subsubsection{Choice of contact point with tangents passing through an external point option \tkzname{tangent from}} 
 
-The tangent is not drawn. With option \tkzname{at}, a  point of the tangent is given by \tkzname{tkzPointResult}.  With option \tkzname{from} you get two points of the circle with \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}.  You can choose between these two points by comparing the angles formed with the outer point, the contact point and the center. The two possible angles have different directions. Angle counterclockwise refers to \tkzname{tkzFirstPointResult}.
+The tangent is not drawn. With the option \tkzname{at}, a point of the tangent is given by \tkzname{tkzPointResult}. With the option \tkzname{from}, you get two points of the circle, \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}. You can choose between them by comparing the angles formed by the outer point, the contact point and the center: the two angles have opposite orientations, and the counterclockwise one corresponds to \tkzname{tkzFirstPointResult}.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=1,rotate=-30]

@@ -1,9 +1,9 @@
 \section{Miscellaneous and mathematical tools}
 \subsection{Duplicate a segment} 
-This involves constructing a segment on a given half-line of the same length as a given segment.
+The aim is to construct, on a given ray, a segment of the same length as a given segment.
 
 \begin{NewMacroBox}{tkzDuplicateSegment}{\parg{pt1,pt2}\parg{pt3,pt4}\marg{pt5}}%
-This involves creating a segment on a given half-line of the same length as a given segment . It is in fact the definition of a point.
+This macro constructs, on a given ray, a segment of the same length as a given segment. In fact it defines a point.
 \tkzcname{tkzDuplicateSegment} is the new name of \tkzcname{tkzDuplicateLen}.
 
 \medskip  
@@ -17,7 +17,7 @@ arguments             & example & explanation                         \\
 \end{tabular}
 
 \medskip
-\emph{The macro \tkzcname{tkzDuplicateLength} is identical to this one. }
+\emph{The macro \tkzcname{tkzDuplicateLength} is identical to this one.}
 \end{NewMacroBox}
 
 \subsubsection{Use of \tkzcname{tkzDuplicateSegment}} 
@@ -80,13 +80,13 @@ arguments             & example & explanation                         \\
 \end{tkzexample}
 
 \subsection{Segment length \tkzcname{tkzCalcLength}}
-There's an option in \TIKZ\  named \tkzname{veclen}. This option
- is used to calculate AB if A and B are two points.
+\TIKZ\ has a function named \tkzname{veclen}. It
+ calculates $AB$ if $A$ and $B$ are two points.
 
-The only problem for me is that the version of \TIKZ\ is not accurate enough in some cases. My version uses the \tkzNamePack{xfp} package and is slower, but more accurate.
+The only problem is that the \TIKZ\ version is not accurate enough in some cases. My version uses the package \tkzNamePack{xfp}: it is slower, but more accurate.
 
 \begin{NewMacroBox}{tkzCalcLength}{\oarg{local options}\parg{pt1,pt2}}%
-You can store the result with the macro \tkzcname{tkzGetLength} for example \tkzcname{tkzGetLength\{dAB\}} \\
+You can store the result with the macro \tkzcname{tkzGetLength}; for example \tkzcname{tkzGetLength\{dAB\}} \\
 defines the macro \tkzcname{dAB}.
 
 \medskip
@@ -99,7 +99,7 @@ arguments    & example & explanation       \\
 \end{tabular}
 
 \medskip
-Only one option
+There is only one option.
 
 \begin{tabular}{lll}%
    
@@ -135,7 +135,7 @@ Only one option
 
 
 \subsubsection{Radius of a circle defined by a diameter}
-The macro \tkzcname{tkzDefCircle[radius](A,B)} defines the radius that we retrieve with \tkzcname{tkzGetLength},  this result is in \tkzname{cm}.
+The macro \tkzcname{tkzDefCircle[radius](A,B)} defines a radius, which we retrieve with \tkzcname{tkzGetLength}; the result is in \tkzname{cm}.
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -153,7 +153,7 @@ The macro \tkzcname{tkzDefCircle[radius](A,B)} defines the radius that we retrie
 
 
 \subsection{Transformation from pt to cm or cm to pt}
-Not sure if this is necessary and it is only a division by 28.45274 and a multiplication by the same number. The macros are:
+These macros are simple: a division or a multiplication by 28.45274. They are:
 
 \begin{NewMacroBox}{tkzpttocm}{\parg{number}\marg{name of macro}}%
 The result is stored in a macro.
@@ -168,7 +168,7 @@ arguments             & example & explanation                         \\
 \end{tabular}
 
 \medskip
-You'll have to use \tkzcname{len} along with \tkzname{cm}.
+You have to use \tkzcname{len} with the unit \tkzname{cm}.
 \end{NewMacroBox}
 
 \subsection{Change of unit} 
@@ -205,7 +205,7 @@ arguments             & example & explanation                         \\
 \end{tabular}
 
 \medskip
-\emph{Stores in two macros the coordinates of a point. If the name of the macro is \tkzname{p}, then \tkzcname{px} and \tkzcname{py} give the coordinates of the chosen point with the cm as unit.}
+\emph{Stores the coordinates of a point in two macros. If the name given is \tkzname{p}, then \tkzcname{px} and \tkzcname{py} give the coordinates of the point, in cm.}
 \end{NewMacroBox}
 
 \subsubsection{Coordinate transfer with \tkzcname{tkzGetPointCoord}}
@@ -264,7 +264,7 @@ arguments             & example & explanation                         \\
 \end{tkzexample}
 
 \subsection{Dot Product}
-In Euclidean geometry, the dot product of the Cartesian coordinates of two vectors is widely used.
+In Euclidean geometry, the dot product of two vectors, computed from their Cartesian coordinates, is widely used.
 
 \begin{NewMacroBox}{tkzDotProduct}{\parg{$pt1$,$pt2$,$pt3$}}%
   The dot product of two vectors $\overrightarrow{u} = [a,b]$ and  $\overrightarrow{v} = [a',b']$ is defined as: $\overrightarrow{u}\cdot \overrightarrow{v} = aa' + bb'$
@@ -353,7 +353,7 @@ arguments             & example & explanation                         \\
 \subsubsection{Power from the radical axis} % (fold)
 \label{ssub:power}
 
-In this example, the radical axis $(EF)$ has been drawn. A point $H$ has been chosen on $(EF)$ and the power of the point $H$ with respect to the circle of center $A$ has been calculated as well as $PS^2$. You can check that the power of $H$ with respect to the circle of center $C$ as well as $HS'^2, HT^2, HT'^2$ give the same result.  
+In this example, the radical axis $(EF)$ has been drawn. A point $H$ has been chosen on $(EF)$, and the power of $H$ with respect to the circle with center $A$ has been calculated, as well as $HS^2$. You can check that the power of $H$ with respect to the circle with center $C$, and $HS'^2$, $HT^2$, $HT'^2$, give the same result.
 
 \begin{tkzexample}[small,latex=7cm]
 \begin{tikzpicture}[scale=.5]
@@ -378,7 +378,7 @@ In this example, the radical axis $(EF)$ has been drawn. A point $H$ has been ch
 
 \subsection{Radical axis}
 
-In geometry, the radical axis of two non-concentric circles is the set of points whose power with respect to the circles are equal. Here |\tkzDefRadicalAxis(A,B)(C,D)| gives the radical axis of the two circles $\mathcal{C}(A,B)$ and $\mathcal{C}(C,D)$. 
+In geometry, the radical axis of two non-concentric circles is the set of points that have the same power with respect to both circles. Here |\tkzDefRadicalAxis(A,B)(C,D)| gives the radical axis of the two circles $\mathcal{C}(A,B)$ and $\mathcal{C}(C,D)$. 
 
 \begin{NewMacroBox}{tkzDefRadicalAxis}{\parg{$pt1$,$pt2$}\parg{$pt3$,$pt4$}}%
 \begin{tabular}{lll}%
@@ -484,7 +484,7 @@ arguments             & example & explanation                         \\
  \midrule
  \end{tabular}
  
- \emph{\tkzcname{tkzIsLinear} tests the alignment of the three points $pt1$,$pt2$,$pt3$. }
+ \emph{\tkzcname{tkzIsLinear} tests whether the three points $pt1$, $pt2$, $pt3$ are aligned. The test tolerates an angle of about $0.06^\circ$.}
  \end{NewMacroBox}
  
  \begin{NewMacroBox}{tkzIsOrtho}{\parg{$pt1$,$pt2$,$pt3$}}%
@@ -495,7 +495,7 @@ arguments             & example & explanation                         \\
  \midrule
  \end{tabular}
  
- \emph{\tkzcname{tkzIsOrtho} tests the orthogonality of lines $(pt1pt2)$ and $(pt1pt3)$. }
+ \emph{\tkzcname{tkzIsOrtho} tests whether the lines $(pt1pt2)$ and $(pt1pt3)$ are orthogonal, with the same tolerance.}
  \end{NewMacroBox}
  
  \subsubsection{Use of \tkzcname{tkzIsOrtho} and \tkzcname{tkzIsLinear}}

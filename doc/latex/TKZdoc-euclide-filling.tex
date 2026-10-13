@@ -12,7 +12,7 @@ options             & default & definition                         \\
 \end{tabular}
 
 \medskip
-You don't need to put \tkzname{radius} because that's the default option. Of course, you have to add all the styles of \TIKZ\ for the plots.
+You don't need to write \tkzname{radius}, because it is the default option. Of course, you can add all the \TIKZ\ styles.
 \end{NewMacroBox}  
 
 
@@ -128,7 +128,7 @@ You don't need to put \tkzname{radius} because that's the default option. Of cou
 
 \subsection{Coloring a polygon} 
  \begin{NewMacroBox}{tkzFillPolygon}{\oarg{local options}\parg{points list}}%
-You can color by drawing the polygon, but in this case you color the inside of the polygon without drawing it.
+You can color a polygon while drawing it; this macro colors the inside of the polygon without drawing it.
 
 \medskip
 \begin{tabular}{lll}%
@@ -162,7 +162,7 @@ arguments                & example & explanation                         \\
 \end{tkzexample}
 
 \subsection{\tkzcname{tkzFillSector}}
-\tkzHandBomb\ Attention the arguments vary according to the options. 
+\tkzHandBomb\ Note that the arguments depend on the options.
 \begin{NewMacroBox}{tkzFillSector}{\oarg{local options}\parg{O,\dots}\parg{\dots}}%
 \begin{tabular}{lll}%
 options          & default & definition      \\ 
@@ -190,7 +190,7 @@ options             & arguments & example                         \\
 \end{NewMacroBox} 
 
 \subsubsection{\tkzcname{tkzFillSector} and \tkzname{towards}} 
-It is useless to put \tkzname{towards} and you will notice that the contours are not drawn, only the surface is colored.
+You don't need to write \tkzname{towards}. Note that the contours are not drawn: only the surface is colored.
 \begin{tkzexample}[latex=5.75cm,small]
   \begin{tikzpicture}[scale=.6] 
   \tkzDefPoint(0,0){O}
@@ -219,9 +219,9 @@ It is useless to put \tkzname{towards} and you will notice that the contours are
 
 \subsection{Coloring an angle: \tkzcname{tkzFillAngle}}
 
-The simplest operation
+The simplest case:
 \begin{NewMacroBox}{tkzFillAngle}{\oarg{local options}\parg{A,O,B}}%
-$O$ is the vertex of the angle. $OA$ and $OB$ are the sides. Attention the angle is determined by the order of the points.
+$O$ is the vertex of the angle, $OA$ and $OB$ are its sides. Note that the angle depends on the order of the points.
 
 \medskip
 
@@ -235,7 +235,7 @@ options             & default & definition                        \\
 \end{tabular} 
 
 \medskip
-Of course, you have to add all the styles of \TIKZ, like the use of fill and shade... 
+Of course, you can add all the \TIKZ\ styles, such as fill and shade.
 \end{NewMacroBox}  
 
 \subsubsection{Example with \tkzname{size}}  
@@ -274,7 +274,7 @@ Of course, you have to add all the styles of \TIKZ, like the use of fill and sha
 \end{tkzexample}
 
 \begin{NewMacroBox}{tkzFillAngles}{\oarg{local options}\parg{A,O,B}\parg{A',O',B'}etc.}%
-With common options, there is a macro for multiple angles.
+With common options, there is a macro for several angles.
   \end{NewMacroBox}  
   
 \subsubsection{Several angles}  

@@ -1,26 +1,26 @@
 \newpage
 \section{Circles}
 
-Among the following macros, one will allow you to draw a circle, which is not a real feat. To do this, you will need to know the center of the circle and either the radius of the circle or a point on the circumference. It seemed to me that the most frequent use was to draw a circle with a given center passing through a given point. This will be the default method, otherwise you will have to use the \tkzname{R} option. There are a large number of special circles, for example the circle circumscribed by a triangle.
+Among the following macros, one draws a circle, which is not a real feat: you need the center of the circle and either its radius or a point of the circle. The most frequent use seemed to me to be a circle with a given center through a given point; this is the default, otherwise you use the option \tkzname{R}. There are many special circles, for example the circumcircle of a triangle.
 
 \begin{itemize}
-  \item  I have created a first macro \tkzcname{tkzDefCircle} which allows, according to a particular circle, to retrieve its center and the measurement of the radius in cm. This recovery is done with the macros \tkzcname{tkzGetPoint} and \tkzcname{tkzGetLength};
+  \item a first macro, \tkzcname{tkzDefCircle}, gives the center and the radius (in cm) of a particular circle, which you retrieve with the macros \tkzcname{tkzGetPoint} and \tkzcname{tkzGetLength};
  
- \item then a macro \tkzcname{tkzDrawCircle};
+ \item a macro to draw a circle, \tkzcname{tkzDrawCircle};
  
- \item then a macro that allows you to color in a disc, but without drawing the circle \tkzcname{tkzFillCircle};
+ \item a macro to color a disc without drawing the circle, \tkzcname{tkzFillCircle};
  
- \item sometimes, it is necessary for a drawing to be contained in a disk, this is the role assigned to \tkzcname{tkzClipCircle};
+ \item sometimes a drawing must be contained in a disc: this is the role of \tkzcname{tkzClipCircle};
   
- \item  it finally remains to be able to give a label to designate a circle and if several possibilities are offered, we will see here \tkzcname{tkzLabelCircle}.
+ \item finally, \tkzcname{tkzLabelCircle} gives a label to a circle.
 \end{itemize} 
 
 \subsection{Characteristics of a circle: \tkzcname{tkzDefCircle}}
  
-This macro allows you to retrieve the characteristics (center and radius) of certain circles.
+This macro gives the characteristics (center and radius) of some circles.
 
 \begin{NewMacroBox}{tkzDefCircle}{\oarg{local options}\parg{A,B} or \parg{A,B,C}}%
-\tkzHandBomb\ Attention the arguments are lists of two or three points. This macro is either used in partnership with \\ \tkzcname{tkzGetPoints} to obtain the center and a point on the circle, or by using \\ \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult} if it is not necessary to keep the results. You can also use  \tkzcname{tkzGetLength} to get the radius.
+\tkzHandBomb\ Note that the arguments are lists of two or three points. The macro is used either with \\ \tkzcname{tkzGetPoints}, to get the center and a point of the circle, or directly with \\ \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult} if you don't need to keep the results. \tkzcname{tkzGetLength} gives the radius.
 
 \medskip
 \begin{tabular}{lll}%
@@ -51,11 +51,11 @@ options             & default & definition                         \\
 \end{tabular}
 
 \medskip
-\emph{In the following examples, I draw the circles with a macro not yet presented. You may only need the center and a point on the circle. }
+\emph{In the following examples, I draw the circles with a macro not yet presented. You may only need the center and a point of the circle.}
 \end{NewMacroBox} 
 
 \subsubsection{Example with option \tkzname{R}}  
-We obtain with the macro \tkzcname{tkzGetPoint} a point of the circle which is the East pole.
+With the macro \tkzcname{tkzGetPoint} we get a point of the circle, its "east pole".
 
 \begin{tkzexample}[latex=7cm,small]  
 \begin{tikzpicture}[scale=1]
@@ -108,7 +108,7 @@ We obtain with the macro \tkzcname{tkzGetPoint} a point of the circle which is t
 \end{tkzexample}
 
 \subsubsection{Example with option \tkzname{ex}}
-We want to define an excircle of a  triangle relatively to point $C$
+We want to define the excircle of a triangle opposite the vertex $C$.
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -179,7 +179,7 @@ We verify that this circle passes through the midpoint of each side.
 \end{tkzexample}  
 
 \subsubsection{Excircles of a given triangle: option \tkzname{ex}}
- You can also get the center and the projection of it on one side of the triangle. 
+ You can also get the center and its projection on one side of the triangle
  
  with \tkzcname{tkzGetFirstPoint\{Jb\}} and \tkzcname{tkzGetSecondPoint\{Tb\}}.
  
@@ -228,7 +228,7 @@ The incircle of the medial triangle $M_aM_bM_c$ is the Spieker circle:
 \subsection{Projection of excenters}
 
 \begin{NewMacroBox}{tkzDefProjExcenter}{\oarg{local options}\parg{A,B,C}\parg{a,b,c}\marg{X,Y,Z}}%
-Each excenter has three projections on the sides of the triangle ABC. We can do this with one macro\\ \tkzcname{tkzDefProjExcenter[name=J](A,B,C)(a,b,c)\{Y,Z,X\}}.
+Each excenter has three projections on the sides of the triangle $ABC$. We can get them all with one macro:\\ \tkzcname{tkzDefProjExcenter[name=J](A,B,C)(a,b,c)\{Y,Z,X\}}.
 
 \medskip
 \begin{tabular}{lll}%
@@ -281,7 +281,7 @@ arguments & default & definition \\
 \end{tkzexample}
  
 \subsubsection{\tkzname{Orthogonal from}}
-Orthogonal circle of given center. \tkzcname{tkzGetPoints\{z1\}\{z2\}} gives two points of the circle.
+Circle with a given center, orthogonal to a given circle. \tkzcname{tkzGetPoints\{z1\}\{z2\}} gives two points of the circle.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -300,7 +300,7 @@ Orthogonal circle of given center. \tkzcname{tkzGetPoints\{z1\}\{z2\}} gives two
 \end{tkzexample}
 
 \subsubsection{\tkzname{Orthogonal through}}
-Orthogonal circle passing through two given points.
+Circle orthogonal to a given circle, through two given points.
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=1]
   \tkzDefPoint(0,0){O}
