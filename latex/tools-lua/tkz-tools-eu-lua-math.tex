@@ -123,8 +123,8 @@ end
 
 \def\tkzCalcLength{\pgfutil@ifnextchar[{\tkz@CalcLength}{\tkz@CalcLength[]}}
 \def\tkz@CalcLength[#1](#2,#3){%
-\pgfqkeys{/tkzcalclen}{#1}%
 \begingroup
+\pgfqkeys{/tkzcalclen}{cm,#1}% cm=true by default at each call
 \tkz@@CalcLength(#2,#3){tkzLengthResult}
 \iftkzLengthIncm
    \edef\tkz@xfpMathLen{\tkz@Dec{\tkz@Round{\tkzLengthResult/28.45274}{6}}}
@@ -231,14 +231,20 @@ end
 % #1,#2 and #3 aligned
 \def\tkzIsLinear(#1,#2,#3){%
 \begingroup
-\tkz@@CalcLengthcm(#1,#2){tkz@la}
-\tkz@@CalcLengthcm(#1,#3){tkz@lb}
-\tkzDotProduct(#1,#2,#3)
-\edef\tkzResult{\tkz@Dec{\tkz@Abs{\tkzMathResult}-(\tkz@la)*(\tkz@lb)}}
-\ifdim \tkzResult pt < 0.01 pt\relax%
-\global\tkzLineartrue
+\pgf@process{\pgfpointdiff{\pgfpointanchor{#1}{center}}%
+                         {\pgfpointanchor{#2}{center}}}%
+\tkz@ax\pgf@x\relax
+\tkz@ay\pgf@y\relax
+\pgf@process{\pgfpointdiff{\pgfpointanchor{#1}{center}}%
+                         {\pgfpointanchor{#3}{center}}}%
+\tkz@bx\pgf@x\relax
+\tkz@by\pgf@y\relax
+% aligned if |det(u,v)| <= 0.001 |u||v|  (angle < 0.06 deg)
+\ifnum\fpeval{abs(\tkz@ax*\tkz@by-\tkz@ay*\tkz@bx)
+   <= 0.001*sqrt((\tkz@ax)^2+(\tkz@ay)^2)*sqrt((\tkz@bx)^2+(\tkz@by)^2)}=1 %
+  \global\tkzLineartrue
 \else
-\global\tkzLinearfalse
+  \global\tkzLinearfalse
 \fi
 \endgroup
 }
@@ -246,12 +252,20 @@ end
 % syntax : vec(#2,#1) ortho vec(#3,#1)
 \def\tkzIsOrtho(#1,#2,#3){%
 \begingroup
-\tkzDotProduct(#1,#2,#3)
-\edef\tkzResult{\tkz@Dec{\tkz@Abs{\tkzMathResult}}}
-\ifdim \tkzResult pt < 1 pt\relax%
-\global\tkzOrthotrue
+\pgf@process{\pgfpointdiff{\pgfpointanchor{#1}{center}}%
+                         {\pgfpointanchor{#2}{center}}}%
+\tkz@ax\pgf@x\relax
+\tkz@ay\pgf@y\relax
+\pgf@process{\pgfpointdiff{\pgfpointanchor{#1}{center}}%
+                         {\pgfpointanchor{#3}{center}}}%
+\tkz@bx\pgf@x\relax
+\tkz@by\pgf@y\relax
+% orthogonal if |u.v| <= 0.001 |u||v|  (angle within 0.06 deg of 90)
+\ifnum\fpeval{abs(\tkz@ax*\tkz@bx+\tkz@ay*\tkz@by)
+   <= 0.001*sqrt((\tkz@ax)^2+(\tkz@ay)^2)*sqrt((\tkz@bx)^2+(\tkz@by)^2)}=1 %
+  \global\tkzOrthotrue
 \else
-\global\tkzOrthofalse
+  \global\tkzOrthofalse
 \fi
 \endgroup
 }
@@ -261,7 +275,7 @@ end
 \begingroup
 \tkz@@CalcLengthcm(#2,#3){tkz@ra}
 \tkz@@CalcLengthcm(#1,#2){tkz@om}
-\gdef\tkzMathResult{\tkz@Dec{(\tkz@om)^2-(\tkz@ra)^2}}
+\xdef\tkzMathResult{\tkz@Dec{(\tkz@om)^2-(\tkz@ra)^2}}
 \endgroup
 }
 %<---------------------------------------------------------–>
