@@ -19,7 +19,7 @@ The file \tkzname{tkz-euclide.cfg} contains the predefined styles of the main ob
 
 The macro \tkzcname{tkzSetUpColors} allows you to set the background color as well as the text color. If you don't use it, the colors of your document will be used as well as the fonts. Let's see how to define the styles of the main objects.
 
-\section{Points style}
+\section{Point style}
 This is how the points  are defined :
 \begin{tkzltxexample}[]
 \tikzset{point style/.style = {%
@@ -122,7 +122,7 @@ The points get back the initial style. Point D has a new style limited by the en
 \end{tikzpicture}
 \end{tkzexample}
 
-\section{Lines style}
+\section{Line style}
 
 You have several possibilities to change the style of a line. You can modify the style of a line with \tkzcname{tkzSetUpLine} or directly modify the style of the lines with |\tikzset{line style/.style = ... }|
 
@@ -213,7 +213,7 @@ options &  default & definition                 \\
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Example 3: extend lines}
+\subsubsection{Extending lines}
 \begin{tkzexample}[latex=7cm,small]
   \begin{tikzpicture}[scale=.75]
   \tkzSetUpLine[add=.5 and .5]
@@ -264,7 +264,7 @@ options &  default & definition                 \\
 \end{tikzpicture}
 \end{tkzexample}
 
-\section{Compass style, configuration macro \tkzcname{tkzSetUpCompass}}
+\section{Compass style}
 The following macro will help to understand the construction of a figure by showing the compass traces necessary to obtain certain points. 
 
 \subsection{The macro \tkzcname{tkzSetUpCompass} }

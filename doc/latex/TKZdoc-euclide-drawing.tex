@@ -88,7 +88,7 @@ options             & default & definition \\
 \tkzHandBomb\ Beware of the final \code{s}, an oversight leads to cascading errors if you try to draw multiple points. The options are the same as for the previous macro.
 \end{NewMacroBox}
 
-\subsubsection{Example}
+\subsubsection{Points with size, colour and fill}
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -220,7 +220,7 @@ This is of course equivalent to \tkzcname{draw (A)--(B);}. You can also use the 
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Example of extending an segment with option \tkzname{add}} 
+\subsubsection{Extending a segment with option \tkzname{add}} 
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -235,7 +235,7 @@ This is of course equivalent to \tkzcname{draw (A)--(B);}. You can also use the 
   \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Adding dimensions with option \tkzname{dim} new code from Muzimuzhi Z} 
+\subsubsection{Adding dimensions with option \tkzname{dim} (code by Muzimuzhi Z)} 
 This code comes from an answer to this question on tex.stackexchange.com 
 (change-color-and-style-of-dimension-lines-in-tkz-euclide ).
 The code of \tkzname{dim} is based on options of TikZ, you must add the units.
@@ -267,7 +267,7 @@ I'll let you look at the examples to see what you can do with these styles.
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Adding dimensions with option \tkzname{dim} partI} 
+\subsubsection{Adding dimensions with option \tkzname{dim}: part I} 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=2]
 \pgfkeys{/pgf/number format/.cd,fixed,precision=2}
@@ -294,7 +294,7 @@ I'll let you look at the examples to see what you can do with these styles.
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Adding dimensions with option \tkzname{dim} part II} 
+\subsubsection{Adding dimensions with option \tkzname{dim}: part II} 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.5]
   \tkzDefPoints{0/0/O,-2/0/A,2/0/B,
@@ -331,7 +331,7 @@ The arguments are a two-point couple list. The styles of \TIKZ\ are available fo
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Place an arrow on segment}
+\subsubsection{Placing an arrow on a segment}
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
 \tkzSetUpStyle[postaction=decorate,
@@ -345,9 +345,9 @@ The arguments are a two-point couple list. The styles of \TIKZ\ are available fo
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsection{Drawing line segment of a triangle}
+\subsection{Drawing the segments of a triangle}
 
-\subsubsection{How to draw \tkzname{Altitude} } 
+\subsubsection{How to draw an altitude} 
 \begin{tkzexample}[latex=7cm,small]
   \begin{tikzpicture}[rotate=-90]
   \tkzDefPoint(0,1){A}
@@ -622,7 +622,7 @@ Based on an idea by O. Reboux made with pst-eucl (Pstricks module) by D. Rodrigu
 
 \newpage
 
-\subsection{Drawing semicircle}
+\subsection{Drawing a semicircle}
 \begin{NewMacroBox}{tkzDrawSemiCircle}{\oarg{local options}\parg{O,A}}%
 
 \medskip
@@ -723,7 +723,7 @@ Of course, you have to add all the styles of \TIKZ\ for the tracings...
 %    ARC
 %<---------------------------------------------------------------------------->
 \section{Drawing arcs} 
-\subsection{Macro: \tkzcname{tkzDrawArc} }
+\subsection{The macro \tkzcname{tkzDrawArc}}
 \begin{NewMacroBox}{tkzDrawArc}{\oarg{local options}\parg{O,\dots}\parg{\dots}}%
 This macro traces the arc of center $O$. Depending on the options, the arguments differ.   It is a question of determining a starting point and an end point. Either the starting point is given, which is the simplest, or the radius of the arc is given. In the latter case, it is necessary to have two angles. Either the angles can be given directly, or nodes associated with the center can be given to determine them. The angles are in degrees.
 
@@ -761,7 +761,7 @@ options             & arguments & example                         \\
 
 Here are a few examples: 
 
-\subsubsection{Option \tkzname{towards}}
+\subsubsection{Option \tkzname{towards}: arc from $A$ to $B$}
 It's useless to put \tkzname{towards}. In this first example the arc starts from $A$ and goes to $B$. The arc going from $B$ to $A$ is different. The salient is obtained by going in the direct direction of the trigonometric circle.
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -777,7 +777,7 @@ It's useless to put \tkzname{towards}. In this first example the arc starts from
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Option \tkzname{towards}}
+\subsubsection{Option \tkzname{towards}: arc stopping on a line}
 In this one, the arc starts from A but stops on the right (OB).
  
 \begin{tkzexample}[latex=6cm,small]
@@ -984,7 +984,7 @@ There's no need to put \tkzname{towards}. You can use \tkzname{fill} as an optio
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{\tkzcname{tkzDrawSector} and \tkzname{R with nodes}}  
+\subsubsection{\tkzcname{tkzDrawSector} and \tkzname{R with nodes}: two sectors}
 In this example I use the option \tkzname{fill} but \tkzcname{tkzFillSector} is possible.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=1.25]
@@ -1003,7 +1003,7 @@ In this example I use the option \tkzname{fill} but \tkzcname{tkzFillSector} is 
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{\tkzcname{tkzDrawSector} and \tkzname{R with nodes}} 
+\subsubsection{\tkzcname{tkzDrawSector} and \tkzname{R with nodes}: sector in a hexagon}
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture} [scale=.4]
  \tkzDefPoints{-1/-2/A,1/3/B}

@@ -1,4 +1,4 @@
-\section{Presentation and Overview}
+\section{Presentation and overview}
 
 \begin{tkzexample}[latex=5cm,small]
   \begin{tikzpicture}[scale=.25]
@@ -14,7 +14,7 @@
 
 \vspace*{12pt}
 
-\subsection{Why \tkzname{\tkznameofpack}? }
+\subsection{Why \tkzname{\tkznameofpack}?}
 My initial goal was to provide other mathematics teachers and myself with a tool to quickly create Euclidean geometry figures without investing too much effort in learning a new programming language.
 Of course, \tkzname{\tkznameofpack}  is for math teachers who use \LATEX\ and  makes it possible to easily create correct  drawings by means of \LATEX.
 
@@ -25,7 +25,7 @@ The objects, of course, are points, segments, lines, triangles, polygons and cir
 The syntax is perhaps too verbose but it is, I believe, easily accessible.
 As a result, the students like teachers were able to easily access this tool.
 
-\subsection{ \tkzname{\TIKZ } vs \tkzname{\tkznameofpack} }
+\subsection{\tkzname{\TIKZ} vs \tkzname{\tkznameofpack}}
 
 I love programming with  \TIKZ,  and without  \TIKZ\  I would never have had the idea to create \tkzname{\tkznameofpack}  but never forget that behind it there is  \TIKZ\  and that it is always possible to insert code from  \TIKZ. \tkzname{\tkznameofpack}  doesn't prevent you from using  \TIKZ.
 That said, I don't think mixing syntax is a good thing. 
@@ -37,7 +37,7 @@ The main purpose is to define points to create geometrical figures. \tkzname{\tk
 Here are some comparisons between \tkzname{\TIKZ } and \tkzname{\tkznameofpack} 4. For this I will use the geometry examples from the PGFManual.
   The two most important Euclidean tools used by early Greeks to construct different geometrical shapes and angles were a compass and a straightedge. My idea is to allow you to follow step by step a construction that would be done by hand (with compass and straightedge) as naturally as possible.
 
-\subsubsection{Book I, proposition I  \_Euclid's Elements\_ }
+\subsubsection{Book I, Proposition I, \_Euclid's Elements\_ }
 
 \begin{tikzpicture}
 \node [mybox,title={Book I, proposition I  \_Euclid's Elements\_}] (box){%
@@ -149,7 +149,7 @@ We need to define colors
   \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Book I, Proposition II  \_Euclid's Elements\_}
+\subsubsection{Book I, Proposition II, \_Euclid's Elements\_}
 
 \begin{tikzpicture}
 \node [mybox,title={Book I, Proposition II  \_Euclid's Elements\_}] (box){%
@@ -261,7 +261,7 @@ We draw the circle $\mathcal{K}$ with center $D$ and passing through $G$. It int
 
 % The comparisons with versions 3 and 4 are now in the section "News and compatibility".
 
-\subsection{How to use the \tkzname{\tkznameofpack} package ?}
+\subsection{How to use the \tkzname{\tkznameofpack} package?}
 \subsubsection{Let's look at a classic example}
 In order to show the right way, we will see how to build an equilateral triangle. Several possibilities are open to us, we are going to follow the steps of Euclid.
 
@@ -347,7 +347,7 @@ We can get the points of intersection with
 
  \end{itemize}
 
-\subsubsection{ Part I: golden triangle}
+\subsubsection{Part I: golden triangle}
 \begin{center}
 \begin{tikzpicture}
   
@@ -440,7 +440,7 @@ How construct a golden triangle or an angle of $36^\circ$?
 After building the golden triangle $BCD$, we build the point $A$ by noticing that $BD=DA$. Then we get the point $E$ and finally the point $F$. This is done with already intersections of defined objects  (line and circle).
 
 
-\subsubsection{Part II: two others methods with golden and euclid triangle}
+\subsubsection{Part II: two other methods with the golden and Euclid triangles}
 
 \tkzname{\tkznameofpack} knows how to define a \code{golden} or \code{euclide} triangle. We can define $BCD$ and $BCA$ like gold triangles.
 

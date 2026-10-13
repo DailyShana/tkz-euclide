@@ -64,7 +64,7 @@ Arguments are a list of pairs of points separated by spaces. The styles of \TIKZ
 \end{tikzpicture}
 \end{tkzexample} 
 
-\subsection{Another marking}   
+\subsection{Marking with a construction: equilateral triangle}   
 \begin{tkzexample}[latex=5cm,small] 
  \begin{tikzpicture}[scale=1]
   \tkzDefPoint(0,0){A}\tkzDefPoint(3,2){B} 
@@ -122,7 +122,7 @@ Possible marks are those provided by \TIKZ, but other marks have been created ba
 \end{tkzexample}
 
  
-\subsection{Mark an angle mark : {\tkzcname{tkzMarkAngle}}}
+\subsection{Marking an angle: \tkzcname{tkzMarkAngle}}
 More delicate operation because there are many options. The symbols used for marking in addition to those of \TIKZ\ are defined in the file |tkz-lib-marks.tex| and designated by the following characters:\begin{tkzltxexample}[]
 |, ||,|||, z, s, x, o, oo 
 \end{tkzltxexample}
@@ -189,7 +189,7 @@ options             & default & definition                        \\
 With common options, there is a macro for multiple angles.
   \end{NewMacroBox}  
 
-\subsection{Problem to mark a small angle: {\tkzname{Option veclen}}}\label{opt-veclen}
+\subsection{Marking a small angle: option \tkzname{veclen}}\label{opt-veclen}
   The problem comes from the "decorate" action and  from the value used in size in 
   \tkzcname{tkzMarkAngle}. The solution is to enclose the macro  \tkzcname{tkzMarkAngle}.
   In the next example without the "scope" the result is :  Latex Error:  Dimension too large.
@@ -218,7 +218,7 @@ With common options, there is a macro for multiple angles.
   \end{tkzexample}
 
   
-\subsection{Marking a right angle: {\tkzcname{tkzMarkRightAngle}}}
+\subsection{Marking a right angle: \tkzcname{tkzMarkRightAngle}}
 
 \begin{NewMacroBox}{tkzMarkRightAngle}{\oarg{local options}\parg{A,O,B}}%
 The \tkzname{german} option allows you to change the style of the drawing. The option \tkzname{size} allows to change the size of the drawing.
@@ -233,7 +233,7 @@ options             & default & definition         \\
 \end{tabular} 
 \end{NewMacroBox}  
 
-\subsubsection{Example of marking a right angle} 
+\subsubsection{Marking a right angle} 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
   \tkzDefPoints{0/0/A,3/1/B,0.9/-1.2/P}
@@ -246,7 +246,7 @@ options             & default & definition         \\
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Example of marking a right angle, german style} 
+\subsubsection{Marking a right angle, German style} 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
   \tkzDefPoints{0/0/A,3/1/B,0.9/-1.2/P}
@@ -313,7 +313,7 @@ options             & default & definition         \\
 With common options, there is a macro for multiple angles.
 \end{NewMacroBox}
 
-\subsection{Angles Library} % (fold)
+\subsection{The \TIKZ\ library \tkzname{angles}} % (fold)
 \label{sub:angles_library}
 
 If you prefer to use  \TIKZ\ library \tkzname{angles}, you can mark angles with the macro \tkzcname{tkzPicAngle} and \tkzcname{tkzPicRightAngle}.

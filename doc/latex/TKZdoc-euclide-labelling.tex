@@ -1,5 +1,5 @@
 \section{Labelling points}
-\subsection{Label for a point} 
+\subsection{Label for a point: \tkzcname{tkzLabelPoint}}
 \hypertarget{tlp}{}
 It is possible to add several labels at the same point by using this macro several times.  
 
@@ -125,7 +125,7 @@ options  & default & definition    \\
 \end{tabular}
 \end{NewMacroBox}  
 
-\subsubsection{First example}      
+\subsubsection{Labels above and below a segment}      
 \begin{tkzexample}[latex=7 cm,small]
 \begin{tikzpicture}
 \tkzDefPoint(0,0){A}
@@ -136,7 +136,7 @@ options  & default & definition    \\
 \end{tikzpicture} 
 \end{tkzexample}  
 
-\subsubsection{Example : blackboard}  
+\subsubsection{Example: blackboard}  
 \begin{tkzexample}[latex=6cm,small]
 \tikzstyle{background rectangle}=[fill=black]
 \begin{tikzpicture}[show background rectangle,scale=.4]
@@ -158,7 +158,7 @@ options  & default & definition    \\
 \end{tikzpicture} 
 \end{tkzexample}
 
-\subsubsection{Labels and option : \tkzname{swap}}
+\subsubsection{Labels and option \tkzname{swap}}
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[rotate=-60]
 \tkzSetUpStyle[red,auto]{label style}
@@ -254,7 +254,7 @@ options             & default & definition                        \\
 It is possible to move the label with all TikZ options : rotate, shift, below, etc.
 \end{NewMacroBox}  
 
-\subsubsection{Example author js bibra stackexchange} 
+\subsubsection{Example by J. S. Bibra (\TeX.SE)} 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
   \tkzDefPoint(0,0){C}
@@ -340,7 +340,7 @@ options             & default & definition                         \\
 \emph{ We can use the styles from \TIKZ. The label is created and therefore \code{passed} between braces.}
 \end{NewMacroBox} 
 
-\subsubsection{Example}  
+\subsubsection{Labels around a circle}
 \begin{tkzexample}[latex=5cm,small] 
 \begin{tikzpicture}
  \tkzDefPoint(0,0){O} \tkzDefPoint(2,0){N}

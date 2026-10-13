@@ -1,4 +1,4 @@
-\section{\tkzname{Intersections}}
+\section{Intersections}
 
 It is possible to determine the coordinates of the points of intersection between two straight lines, a straight line and a circle, and two circles.
 
@@ -59,7 +59,7 @@ If \tkzname{common} and \tkzname{near} are not used then \tkzname{tkzFirstPoint}
 So the arguments are two couples which define a line and a circle  with a center and a point on the circle. If there is a non empty intersection between these the line and the circle then the test \tkzcname{iftkzFlagLC} gives true.
 \end{NewMacroBox}
 
-\subsubsection{test line-circle intersection}
+\subsubsection{Testing a line-circle intersection: \tkzcname{tkzTestInterLC}}
 
 \begin{tkzexample}[latex=7cm,small]
   \begin{tikzpicture}[scale=1]
@@ -106,7 +106,7 @@ In the following example, the drawing of the circle uses two points and the inte
 \end{tikzpicture} 
 \end{tkzexample}
 
-\subsubsection{Line passing through the center option \tkzname{common}}
+\subsubsection{Line passing through the center: option \tkzname{common}}
 This case is special. You cannot compare the angles. In this case, the option \tkzname{near} must be used. \tkzname{tkzFirstPoint} is assigned to the point closest to the first point given for the line. Here we want $A$ to be closest to $Lb$.
 
 \begin{tkzexample}[latex=8cm,small]
@@ -143,7 +143,7 @@ A special case that we often meet, a point of the line is on the circle and we a
 \end{tkzexample}
 
 
-\subsubsection{Line-circle intersection order of points}
+\subsubsection{Line-circle intersection: order of the points}
 The idea is to compare the angles formed with the first defining point of the line, a resultant point and the center of the circle. The first point is the one that corresponds to the smallest angle.
 
 As you can see $\widehat{BCO} < \widehat{BEO} $. To tell the truth,$ \widehat{BEO}$ is counterclockwise.
@@ -324,7 +324,7 @@ This macro defines the intersection point(s) $I$ and $J$ of the two center circl
 So the arguments are two couples which define two circles with a center and a point on the circle. If there is a non empty intersection between these two circles then the test \tkzcname{iftkzFlagCC} gives true.
 \end{NewMacroBox}
 
-\subsubsection{test circle-circle intersection}
+\subsubsection{Testing a circle-circle intersection: \tkzcname{tkzTestInterCC}}
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -345,7 +345,7 @@ So the arguments are two couples which define two circles with a center and a po
   \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{circle-circle intersection with \tkzname{common} point.}
+\subsubsection{Circle-circle intersection with a \tkzname{common} point}
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -359,7 +359,7 @@ So the arguments are two couples which define two circles with a center and a po
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{circle-circle intersection order of points.}
+\subsubsection{Circle-circle intersection: order of the points}
 The idea is to compare the angles formed with the first center, a resultant point and the center of the second circle. The first point is the one that corresponds to the smallest angle.
 
 As you can see $\widehat{ODB} < \widehat{OBE} $
@@ -386,7 +386,7 @@ As you can see $\widehat{ODB} < \widehat{OBE} $
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Construction of an equilateral triangle.}
+\subsubsection{Construction of an equilateral triangle}
 $\widehat{A,C,B}$ is a clockwise angle
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[trim left=-1cm,scale=.5]

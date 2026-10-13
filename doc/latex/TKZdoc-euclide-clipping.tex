@@ -1,4 +1,4 @@
-\section{Controlling Bounding Box}
+\section{Controlling the bounding box}
 From the \tkzimp{PgfManual} : 
 
 "When you add the clip option, the current path is used for clipping subsequent drawings. Clipping never enlarges the clipping area. Thus, when you clip against a certain path and then clip again against another path, you clip against the intersection of both.
@@ -101,7 +101,7 @@ The dimensions of the \code{clipped} rectangle are \tkzname{xmin-1}, \tkzname{ym
 %<--------------------------------------------------------------------------->
 %              tkzShowBB
 %<--------------------------------------------------------------------------->
-\subsection{tkzShowBB}
+\subsection{\tkzcname{tkzShowBB}}
 The simplest macro. 
 \begin{NewMacroBox}{tkzShowBB}{\oarg{local options}}% 
 This macro displays the bounding box. A rectangular frame surrounds the bounding box. This macro accepts \TIKZ\ options.
@@ -128,7 +128,7 @@ This macro displays the bounding box. A rectangular frame surrounds the bounding
 %<--------------------------------------------------------------------------->
 %         tkzClipBB
 %<--------------------------------------------------------------------------->
-\subsection{tkzClipBB}
+\subsection{\tkzcname{tkzClipBB}}
 \begin{NewMacroBox}{tkzClipBB}{}%
 The idea is to limit future constructions to the current bounding box.
 \end{NewMacroBox}
@@ -325,7 +325,7 @@ options             & arguments & example                         \\
 \end{tabular}
 \end{NewMacroBox}
 
-\subsubsection{Example 1} 
+\subsubsection{Clipping a sector: first example}
 \begin{tkzexample}[latex=7cm,small] 
 \begin{tikzpicture}[scale=0.5]
 \tkzDefPoint(0,0){a}
@@ -358,7 +358,7 @@ options             & arguments & example                         \\
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{Example 2} 
+\subsubsection{Clipping a sector: second example}
 \begin{tkzexample}[latex=7cm,small] 
 \begin{tikzpicture}[scale=1.5] 
   \tkzDefPoint(0,0){O}
@@ -376,14 +376,14 @@ options             & arguments & example                         \\
 \end{tkzexample}
 
 
-\subsection{Options from \TIKZ: trim left or right}
+\subsection{\TIKZ\ options: trim left or trim right}
 See the \tkzimp{pgfmanual}
 
 \subsection{\TIKZ\ Controls \tkzcname{pgfinterruptboundingbox} and \tkzcname{endpgfinterruptboundingbox}}
 This command temporarily interrupts the calculation of the box and configures a new box.
 See the \tkzimp{pgfmanual}
 
-\subsubsection{Example about contolling the bouding box} 
+\subsubsection{Controlling the bounding box} 
 \begin{tkzexample}[latex=7cm,small] 
 \begin{tikzpicture}
 \tkzDefPoint(0,5){A}\tkzDefPoint(5,4){B}
@@ -397,7 +397,7 @@ See the \tkzimp{pgfmanual}
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsection{Reverse clip: tkzreverseclip}
+\subsection{Reverse clip: \tkzname{tkzreverseclip}}
 
 In order to use this option, a bounding box must be defined. 
 

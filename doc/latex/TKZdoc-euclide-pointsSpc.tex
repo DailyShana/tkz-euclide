@@ -18,7 +18,7 @@ You may need to use some mathematical constants, here is the list of constants d
   \def\tkzEuler{2.71828182}
 \end{tkzltxexample}
 
-\subsection{New  point by calculation }
+\subsection{New point by calculation}
 
 When a macro of \tkzname{tkznameofpack} creates a new point, it is stored internally with the reference \tkzname{tkzPointResult}. You can assign your own reference to it. This is done with the macro \tkzcname{tkzGetPoint}. A new reference is created, your choice of reference must be placed between braces.
 
@@ -191,7 +191,7 @@ arguments & default & definition \\
 \end{NewMacroBox}
 
 
-\subsubsection{with two points}
+\subsubsection{With two points}
 In the following example, we obtain the barycenter of points $A$ and $B$ with coefficients $1$ and $2$, in other words:
 \[
   \overrightarrow{AI}= \frac{2}{3}\overrightarrow{AB}
@@ -209,7 +209,7 @@ In the following example, we obtain the barycenter of points $A$ and $B$ with co
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsubsection{with three points}
+\subsubsection{With three points}
 This time $M$ is simply the center of gravity of the triangle.
 
  For reasons of simplification and homogeneity, there is also \tkzcname{tkzCentroid}.
@@ -233,7 +233,7 @@ This time $M$ is simply the center of gravity of the triangle.
 \end{tkzexample}
 
 
-\subsection{\tkzname{Internal and external Similitude Center}}
+\subsection{Internal and external similitude centers: \tkzcname{tkzDefSimilitudeCenter}}
 The centers of the two homotheties in which two circles correspond are called external and internal centers of similitude. You can use \tkzcname{tkzDefIntSimilitudeCenter} and \tkzcname{tkzDefExtSimilitudeCenter} but the next macro is better.
 
 \begin{NewMacroBox}{tkzDefSimilitudeCenter}{\oarg{options}\parg{O,A}\parg{O',B}}%
@@ -333,7 +333,7 @@ options             & default & definition                         \\
 \end{tabular}
 \end{NewMacroBox}
 
-\subsubsection{options \tkzname{ext} and \tkzname{int}}
+\subsubsection{Options \tkzname{ext} and \tkzname{int}}
 \begin{tkzexample}[vbox,small]
   \begin{tikzpicture}
   \tkzDefPoints{0/0/A,6/0/B,4/0/C}
@@ -368,7 +368,7 @@ options             & default & definition                         \\
 
 
 % subsubsection bisector_and_harmonic_division (end)
-\subsubsection{option \tkzname{both} }
+\subsubsection{Option \tkzname{both}}
 \tkzname{both} is the default option
 \begin{tkzexample}[vbox,small]
 \begin{tikzpicture}
