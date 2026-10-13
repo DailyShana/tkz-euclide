@@ -16,7 +16,7 @@
 \def\tkz@DrawPolygon[#1](#2,#3){%
  \begingroup
  \draw[line style,line join=round,#1] (#2)
-     \foreach \pt in {#2,#3}{--(\pt)}--cycle;%
+     \foreach \pt in {#3}{--(\pt)}--cycle;%
  \endgroup
 }
 %<--------------------------------------------------------------------------–>
@@ -48,7 +48,7 @@
 \def\tkz@FillPolygon[#1](#2,#3){%
  \begingroup
      \fill[#1] (#2)
-   \foreach \pt in {#2,#3}{--(\pt)}--cycle;%
+   \foreach \pt in {#3}{--(\pt)}--cycle;%
 \endgroup
 }
 %<--------------------------------------------------------------------------–>
@@ -87,10 +87,10 @@
 \pgfqkeys{/tkzclippolygon}{#1}%
 \iftkzClipOutPoly
 \clip (#2)
-   \foreach \pt in {#2,#3}{--(\pt)}--cycle;
+   \foreach \pt in {#3}{--(\pt)}--cycle;
 \else
    \clip(#2)
-    \foreach \pt in {#2,#3}{--(\pt)}--cycle[tkzreverseclip] ;
+    \foreach \pt in {#3}{--(\pt)}--cycle[tkzreverseclip] ;
 \fi
 }%
 \makeatother

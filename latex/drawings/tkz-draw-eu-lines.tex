@@ -194,7 +194,7 @@
 \def\tkz@DrawPolySeg[#1](#2,#3){%
 \begingroup
 \draw[line style,#1] (#2)
-     \foreach \pt in {#2,#3}{--(\pt)};%
+     \foreach \pt in {#3}{--(\pt)};%
 \endgroup
 }
 
