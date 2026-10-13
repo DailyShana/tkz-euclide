@@ -36,10 +36,24 @@
 }% end setup
  %<--------------------------------------------------------------------------–>
 
+%<--------------------------------------------------------------------------–>
+% v3 syntax such as \tkzDrawCircle[euler](A,B,C) made TikZ loop forever:
+% a clear error is now given instead.
+\def\tkz@circle@check#1#2{%
+  \pgfutil@in@{,}{#2}%
+  \ifpgfutil@in@
+    \PackageError{tkz-euclide}{\string#1 needs two points (center,point)}%
+      {Since version 4 the circle through three points is obtained with^^J%
+       \string\tkzDefCircle[circum](A,B,C) \string\tkzGetPoints{O}{X}^^J%
+       then \string#1(O,X). The same for in, ex, euler...}%
+  \fi}
 \def\tkzDrawCircle{\pgfutil@ifnextchar[{\tkz@DrawCircle}{\tkz@DrawCircle[]}}
 \def\tkz@DrawCircle[#1](#2,#3){%
 \begingroup
+\tkz@circle@check\tkzDrawCircle{#3}%
+\ifpgfutil@in@\else
 \node [draw,circle through=(#3), circle style,#1] at (#2) {};
+\fi
 %perhaps I need to use the last method
      %  \tkzCalcLength(#2,#3) \tkzGetLength{tkz@ncradius}
 			% \draw[circle style,#1](#2) circle (\tkz@ncradius);
@@ -103,7 +117,10 @@
 \def\tkzFillCircle{\pgfutil@ifnextchar[{\tkz@FillCircle}{\tkz@FillCircle[]}}
 \def\tkz@FillCircle[#1](#2,#3){%
 \begingroup
+   \tkz@circle@check\tkzFillCircle{#3}%
+   \ifpgfutil@in@\else
    \node [fill,circle through=(#3),#1] at (#2) {};
+   \fi
 \endgroup
 }%
 \def\tkz@multifillcircles#1 #2\@nil{%
