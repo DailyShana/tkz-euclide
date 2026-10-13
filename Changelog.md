@@ -4,6 +4,31 @@ All notable changes to this project will be documented here.
 The version suffix **c** indicates the CTAN release.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ---
+## [5.14c] — unreleased
+### Fixed
+- `\tkzDefCircle[orthogonal from=…]` / `[orthogonal through=…]`: the choice leaked globally; every later `\tkzDefCircle(A,B,C)` without option failed.
+- `\tkzShowLine`: options were global (`parallel`, `orthogonal`, `bisector` stayed active in the following pictures); the mediator is again the default at each call.
+- `\tkzDefSimilitudeCenter`: `int`/`ext` stayed active for the following calls.
+- `\tkzIsLinear` always answered true; `\tkzIsLinear` and `\tkzIsOrtho` now use a tolerance relative to the lengths (0.06°).
+- `\tkzPowerCircle`: the result is frozen (it changed after another calculation).
+- `\tkzCalcLength`: `cm=false` no longer persists to the following calls.
+- `\tkzDefCircleBy[inversion=…]`: a circle passing near (less than 1 cm) the centre of inversion was transformed into a line.
+- `\tkzDefCircle[spieker]`: `\tkzGetLength` gives the radius in cm like the other circles.
+- `\tkzDefTriangleCenter[feuerbach]` sometimes returned the wrong point; `\tkzDefSpcTriangle[feuerbach]` now uses the line nine-point centre–excenter (exact tangency points).
+- `\tkzDrawPolySeg`: no more zero-length first segment (wrong start arrow with `<->`).
+- `\tkzCompass` accepts a decimal `delta`.
+- `\tkzProtractor[return]` had no effect.
+- `\tkzLabelRegPolygon` uses its `sep` option; `\tkzDrawX` uses its `step` option like `\tkzDrawY`.
+- `\tkzDrawCircle` / `\tkzFillCircle` with three points (v3 syntax) gave an endless loop; a clear error is now given.
+- Options of `\tkzGrid`, `\tkzClip`, `\tkzDefEquiPoints` and `\tkzLegend` are local to the call.
+- Aliases `\tkzDefNinePointsCircle`, `\tkzFeuerBachCircle` and `\tkzIncentralTriangle` pointed to undefined macros.
+- `tkz-euclide.sty`: `\RequirePackage{xpatch}`, warning instead of an undefined `\PatchFailed`, dead second `\ProcessOptions` removed.
+
+### Changed
+- `\tkzSetUpCompass[delta=…]` only acts on compass marks; arcs (`\tkzDrawArc`, `\tkzMarkArc`, `\tkzLabelArc`) are set with `\tkzSetUpArc[delta=…]`.
+- The TikZ style `help lines` is no longer redefined for the whole document; `\tkzHelpGrid` is unchanged.
+
+---
 ## [5.13c] — 2026/01/25
 ### Fixed
    - Harmonization of file dates.
