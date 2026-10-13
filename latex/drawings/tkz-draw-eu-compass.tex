@@ -46,7 +46,7 @@
 
 %<--------------------------------------------------------------------------–>
  \pgfkeys{/tkzcompass/.cd,
-    delta/.store in      = \tkz@delta,
+    delta/.store in      = \tkz@compass@delta,% own delta: no longer shared with arcs
     length/.store in     = \tkz@length,
     length = 1,
     delta  = 0,
@@ -59,13 +59,13 @@
 \begingroup
 \pgfkeys{tkzcompass/.cd,#1}
 \tkz@@CalcLength(#2,#3){tkz@tempLen}
-\ifnum\tkz@delta=0 %
-   \pgfmathsetmacro{\tkz@delta}{min(deg(\tkz@length cm/ \tkz@tempLen pt),180)/2}
+\ifdim\tkz@compass@delta pt=0pt % decimal values allowed
+   \pgfmathsetmacro{\tkz@compass@delta}{min(deg(\tkz@length cm/ \tkz@tempLen pt),180)/2}
 \fi
 \tkzFindSlopeAngle(#2,#3)\tkzGetAngle{tkz@angle}%
 \draw[shift ={(#2)},compass style,/tkzcompass/.cd,#1]%
-    (\tkz@angle-\tkz@delta:\tkz@tempLen pt)%
-  arc (\tkz@angle-\tkz@delta:\tkz@angle+\tkz@delta:\tkz@tempLen pt);
+    (\tkz@angle-\tkz@compass@delta:\tkz@tempLen pt)%
+  arc (\tkz@angle-\tkz@compass@delta:\tkz@angle+\tkz@compass@delta:\tkz@tempLen pt);
 \endgroup}
 %<--------------------------------------------------------------------------–>
 \def\tkz@multiCompass#1 #2\@nil{%

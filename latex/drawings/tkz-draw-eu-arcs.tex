@@ -15,6 +15,7 @@
    line width             =    \tkz@euc@linewidth,
    color                  =    \tkz@euc@linecolor,
    style                  =    \tkz@euc@linestyle,
+   delta/.store in        =    \tkz@delta,% arcs only (compass has its own delta)
    /tkzsetuparc/.search also = {/tikz,/tkzcompass},
  }
 \def\tkzSetUpArc{\pgfutil@ifnextchar[{\tkz@SetUpArc}{\tkz@SetUpArc[]}}
