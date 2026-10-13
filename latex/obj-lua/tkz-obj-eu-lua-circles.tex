@@ -23,9 +23,9 @@
       nine/.code                                = \def\tkz@numc{5},
       apollonius/.code                          = \def\tkz@numc{6},
       spieker/.code                             = \def\tkz@numc{7},
-      orthogonal from/.code args                = {#1}{\gdef\tkz@numc{8}
+      orthogonal from/.code args                = {#1}{\def\tkz@numc{8}%
                                                    \def\tkz@ptfrom{#1}},
-      orthogonal through/.code args             = {#1 and #2}{\gdef\tkz@numc{9}
+      orthogonal through/.code args             = {#1 and #2}{\def\tkz@numc{9}%
                                                    \def\tkz@ptone{#1}
                                                    \def\tkz@pttwo{#2}},
       K/.code                                   = \def\tkz@koeff{#1},
