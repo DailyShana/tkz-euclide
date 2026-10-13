@@ -72,7 +72,7 @@
   rotate/.code    = {\def\cmdMO@Rap@rotate{#1}},
   scale/.code     = {\def\cmdMO@Rap@scale{#1}},
   return/.is if   = tkz@RappReturn,
-  return/.code     = \tkz@RappReturnfalse,
+  return/.default  = true,
   /protractor/.search also={/tikz},
   lw = 0.4pt,
   scale=1,
