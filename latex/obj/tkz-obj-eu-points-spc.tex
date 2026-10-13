@@ -67,8 +67,9 @@
 \def\tkzDefSimilitudeCenter{\pgfutil@ifnextchar[{\tkz@DefSimilitudeCenter}%
                                               {\tkz@DefSimilitudeCenter[]}}
 \def\tkz@DefSimilitudeCenter[#1](#2,#3)(#4,#5){%
-\pgfqkeys{/tkzsimicenter}{#1}
 \begingroup
+\def\tkz@simicenter{0}% ext by default at each call
+\pgfqkeys{/tkzsimicenter}{#1}
 \ifcase\tkz@simicenter%
   \tkzDefExtSimilitudeCenter[#1](#2,#3)(#4,#5)
   \or% 1
