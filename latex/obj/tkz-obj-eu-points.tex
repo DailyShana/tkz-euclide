@@ -155,9 +155,8 @@
    \global\expandafter\edef\csname #2y\endcsname{\tkzresulty}
 \endgroup
 }
-\def\tkz@@extractxy#1{%
-\pgfextractx{\pgf@x}{\pgfpointanchor{#1}{center}}
-\pgfextracty{\pgf@y}{\pgfpointanchor{#1}{center}}
+\def\tkz@@extractxy#1{% one anchor lookup instead of two
+\pgf@process{\pgfpointanchor{#1}{center}}%
 }
 \let\tkzGetPointxy\tkzGetPointCoord
 \makeatother

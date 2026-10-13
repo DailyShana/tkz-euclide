@@ -17,13 +17,6 @@
 %<--------------------------------------------------------------------------–>
 %                       Triangle Isosceles Right
 %<--------------------------------------------------------------------------–>
-\def\tkzDefIsoscelesRightTriangle(#1,#2){
-\begingroup
- \tkzURotateAngle(#1,45)(#2)
- \pgfnodealias{tkz@a}{tkzPointResult}
-  \tkzUHomo(#1,\tkzSqrTwobyTwo)(tkz@a)
-\endgroup
-}
 %<--------------------------------------------------------------------------–>
 \def\tkzDefIsoscelesRightTriangle(#1,#2){%
 \begingroup
