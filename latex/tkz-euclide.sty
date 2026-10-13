@@ -62,10 +62,10 @@
                 through
                 }
 \RequirePackage{xfp}
-\usepackage{xpatch}
+\RequirePackage{xpatch}
 \xpatchcmd\pgfmathreciprocal@@ {\pgfmath@y.1\pgfmath@y\pgfmath@y.1\pgfmath@y\pgfmath@y.1\pgfmath@y\pgfmath@y.1\pgfmath@y}
   {\pgfmath@y\dimexpr\pgfmath@y/10000\relax}
-  {}{\PatchFailed}
+  {}{\PackageWarning{tkz-euclide}{Patch of \string\pgfmathreciprocal@@\space failed}}
 
 %-------------------------------
 \newdimen\tkzRadius
@@ -150,8 +150,6 @@
 \def\tkz@tmp@ya{-5}
 \def\tkz@tmp@yb{+5}
 %-------------------------------------------------------------------------------
-\DeclareOption*{}
-\ProcessOptions
 %<---------------------------------------------------------->
 %                          Initialisation
 %<---------------------------------------------------------->
