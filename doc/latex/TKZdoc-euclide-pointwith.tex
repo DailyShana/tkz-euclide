@@ -1,16 +1,12 @@
 \section{Defining points using a vector}
 
 \subsection{\tkzcname{tkzDefPointWith}}
-There are several possibilities to create points that meet certain vector conditions.
-This can be done with 
+Points that meet certain vector conditions are created with \tkzcname{tkzDefPointWith}. The general principle is as follows: two points, i.e. a vector, are passed as arguments. Depending on the option, the new point forms with the first point (with some exceptions) a vector collinear or orthogonal to the first vector. Its length is either proportional to the length of the first vector, or proportional to the unit. Since this point is often only used temporarily, it does not have to be named immediately: the result is in \tkzname{tkzPointResult}, and the macro \tkzNameMacro{tkzGetPoint} retrieves it under another name.
 
-\tkzcname{tkzDefPointWith}. The general principle is as follows, two points are passed as arguments, i.e. a vector. The different options allow to obtain a new point forming with the first point (with some exceptions) a collinear vector or a vector orthogonal to the first vector. Then the length is either proportional to that of the first one, or proportional to the unit. Since this point is only used temporarily, it does not have to be named immediately. The result is in \tkzname{tkzPointResult}. The macro \tkzNameMacro{tkzGetPoint} allows you to retrieve the point and name it differently.
-
- There are options to define the distance between the given point and the obtained point.
-In the general case this distance is the distance between the 2 points given as arguments if the option is of the "normed" type then the distance between the given point and the obtained point is 1 cm. Then the $K$ option allows to obtain multiples.
+ Some options set the distance between the given point and the point obtained. In the general case, this distance is the distance between the two points given as arguments; with the options of the \tkzname{normed} type, it is 1~cm. The option $K$ then gives multiples of this distance.
 
 \begin{NewMacroBox}{tkzDefPointWith}{\parg{pt1,pt2}}%
- It is in fact the definition of a point meeting vectorial conditions.
+ This macro defines a point meeting vector conditions.
 
 \medskip
   
@@ -221,7 +217,7 @@ $K=2$ therefore $AC=2$.
 \subsubsection{Option \tkzname{linear}}
 Here $K=0.5$.
 
-This amounts to applying a homothety or a multiplication of a vector by a real. Here is the middle of $[AB]$.
+This amounts to applying a homothety or a multiplication of a vector by a real. Here is the midpoint of $[AB]$.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=1.2]
@@ -255,7 +251,7 @@ In the following example $AC=1$ and $C$ belongs to $(AB)$.
 Retrieving the coordinates of a vector.
 
 \begin{NewMacroBox}{tkzGetVectxy}{\parg{$A,B$}\var{text}}%
-Allows to obtain the coordinates of a vector.
+Gives the coordinates of a vector.
 
 \medskip
 \begin{tabular}{lll}%

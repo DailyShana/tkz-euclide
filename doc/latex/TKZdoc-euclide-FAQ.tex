@@ -1,34 +1,35 @@
-\section{FAQ} 
+\section{FAQ}
 
 \subsection{Most common errors}
- For the moment, I'm basing myself on my own, because having changed syntax several times, I've made a number of mistakes. This section is going to be expanded. With version 4.05 new problems may appear.
- 
+These are the mistakes I make most often myself, since the syntax has changed several times. This section will be expanded.
+
 \begin{itemize}\setlength{\itemsep}{10pt}
-  \item The mistake I make most often is to forget to put an "s" in the macro used to draw more than one object: like \tkzcname{tkzDrawSegment(s)} or \tkzcname{tkzDrawCircle(s)} ok like in this example \tkzcname{tkzDrawPoint(A,B)} when you need  \tkzcname{tkzDrawPoints(A,B)};
-  
-  \item Don't forget that since version 4 the unit is obligatorily the "cm" it is thus necessary to withdraw the unit like here \tkzcname{tkzDrawCircle[R](O,3cm)} which becomes \tkzcname{tkzDrawCircle[R](O,3)}. The traditional options of \tkzname{TikZ} keep their units example\tkzname{ below right = 12pt} on the other hand one will write \tkzname{size=1.2} to position an arc in \tkzcname{tkzMarkAngle};
-  
-  \item The following error still happens to me from time to time. A point that is created has its name in brackets while a point that is used either as an option or as a parameter has its name in braces. 
-  
-  Example \tkzcname{tkzGetPoint(A)} When defining an object, use braces and not brackets, so write: \tkzcname{tkzGetPoint\{A\}};
-  
-  \item The changes in obtaining the points of intersection between lines and circles sometimes exchange the solutions, this leads either to a bad figure or to an error.
-  
-  \item \tkzcname{tkzGetPoint\{A\}} in place of \tkzcname{tkzGetFirstPoint\{A\}}. When a macro gives two points as results, either we retrieve these points using \tkzcname{tkzGetPoints\{A\}\{B\}}, or we retrieve only one of the two points, using \tkzcname{tkzGetFirstPoint\{A\}} or 
-  \tkzcname{tkzGetSecondPoint\{A\}}. These two points can be used with the reference \tkzname{tkzFirstPointResult} or 
-  \tkzname{tkzSecondPointResult}. It is possible that a third point is given as\\ \tkzname{tkzPointResult};
+  \item Forgetting the ``s'' of the macros that draw several objects, such as \tkzcname{tkzDrawSegments} or \tkzcname{tkzDrawCircles}: \tkzcname{tkzDrawPoint(A,B)} is wrong, you need \tkzcname{tkzDrawPoints(A,B)}.
 
-\item Mixing options and arguments; all macros that use a circle need to know the radius of the circle. If the radius is given by a measure then the option includes a \tkzname{R}.  
+  \item Since version 4, the unit is always the cm, so you must not write a unit: \tkzcname{tkzDrawCircle[R](O,3cm)} becomes \tkzcname{tkzDrawCircle[R](O,3)}. The usual \tkzname{TikZ} options keep their units, for example \tkzname{below right = 12pt}; on the other hand, you write \tkzname{size=1.2} to set the radius of the arc in \tkzcname{tkzMarkAngle}.
 
+  \item Parentheses instead of braces. A point that is created has its name between braces, while a point that is used, as an option or as an argument, has its name between parentheses: write \tkzcname{tkzGetPoint\{A\}}, not \tkzcname{tkzGetPoint(A)}.
 
-\item The angles are given in degrees, more rarely in radians.  
+  \item \tkzcname{tkzGetPoint\{A\}} instead of \tkzcname{tkzGetFirstPoint\{A\}}. When a macro gives two points, either retrieve both with \tkzcname{tkzGetPoints\{A\}\{B\}}, or only one of them with \tkzcname{tkzGetFirstPoint\{A\}} or \tkzcname{tkzGetSecondPoint\{A\}}. These points can also be used with the references \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}. Some macros also give a third point, \tkzname{tkzPointResult}.
 
-\item If an error occurs in a calculation when passing parameters, then it is better to make these calculations before calling the macro.
- 
-\item Do not mix the syntax of \tkzNamePack{pgfmath} and \tkzNamePack{xfp}. I've often chosen \tkzNamePack{xfp} but if you prefer pgfmath then do your calculations before passing parameters.
-  
- \item  Error "dimension too large"  : In some cases, this error occurs. One way to avoid it is to use the "\tkzname{veclen}" option. When this option is used in an scope, the "veclen" function is replaced by a function dependent on "xfp".  Do not use intersection macros in this scope. For example, an error occurs if you use the macro \tkzcname{tkzDrawArc}
- with too small an angle. The error is produced by the \NameLib{decoration} library when you want to place a mark on an arc. Even if the mark is absent, the error is still present.
+  \item Retrieve a result immediately: \tkzcname{tkzGetPoint}, \tkzcname{tkzGetPoints} or \tkzcname{tkzGetLength} must follow the macro that computes the result, because the next calculation replaces it.
 
-\end{itemize}    
+  \item The order of the intersection points of a line and a circle, or of two circles, has sometimes changed between versions; this leads either to a wrong figure or to an error. The options \tkzname{common} and \tkzname{near} let you choose the point you want.
+
+  \item Mixing options and arguments: all the macros that use a circle need to know its radius. If the radius is given by a measure, the option includes \tkzname{R}.
+
+  \item Angles are given in degrees, more rarely in radians.
+
+  \item A list of points must not be cut by a \code{\%} at the end of a line: |\tkzDrawSegments(A,B%| followed by |C,D)| gives the point |BC,D|, because \code{\%} also removes the space between the two points. Simply go to the next line without \code{\%}.
+
+  \item The syntax of version 3 for special circles, for example |\tkzDrawCircle[euler](A,B,C)|, no longer exists: define the circle with \tkzcname{tkzDefCircle[euler](A,B,C)}, retrieve its center and a point with \tkzcname{tkzGetPoints\{N\}\{P\}}, then draw it with \tkzcname{tkzDrawCircle(N,P)}. Since version 5.14, the old syntax gives an error message.
+
+  \item If an error occurs in a calculation when passing arguments, it is better to do the calculation before calling the macro.
+
+  \item Do not mix the syntaxes of \tkzNamePack{pgfmath} and \tkzNamePack{xfp}. I have often chosen \tkzNamePack{xfp}; if you prefer \tkzNamePack{pgfmath}, do your calculations before passing the arguments.
+
+  \item The error ``dimension too large'' occurs in some cases, for example with \tkzcname{tkzDrawArc} or \tkzcname{tkzMarkAngle} and a very small angle: it comes from the library \NameLib{decorations} when a mark is placed on the arc, even when the mark is absent. One way to avoid it is the option \tkzname{veclen} (see section \ref{opt-veclen}): in the scope where it is used, the function \code{veclen} is computed with \tkzNamePack{xfp}. Do not use intersection macros in this scope.
+
+  \item Since version 5.14, \tkzcname{tkzSetUpCompass}\code{[delta=...]} no longer extends the arcs drawn with \tkzcname{tkzDrawArc}: use \tkzcname{tkzSetUpArc}\code{[delta=...]} for them.
+\end{itemize}
 \endinput

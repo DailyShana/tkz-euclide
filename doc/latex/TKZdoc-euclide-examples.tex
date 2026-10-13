@@ -55,7 +55,7 @@
 \node [mybox,title={Archimedes}] (box){%
 \begin{minipage}{0.90\textwidth}
   {\emph{This is an ancient problem   proved by the great Greek mathematician Archimedes .
-The figure below shows a semicircle, with diameter $AB$. A tangent line is drawn and  touches the semicircle at $B$.   An other tangent line at a point, $C$, on the semicircle is drawn. We project the point $C$ on the line segment $[AB]$  on a point $D$. The two tangent lines intersect at the point $T$. Prove that the line $(AT)$ bisects $(CD)$
+The figure below shows a semicircle, with diameter $AB$. A tangent line is drawn and  touches the semicircle at $B$.   Another tangent line at a point, $C$, on the semicircle is drawn. We project the point $C$ on the line segment $[AB]$  on a point $D$. The two tangent lines intersect at the point $T$. Prove that the line $(AT)$ bisects $(CD)$
 }} 
 \end{minipage}
 };
@@ -147,7 +147,7 @@ The figure below shows a semicircle, with diameter $AB$. A tangent line is drawn
   \tkzDefMidPoint(M,P)\tkzGetPoint{I}
   \tkzDefMidPoint(M,Q)\tkzGetPoint{J}
   \tkzDefMidPoint(M,R)\tkzGetPoint{K} 
-  \tkzDrawSegments[new](P,R M,P M,Q M,R N,P'%
+  \tkzDrawSegments[new](P,R M,P M,Q M,R N,P'
    N,Q' N,R' P',R' I,K)
   \tkzDrawPolygons(A,B,C)
   \tkzDrawPoints(A,B,C,H,M,N,P,Q,R,P',Q',R',I,J,K)
@@ -280,7 +280,7 @@ The figure below shows a semicircle, with diameter $AB$. A tangent line is drawn
 };
 \end{tikzpicture}% 
 
-The following is from the excellent site \textbf{Descartes et les Mathématiques}. I did not modify the text and I am only the author of the programming of the figures.
+The following is from the excellent site \textbf{Descartes et les Mathématiques}. I did not modify the text; I only programmed the figures.
 
 \url{http://debart.pagesperso-orange.fr/seconde/triangle.html}
 
@@ -298,14 +298,14 @@ Bibliography:
 Two statements were proposed, one by the magazine \textit{Tangente} and the other by \textit{Le Monde}.
 
 \vspace*{2cm}
-\emph{Editor of the magazine "Tangente"}: \textcolor{orange}{Two similar isosceles triangles $AXB$ and $BYC$ are constructed with main vertices $X$ and $Y$, such that $A$, $B$ and $C$ are aligned and that these triangles are "indirect". Let $\alpha$ be the angle at vertex $\widehat{AXB}$ = $\widehat{BYC}$. We then construct a third isosceles triangle $XZY$ similar to the first two, with main vertex $Z$ and "indirect".
-We ask to demonstrate that point $Z$ belongs to the straight line $(AC)$.}
+\emph{Editor of the magazine "Tangente"}: \textcolor{orange}{Two similar isosceles triangles $AXB$ and $BYC$ are constructed with main vertices $X$ and $Y$, such that $A$, $B$ and $C$ are aligned and that these triangles are "indirect". Let $\alpha$ be the vertex angle $\widehat{AXB}$ = $\widehat{BYC}$. We then construct a third isosceles triangle $XZY$, similar to the first two, with main vertex $Z$ and "indirect".
+Prove that the point $Z$ lies on the straight line $(AC)$.}
 
 \vspace*{2cm}
-\emph{Editor of  "Le Monde"}: \textcolor{orange}{We construct two similar isosceles triangles $AXB$ and $BYC$ with principal vertices $X$ and $Y$, such that $A$, $B$ and $C$ are aligned and that these triangles are "indirect". Let $\alpha$ be the angle at vertex $\widehat{AXB}$ = $\widehat{BYC}$. The point Z of the line segment $[AC]$ is equidistant from the two vertices $X$ and $Y$.\\
-At what angle does he see these two vertices?}
+\emph{Editor of  "Le Monde"}: \textcolor{orange}{We construct two similar isosceles triangles $AXB$ and $BYC$ with principal vertices $X$ and $Y$, such that $A$, $B$ and $C$ are aligned and that these triangles are "indirect". Let $\alpha$ be the vertex angle $\widehat{AXB}$ = $\widehat{BYC}$. The point $Z$ of the segment $[AC]$ is equidistant from the two vertices $X$ and $Y$.\\
+At what angle does it see these two vertices?}
 
-\vspace*{2cm} The constructions and their associated codes are on the next two pages, but you can search before looking. The programming respects (it seems to me ...) my reasoning in both cases.
+\vspace*{2cm} The constructions and their codes are on the next two pages, but you can search before looking. In both cases, the programming follows my reasoning (I think...).
 
 \subsection{Revised version of "Tangente"}
 \begin{tkzexample}[]
@@ -492,7 +492,7 @@ The three altitudes of a triangle intersect at the same H-point.
   \end{tikzpicture}
 \end{tkzexample}
 
-In the triangle $ABC$ 
+In the triangle $ABC$:
 
 \begin{equation}
 \frac{a}{\sin A} = \frac{b}{\sin B} =\frac{c}{\sin C}
@@ -666,7 +666,7 @@ Weisstein, Eric W. "Flower of Life." From MathWorld--A Wolfram Web Resource.\\ \
  \tkzDefTriangle[equilateral](A,B)\tkzGetPoint{C}
  \tkzDefTriangleCenter[centroid](A,B,C) 
  \tkzGetPoint{I}
- \tkzDefPointsBy[rotation= center I%
+ \tkzDefPointsBy[rotation= center I
                  angle 60](A,B,C){a,b,c}
  \tkzDrawPolygon[fill=teal!20,opacity=.5](A,B,C)
  \tkzDrawPolygon[fill=purple!20,opacity=.5](a,b,c)
@@ -849,7 +849,7 @@ Weisstein, Eric W. "Flower of Life." From MathWorld--A Wolfram Web Resource.\\ \
 \begin{tikzpicture}
 \node [mybox,title={Tangent lines to two circles with radical axis}] (box){%
 \begin{minipage}{0.90\textwidth}
-  {\emph{This example involves determining the middle of a segment, using only a compass.}}
+  {\emph{This example involves determining the midpoint of a segment, using only a compass.}}
 \end{minipage}
 };
 \end{tikzpicture}%
@@ -889,10 +889,10 @@ Weisstein, Eric W. "Flower of Life." From MathWorld--A Wolfram Web Resource.\\ \
 
 Explanation
 
-A circle is the set of points in a plane that are equidistant from a given point O. The distance r from the center is called the radius, and the point O is called the center. It is the simplest definition but it is not the only one. Apollonius of Perga gives another definition :
+A circle is the set of points of a plane that are equidistant from a given point $O$. The distance $r$ from the center is called the radius, and the point $O$ is called the center. It is the simplest definition but it is not the only one. Apollonius of Perga gives another definition:
 The set of all points whose distances from two fixed points are in a constant ratio is a circle.
 
-With \pkg{tkz-euclide} is easy to show you the last definition
+With \pkg{tkz-euclide} it is easy to illustrate the last definition.
 
 \begin{tkzexample}[vbox, small]
 \begin{tikzpicture}[scale=1.5]
@@ -915,7 +915,7 @@ With \pkg{tkz-euclide} is easy to show you the last definition
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsection{Application of Inversion : \tkzname{Pappus chain} }\label{pappus}
+\subsection{Application of Inversion: \tkzname{Pappus chain} }\label{pappus}
 \begin{tikzpicture}
 \node [mybox,title={Pappus chain}] (box){%
 \begin{minipage}{0.90\textwidth}
@@ -969,10 +969,10 @@ From Wikipedia  {\emph{In geometry, the Pappus chain is a ring of circles betwee
   \end{tikzpicture}
 \end{tkzexample}
 
-$(CD) \parallel (EF)$ $(AO_1)$ is secant to these two lines so
-$\widehat{A0_2C} = \widehat{A0_1E}$.
+$(CD) \parallel (EF)$ and $(AO_1)$ intersects these two lines, so
+$\widehat{AO_2C} = \widehat{AO_1E}$.
 
-Since the triangles $AO_2C$ and $AO_1E$ are isosceles the angles at the base are equal $widehat{AC0_2} = \widehat{AE0_1} = \widehat{CA0_2} = \widehat{EA0_1}$. Thus $A$,$C$ and $E$ are aligned
+Since the triangles $AO_2C$ and $AO_1E$ are isosceles, their base angles are equal: $\widehat{ACO_2} = \widehat{AEO_1} = \widehat{CAO_2} = \widehat{EAO_1}$. Thus $A$, $C$ and $E$ are aligned.
 
 \subsection{Archimedes, Book of Lemmas, Proposition 6}
 \begin{tikzpicture}
@@ -1024,10 +1024,10 @@ Since the triangles $AO_2C$ and $AO_1E$ are isosceles the angles at the base are
 
 Let $GH$ be the diameter of the circle which is parallel to $AC$, and let the circle touch the semicircles on $AC$, $AB$, $BC$ in $D$, $E$, $F$ respectively.
 
-Then, by Prop. 1 $A$,$G$ and $D$ are aligned, ainsi que $D$, $H$ and $C$.\\
- For a like reason $A$ $E$ and $H$ are aligned, $C$ $F$ and $G$are aligned, as also are $B$ $E$ and $G$, $B$ $F$ and $H$.
+Then, by Prop.~1, $A$, $G$ and $D$ are aligned, as well as $D$, $H$ and $C$.\\
+ For the same reason, $A$, $E$ and $H$ are aligned, $C$, $F$ and $G$ are aligned, and so are $B$, $E$, $G$ and $B$, $F$, $H$.
  
-Let $(AD)$ meet the semicircle on $[AC]$ at $I$, and let $(BD)$ meet the semicircle on $[BC]$ in $K$. Join CI, CK meeting AE, BF in L, M, and let GL, HM produced meet AB in N, P respectively.
+Let $(AD)$ meet the semicircle on $[AC]$ at $I$, and let $(BD)$ meet the semicircle on $[BC]$ in $K$. Join $CI$ and $CK$, meeting $AE$ and $BF$ in $L$ and $M$, and let $GL$ and $HM$, extended, meet $AB$ in $N$ and $P$ respectively.
 
 Now, in the triangle $AGB$, the perpendiculars from $A$, $C$ on the opposite sides meet in $L$. Therefore by the properties of triangles, $(GN)$ is perpendicular to $(AC)$.
 Similarly $(HP)$ is perpendicular to $(BC)$.\\
@@ -1040,7 +1040,7 @@ hence
 
 \[ \frac{AN}{NP}    =  \frac{NP}{PC} \quad\text{so} \quad {NP}^2 = AN \times PC  \]
 
-Now suppose that $B$ divides $[AC]$ according to the divine proportion that is :
+Now suppose that $B$ divides $[AC]$ in the golden ratio, that is:
 \[\phi = \frac{AB}{BC} =  \frac{AC}{AB} \quad\text{then}  \quad AN = \phi NP \text{and}\quad  NP = \phi PC \]
 
 We have 
@@ -1054,7 +1054,7 @@ as
 \[ {\phi}^2 = \phi + 1 \quad \text{then} \quad (\phi + 1) BC = 2(\phi + 1) PC \quad\text{i.e.}\quad BC = 2 PC \]
 
 That is,
-$p$ is the middle of the segment $BC$.
+$p$ is the midpoint of the segment $BC$.
 
 Part of the proof from \url{https://www.cut-the-knot.org}
 
@@ -1071,11 +1071,11 @@ Part of the proof from \url{https://www.cut-the-knot.org}
 
 Explanation
 
-The purpose of the first  examples was to show the simplicity with which we could recreate these propositions. With TikZ you need to do calculations and use trigonometry while with \pkg{tkz-euclide} you only need to build simple objects
+The purpose of the first examples was to show how simply these propositions can be recreated. With TikZ you need calculations and trigonometry, while with \pkg{tkz-euclide} you only need to build simple objects.
 
-But don't forget that behind or far above \pkg{tkz-euclide} there is TikZ. I'm only creating an interface between TikZ and the user of my package.
+But don't forget that TikZ is behind \pkg{tkz-euclide}, and far above it: I am only creating an interface between TikZ and the users of my package.
 
-The last example is very complex and it is to show you all that we can do with \pkg{tkz-euclide}.
+The last example is very complex; it shows everything that can be done with \pkg{tkz-euclide}.
 
 
 \begin{tkzexample}[vbox,small]

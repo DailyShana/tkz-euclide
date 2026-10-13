@@ -2,7 +2,7 @@
 
 \subsection{Main macro \tkzcname{tkzCompass}} 
 \begin{NewMacroBox}{tkzCompass}{\oarg{local options}\parg{A,B}}%
-This macro allows you to leave a compass trace, i.e. an arc at a designated point. The center must be indicated. Several specific options will modify the appearance of the arc as well as TikZ options such as style, color, line thickness etc.
+This macro allows you to leave a compass mark, i.e. an arc at a designated point. The center must be indicated. Several specific options will modify the appearance of the arc as well as TikZ options such as style, color, line thickness etc.
 
 You can define the length of the arc with the option |length| or the option |delta|.
 
@@ -31,6 +31,8 @@ options             & default & definition                        \\
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{delta}} 
+\tkzname{delta} is an angle in degrees: the mark goes from $-\delta$ to $+\delta$ around the point. Decimal values are accepted. With the default value $0$, the length of the mark is given by the option \tkzname{length}.
+
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture} 
   \tkzDefPoint(0,0){A} 

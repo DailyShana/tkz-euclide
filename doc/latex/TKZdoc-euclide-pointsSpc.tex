@@ -1,11 +1,11 @@
-Now that the fixed points are defined, we can with their references using macros from the package or macros that you will create get new points. The calculations may not be apparent but they are usually done by the package.
-You may need to use some mathematical constants, here is the list of constants defined by the package.
+Now that the fixed points are defined, we can get new points from their references, with the macros of the package or with macros you create yourself. The calculations are usually done by the package and remain hidden.
+You may need some mathematical constants; here is the list of the constants defined by the package.
 
 
 \section{Auxiliary tools}
 \subsection{Constants}
 
-\tkzname{\tkznameofpack} knows some constants, here is the list:
+\tkzname{\tkznameofpack} knows the following constants:
 \begin{tkzltxexample}[]
   \def\tkzPhi{1.618034}
   \def\tkzInvPhi{0.618034}
@@ -20,7 +20,7 @@ You may need to use some mathematical constants, here is the list of constants d
 
 \subsection{New point by calculation}
 
-When a macro of \tkzname{tkznameofpack} creates a new point, it is stored internally with the reference \tkzname{tkzPointResult}. You can assign your own reference to it. This is done with the macro \tkzcname{tkzGetPoint}. A new reference is created, your choice of reference must be placed between braces.
+When a macro of \tkzname{\tkznameofpack} creates a new point, it is stored internally with the reference \tkzname{tkzPointResult}. You can give it your own reference with the macro \tkzcname{tkzGetPoint}; the new reference is placed between braces.
 
 \begin{NewMacroBox}{tkzGetPoint}{\marg{ref}}%
 If the result is in \tkzname{tkzPointResult}, you can access it with \tkzcname{tkzGetPoint}.
@@ -34,10 +34,10 @@ arguments & default & example \\
 \end{tabular}
 \end{NewMacroBox}
 
-Sometimes you need to get two points. It's possible with
+Sometimes you need to get two points. This is done with
 
 \begin{NewMacroBox}{tkzGetPoints}{\marg{ref1}\marg{ref2}}%
-The result is in \tkzname{tkzPointFirstResult} and \tkzname{tkzPointSecondResult}.
+The results are in \tkzname{tkzFirstPointResult} and \tkzname{tkzSecondPointResult}.
 
  \medskip
 \begin{tabular}{lll}%
@@ -48,7 +48,7 @@ arguments & default & example \\
 \end{tabular}
 \end{NewMacroBox}
 
-If you need only the first or the second point you can also use :
+If you only need the first or the second point, you can also use:
 
 \begin{NewMacroBox}{tkzGetFirstPoint}{\marg{ref1}}%
 
@@ -91,8 +91,8 @@ arguments & default & example \\
 \section{Special points}
 Here are some special points.
 %<--------------------------------------------------------------------------->
-\subsection{Middle of a segment \tkzcname{tkzDefMidPoint}}
-It is a question of determining the middle of a segment.
+\subsection{Midpoint of a segment \tkzcname{tkzDefMidPoint}}
+This macro defines the midpoint of a segment.
 
 \begin{NewMacroBox}{tkzDefMidPoint}{\parg{pt1,pt2}}%
 The result is in \tkzname{tkzPointResult}. We can access it with \tkzcname{tkzGetPoint}.
@@ -107,7 +107,7 @@ arguments & default & definition \\
 \end{NewMacroBox}
 
 \subsubsection{Use of \tkzcname{tkzDefMidPoint}}
-Review the use of \tkzcname{tkzDefPoint}.
+See also the use of \tkzcname{tkzDefPoint}.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=1]
  \tkzDefPoint(2,3){A}
@@ -121,12 +121,12 @@ Review the use of \tkzcname{tkzDefPoint}.
 \end{tkzexample}
 
 \subsection{\tkzname{Golden ratio} \tkzcname{tkzDefGoldenRatio}}
-From Wikipedia : In mathematics, two quantities are in the golden ratio if their ratio is the same as the ratio of their sum to the larger of the two quantities. Expressed algebraically, for quantities $a$, $b$ such as $a > b > 0$; $a+b$ is to $a$ as $a$ is to $b$.
+From Wikipedia: In mathematics, two quantities are in the golden ratio if their ratio is the same as the ratio of their sum to the larger of the two quantities. Expressed algebraically, for quantities $a$ and $b$ such that $a > b > 0$, $a+b$ is to $a$ as $a$ is to $b$.
 
 $ \frac{a+b}{a} = \frac{a}{b} = \phi = \frac{1 + \sqrt{5}}{2}$
 
 
-One of the two solutions to the equation $x^2 - x - 1 = 0$
+One of the two solutions of the equation $x^2 - x - 1 = 0$
 is the golden ratio $\phi$, $\phi = \frac{1 + \sqrt{5}}{2}$.
 
 \begin{NewMacroBox}{tkzDefGoldenRatio}{\parg{pt1,pt2}}%
@@ -167,16 +167,16 @@ $AB=a$, $BC=b$ and $\dfrac{AC}{AB} = \dfrac{AB}{BC} =\phi$
 \end{tikzpicture}
 \end{tkzexample}
 
-It is also possible to use the following macro.
+You can also use the following macro.
 \subsection{\tkzname{Barycentric coordinates} with \tkzcname{tkzDefBarycentricPoint}}
 
-$pt_1$, $pt_2$, \dots, $pt_n$ being $n$ points, they define $n$ vectors $\overrightarrow{v_1}$, $\overrightarrow{v_2}$, \dots, $\overrightarrow{v_n}$ with the origin of the referential as the common endpoint. $\alpha_1$, $\alpha_2$,
-\dots $\alpha_n$ are $n$ numbers, the vector obtained by:
+$n$ points $pt_1$, $pt_2$, \dots, $pt_n$ define $n$ vectors $\overrightarrow{v_1}$, $\overrightarrow{v_2}$, \dots, $\overrightarrow{v_n}$ with the origin as common starting point. $\alpha_1$, $\alpha_2$,
+\dots, $\alpha_n$ are $n$ numbers; the vector
 \begin{align*}
   \frac{\alpha_1 \overrightarrow{v_1} + \alpha_2 \overrightarrow{v_2} + \cdots + \alpha_n \overrightarrow{v_n}}{\alpha_1
     + \alpha_2 + \cdots + \alpha_n}
 \end{align*}
-defines a single point.
+defines a unique point.
 
 \begin{NewMacroBox}{tkzDefBarycentricPoint}{\parg{pt1=$\alpha_1$,pt2=$\alpha_2$,\dots}}%
 \begin{tabular}{lll}%
@@ -192,7 +192,7 @@ arguments & default & definition \\
 
 
 \subsubsection{With two points}
-In the following example, we obtain the barycenter of points $A$ and $B$ with coefficients $1$ and $2$, in other words:
+In the following example, we get the barycenter of the points $A$ and $B$ with the coefficients $1$ and $2$, in other words:
 \[
   \overrightarrow{AI}= \frac{2}{3}\overrightarrow{AB}
 \]
@@ -210,9 +210,9 @@ In the following example, we obtain the barycenter of points $A$ and $B$ with co
 \end{tkzexample}
 
 \subsubsection{With three points}
-This time $M$ is simply the center of gravity of the triangle.
+This time $M$ is simply the centroid of the triangle.
 
- For reasons of simplification and homogeneity, there is also \tkzcname{tkzCentroid}.
+ For simplicity and consistency, there is also \tkzcname{tkzCentroid}.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.8]
   \tkzDefPoints{2/1/A,5/3/B,0/6/C}
@@ -234,7 +234,7 @@ This time $M$ is simply the center of gravity of the triangle.
 
 
 \subsection{Internal and external similitude centers: \tkzcname{tkzDefSimilitudeCenter}}
-The centers of the two homotheties in which two circles correspond are called external and internal centers of similitude. You can use \tkzcname{tkzDefIntSimilitudeCenter} and \tkzcname{tkzDefExtSimilitudeCenter} but the next macro is better.
+The centers of the two homotheties that map one circle onto another are called the external and internal centers of similitude. You can use \tkzcname{tkzDefIntSimilitudeCenter} and \tkzcname{tkzDefExtSimilitudeCenter}, but the following macro is better.
 
 \begin{NewMacroBox}{tkzDefSimilitudeCenter}{\oarg{options}\parg{O,A}\parg{O',B}}%
 
@@ -299,7 +299,7 @@ options             & default & definition                         \\
 
 % subsubsection d_alembert_theorem (end)
 
-You can  use \tkzcname{tkzDefBarycentricPoint} to find a homothetic center
+You can also use \tkzcname{tkzDefBarycentricPoint} to find a center of homothety:
 
 |\tkzDefBarycentricPoint(O=\r,A=\R)     \tkzGetPoint{I}| \\
 |\tkzDefBarycentricPoint(O={-\r},A=\R)  \tkzGetPoint{J}|
@@ -397,11 +397,11 @@ options             & default & definition  \\
 \TOline{dist} {2 (cm)} {half the distance between the two points}
 \TOline{from=pt} {no default} {reference point}
 \TOline{show} {false} {if true displays compass traces}
-\TOline{/compass/delta} {0} {compass trace size }
+\TOline{/compass/delta} {0} {size of the compass mark}
 \end{tabular}
 
 \medskip
-\emph{This macro makes it possible to obtain two points on a straight line equidistant from a given point.}
+\emph{This macro gives two points of a straight line equidistant from a given point.}
 \end{NewMacroBox}
 
 
@@ -423,7 +423,7 @@ options             & default & definition  \\
 %<---------------------------------------------------------------------->
 %                          Middle of an arc                             >
 %<---------------------------------------------------------------------->
-\subsection{Middle of an arc}
+\subsection{Midpoint of an arc}
 \begin{NewMacroBox}{tkzDefMidArc}{\parg{pt1,pt2,pt3}}%
 \begin{tabular}{lll}%
 arguments &  default & definition \\
@@ -514,7 +514,7 @@ options       & default & definition \\
 
 \subsection{Point on a circle with \tkzcname{tkzDefPointOnCircle}}
 The order of the arguments has changed: now it is center, angle and point or radius.
-I have added two options for working with radians which are \tkzname{through in rad} and \tkzname{R in rad}.
+Two options work with radians: \tkzname{through in rad} and \tkzname{R in rad}.
 
 \begin{NewMacroBox}{tkzDefPointOnCircle}{\oarg{local options}}%
 \begin{tabular}{lll}%
@@ -527,11 +527,11 @@ options   & default & examples definition \\
 \end{tabular}
 
 \medskip
-\emph{The new order for arguments are : center, angle and point or radius.}
+\emph{The order of the arguments is: center, angle, and point or radius.}
 \end{NewMacroBox}
 
 \subsubsection{Altshiller's Theorem}
- The two lines joining the points of intersection of two orthogonal circles to a point on one of the circles met the other circle in two diametricaly oposite points. Altshiller p 176
+ The two lines joining the points of intersection of two orthogonal circles to a point of one of the circles meet the other circle in two diametrically opposite points (Altshiller-Court, p.~176).
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.4]
@@ -579,9 +579,9 @@ options   & default & examples definition \\
 \subsection{Triangle center: \tkzcname{tkzDefTriangleCenter}}
 
 \begin{NewMacroBox}{tkzDefTriangleCenter}{\oarg{local options}\parg{A,B,C}}%
-\tkzHandBomb\ This macro allows you to define the center of a triangle.. Be careful, the arguments are lists of three points. This macro is used in conjunction with \tkzcname{tkzGetPoint} to get the center you are looking for.
+\tkzHandBomb\ This macro defines a center of a triangle. Be careful: the arguments are lists of three points. The macro is used together with \tkzcname{tkzGetPoint} to get the center you are looking for.
 
- You can use \tkzname{tkzPointResult} if it is not necessary to keep the results.
+ You can use \tkzname{tkzPointResult} directly if you don't need to keep the result.
 
 \medskip
 \begin{tabular}{lll}%
@@ -614,7 +614,7 @@ options             & default & definition                         \\
 \end{NewMacroBox}
 
 \subsubsection{Option \tkzname{ortho} or \tkzname{orthic}}
- The intersection $H$ of the three altitudes  of a triangle is called the orthocenter.
+ The intersection $H$ of the three altitudes of a triangle is called the orthocenter.
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}
@@ -666,7 +666,7 @@ The center of the incircle, called the incenter, can be found as the intersectio
 (Article on \href{https://en.wikipedia.org/wiki/Incircle_and_excircles_of_a_triangle}{Wikipedia})
 
  \medskip
- We get the center of the inscribed circle of the triangle. The result is of course in \tkzname{tkzPointResult}. We can retrieve it with \tkzcname{tkzGetPoint}.
+ We get the center of the incircle of the triangle. The result is of course in \tkzname{tkzPointResult}; we retrieve it with \tkzcname{tkzGetPoint}.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -687,7 +687,7 @@ An excircle or escribed circle of the triangle is a circle lying outside the tri
 (Article on \href{https://en.wikipedia.org/wiki/Incircle_and_excircles_of_a_triangle}{Wikipedia})
 
 
- We get the center of an inscribed circle of the triangle. The result is of course in \tkzname{tkzPointResult}. We can retrieve it with \tkzcname{tkzGetPoint}.
+ We get the center of an excircle of the triangle. The result is of course in \tkzname{tkzPointResult}; we retrieve it with \tkzcname{tkzGetPoint}.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -705,7 +705,7 @@ An excircle or escribed circle of the triangle is a circle lying outside the tri
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{euler}}
-This macro allows to obtain the center of the circle of the nine points or euler's circle or Feuerbach's circle. The nine-point circle, also called Euler's circle or the Feuerbach circle, is the circle that passes through the perpendicular feet $H_A$, $H_B$, and $H_C$ dropped from the vertices of any reference triangle $ABC$ on the sides opposite them. Euler showed in 1765 that it also passes through the midpoints $M_A$, $M_B$, $M_C$ of the sides of $ABC$. By Feuerbach's theorem, the nine-point circle also passes through the midpoints $E_A$, $E_B$, and $E_C$ of the segments that join the vertices and the orthocenter $H$. These points are commonly referred to as the Euler points.\\ (\url{https://mathworld.wolfram.com/Nine-PointCircle.html})
+This macro gives the center of the nine-point circle, also called Euler's circle or Feuerbach's circle. The nine-point circle, also called Euler's circle or the Feuerbach circle, is the circle that passes through the perpendicular feet $H_A$, $H_B$, and $H_C$ dropped from the vertices of any reference triangle $ABC$ on the sides opposite them. Euler showed in 1765 that it also passes through the midpoints $M_A$, $M_B$, $M_C$ of the sides of $ABC$. By Feuerbach's theorem, the nine-point circle also passes through the midpoints $E_A$, $E_B$, and $E_C$ of the segments that join the vertices and the orthocenter $H$. These points are commonly referred to as the Euler points.\\ (\url{https://mathworld.wolfram.com/Nine-PointCircle.html})
 
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=1.2,rotate=90]
@@ -789,7 +789,7 @@ The Spieker center is the center $Sp$ of the Spieker circle, i.e., the incenter 
 \subsubsection{Option \tkzname{gergonne}}
 
 The Gergonne Point is the point of concurrency which results from connecting the vertices of a triangle to the opposite points of tangency of the triangle's incircle.
-(Joseph Gergonne French mathematician )
+(Joseph Gergonne, French mathematician.)
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}
@@ -839,7 +839,7 @@ Let $Ta$ be the point at which the excircle with center $Ja$ meets the side $BC$
 
 \subsubsection{Option   \tkzname{mittenpunkt}}
 
-The mittenpunkt (also called the middlespoint) of a triangle $ABC$ is the symmedian point of the excentral triangle, i.e., the point of concurrence M of the lines from the excenters  through the corresponding triangle side midpoints.\\
+The mittenpunkt (also called the middlespoint) of a triangle $ABC$ is the symmedian point of the excentral triangle, i.e., the point of concurrence $M$ of the lines from the excenters through the midpoints of the corresponding sides.\\
 \href{https://mathworld.wolfram.com/Mittenpunkt.html}{Weisstein, Eric W. "Mittenpunkt." From MathWorld--A Wolfram Web Resource.}
 
 
@@ -869,7 +869,7 @@ The mittenpunkt (also called the middlespoint) of a triangle $ABC$ is the symmed
 
 \subsubsection{Relation between  \tkzname{gergonne}, \tkzname{centroid} and \tkzname{mittenpunkt}}
 
-The Gergonne point $Ge$, triangle centroid $G$, and mittenpunkt $M$ are collinear, with  GeG/GM=2.
+The Gergonne point $Ge$, the centroid $G$ and the mittenpunkt $M$ are collinear, with $GeG/GM=2$.
 
 \begin{tkzexample}[vbox,small]
 \begin{tikzpicture}

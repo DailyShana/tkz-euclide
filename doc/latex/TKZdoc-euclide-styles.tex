@@ -1,12 +1,12 @@
 \section{Predefined styles}\label{custom}
-The way to proceed will depend on your use of the package. A method that seems to me to be correct is to use as much as possible predefined styles in order to separate the content from the form. This method will be the right one if you plan to create a document (like this documentation) with many figures. We will see how to define a global style for a document. We will see how to use a style locally.
+How to proceed depends on your use of the package. A good method is to use predefined styles as much as possible, to separate content from form. This is the right method if you plan to create a document with many figures, like this documentation. We will see how to define a global style for a document, and how to use a style locally.
 
-The file \tkzname{tkz-euclide.cfg} contains the predefined styles of the main objects. Among these the most important are points, lines, segments, circles, arcs and compass traces.
- If you always use the same styles and if you create many figures then it is interesting to create your own styles . To do this you need to know what features you can modify. It will be necessary to know some notions of \TIKZ.
+The file \tkzname{tkz-euclide.cfg} contains the predefined styles of the main objects, the most important being points, lines, segments, circles, arcs and compass marks.
+ If you always use the same styles and create many figures, it is worth creating your own styles. To do this, you need to know which features can be modified, and some notions of \TIKZ.
  
- The predefined styles are global styles. They exist before the creation of the figures. It is better to avoid changing them between two figures. On the other hand these styles can be modified in a figure temporarily. There the styles are defined locally and do not influence the other figures.
+ The predefined styles are global: they exist before the figures are created, and it is better not to change them between two figures. On the other hand, they can be modified temporarily inside a figure; they are then defined locally and do not affect the other figures.
  
- For the document you are reading here is how I defined the different styles.
+ Here is how I defined the styles of the document you are reading.
 
 \begin{tkzltxexample}[]
   \tkzSetUpColors[background=white,text=black]  
@@ -17,10 +17,10 @@ The file \tkzname{tkz-euclide.cfg} contains the predefined styles of the main ob
   \tkzSetUpStyle[orange]{new}
 \end{tkzltxexample}
 
-The macro \tkzcname{tkzSetUpColors} allows you to set the background color as well as the text color. If you don't use it, the colors of your document will be used as well as the fonts. Let's see how to define the styles of the main objects.
+The macro \tkzcname{tkzSetUpColors} sets the background color and the text color. If you don't use it, the colors and fonts of your document are used. Let's see how to define the styles of the main objects.
 
 \section{Point style}
-This is how the points  are defined :
+This is how the points are defined:
 \begin{tkzltxexample}[]
 \tikzset{point style/.style = {%
        draw         = \tkz@euc@pointcolor,
@@ -30,7 +30,7 @@ This is how the points  are defined :
        fill         = \tkz@euc@pointcolor}}  
 \end{tkzltxexample}
 
-It is of course possible to use \tkzcname{tikzset} but you can use a macro provided by the package. You can use the macro \tkzcname{tkzSetUpPoint} globally or locally, \\ Let's look at this possibility.
+You can of course use \tkzcname{tikzset}, but the package provides a macro for this: \tkzcname{tkzSetUpPoint}, which can be used globally or locally.
 
 \subsection{Use of \tkzcname{tkzSetUpPoint}}
 
@@ -48,9 +48,9 @@ options &  default & definition                 \\
 
 
 \subsubsection{Global style or local style}
-First of all here is a figure created with the styles of my documentation, then the style of the points is modified within the environment \tkzNameEnv{tikzspicture}. 
+First, here is a figure created with the styles of this documentation; then the style of the points is modified inside the \tkzNameEnv{tikzpicture} environment.
 
-You can use the macro \tkzcname{tkzSetUpPoint} globally or locally, If you place this macro in your preamble or before your first figure then the point style will be valid for all figures in your document. It will be possible to use another style locally by using this command within an environment \tkzNameEnv{tikzpicture}.\\ Let's look at this possibility.
+You can use the macro \tkzcname{tkzSetUpPoint} globally or locally. If you place it in your preamble or before your first figure, the point style is valid for all the figures of your document. You can use another style locally by placing this command inside a \tkzNameEnv{tikzpicture} environment.
 
 
 \begin{tkzexample}[latex=7cm,small]
@@ -64,7 +64,7 @@ You can use the macro \tkzcname{tkzSetUpPoint} globally or locally, If you place
 \end{tkzexample}
 
 \subsubsection{Local style}
-The style of the points is modified locally in the second figure 
+The style of the points is modified locally in the second figure.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
   \tkzSetUpPoint[size=4,color=red,fill=red!20]
@@ -124,9 +124,9 @@ The points get back the initial style. Point D has a new style limited by the en
 
 \section{Line style}
 
-You have several possibilities to change the style of a line. You can modify the style of a line with \tkzcname{tkzSetUpLine} or directly modify the style of the lines with |\tikzset{line style/.style = ... }|
+There are several ways to change the style of a line: with \tkzcname{tkzSetUpLine}, or directly with |\tikzset{line style/.style = ... }|.
 
-Reminder about \tkzname{line width} : There are a number of predefined styles that provide more “natural” ways of setting the line width. You can also redefine these styles.
+Reminder about \tkzname{line width}: There are a number of predefined styles that provide more “natural” ways of setting the line width. You can also redefine these styles.
 
 
 \medskip
@@ -145,13 +145,13 @@ ultra thick   &  1.6 pt \cr
 
 
 \subsection{Use of \tkzcname{tkzSetUpLine}} \label{tkzsetupline}
-It is a macro that allows you to define the style of all the lines.
+This macro defines the style of all the lines.
 
 \begin{NewMacroBox}{tkzSetUpLine}{\oarg{local options}}%
 \begin{tabular}{lll}%
 options &  default & definition                 \\
 \midrule
-\TOline{color}{black}{colour of the construction lines}
+\TOline{color}{black}{color of the construction lines}
 \TOline{line width}{0.4pt}{thickness of the construction lines}
 \TOline{style}{solid}{style of construction lines}
 \TOline{add}{.2 and .2}{changing the length of a line segment}
@@ -232,10 +232,14 @@ options &  default & definition                 \\
 \begin{tabular}{lll}%
 options &  default & definition                 \\
 \midrule
-\TOline{color}{black}{colour of the  lines}
+\TOline{color}{black}{color of the  lines}
 \TOline{line width}{0.4pt}{thickness of the lines}
 \TOline{style}{solid}{style of construction lines}
+\TOline{delta}{0}{extends the arcs by \tkzname{delta} degrees at each end}
 \end{tabular}
+
+\medskip
+Since version 5.14, \tkzname{delta} set with this macro only acts on the arcs drawn by \tkzcname{tkzDrawArc}, \tkzcname{tkzMarkArc} and \tkzcname{tkzLabelArc}; the compass marks have their own \tkzname{delta}, set with \tkzcname{tkzSetUpCompass}.
 \end{NewMacroBox}
 
 \subsubsection{Use of \tkzcname{tkzSetUpArc}}
@@ -265,17 +269,17 @@ options &  default & definition                 \\
 \end{tkzexample}
 
 \section{Compass style}
-The following macro will help to understand the construction of a figure by showing the compass traces necessary to obtain certain points. 
+Compass marks help to understand the construction of a figure, by showing the arcs needed to obtain some points.
 
 \subsection{The macro \tkzcname{tkzSetUpCompass} }
 \begin{NewMacroBox}{tkzSetUpCompass}{\oarg{local options}}%
 \begin{tabular}{lll}%
 options &  default & definition                 \\
 \midrule
-\TOline{color}{black}{colour of the construction lines}
+\TOline{color}{black}{color of the construction lines}
 \TOline{line width}{0.4pt}{thickness of the construction lines}
-\TOline{style}{solid}{style of  lines : solid, dashed,dotted,...}
-\TOline{delta}{0}{changes the length of the arc }
+\TOline{style}{solid}{style of  lines: solid, dashed,dotted,...}
+\TOline{delta}{0}{changes the length of the compass marks}
 \end{tabular}
 \end{NewMacroBox}
 
@@ -322,7 +326,7 @@ options &  default & definition                 \\
 \section{Label style}
 
 \subsection{The macro \tkzcname{tkzSetUpLabel} }
-The macro \tkzcname{tkzSetUpLabel} is used to define the style of the point labels.
+The macro \tkzcname{tkzSetUpLabel} defines the style of the point labels.
 \begin{NewMacroBox}{tkzSetUpStyle}{\oarg{local options}}%
   The options are the same as those of \TIKZ
 \end{NewMacroBox}
@@ -346,7 +350,7 @@ The macro \tkzcname{tkzSetUpLabel} is used to define the style of the point labe
 
 
 \section{Own style}
-You can set  your own style with \tkzcname{tkzSetUpStyle}
+You can define your own style with \tkzcname{tkzSetUpStyle}.
 
 \subsection{The macro \tkzcname{tkzSetUpStyle} }
 \begin{NewMacroBox}{tkzSetUpStyle}{\oarg{local options}}%
@@ -367,18 +371,18 @@ You can set  your own style with \tkzcname{tkzSetUpStyle}
 
 \section{How to use \tkzname{arrows}}
 
-In some countries, arrows are used to indicate the parallelism of lines,
-to represent half-lines or the sides of an angle (rays).
+In some countries, arrows are used to show that lines are parallel,
+or to represent rays, such as the sides of an angle.
 
 Here are some examples of how to place these arrows.
-\tkzname{ tkz-euclide} loads a library called \tkzname{arrows.meta}.
+\tkzname{tkz-euclide} loads the library \tkzname{arrows.meta}.
  
 |\usetikzlibrary{arrows.meta}|
 
-This  library is used to produce different styles of arrow heads. The next examples use some of them. 
+This library provides different styles of arrow tips; the next examples use some of them.
 
 \subsection{Arrows at endpoints on segment, ray or line}
-\tkzname{Stealth}, \tkzname{Triangle}, \tkzname{To}, \tkzname{Latex} and \dots  which can be combined with \tkzname{reversed}. That's easy to place an arrow at one or two endpoints.
+\tkzname{Stealth}, \tkzname{Triangle}, \tkzname{To}, \tkzname{Latex}, \dots, which can be combined with \tkzname{reversed}. It is easy to place an arrow at one or both endpoints.
 
 \begin{enumerate}
 \item \tkzname{-Triangle} and \tkzname{Segment}
@@ -410,7 +414,7 @@ This  library is used to produce different styles of arrow heads. The next examp
       \tkzDrawSegment[To-To](A,B)
     \end{tikzpicture}
   \end{tkzexample}
-\item \tkzname{Latex-Late}  and \tkzname{Segment}
+\item \tkzname{Latex-Latex} and \tkzname{Segment}
   \begin{tkzexample}[latex=6cm,small]
     \begin{tikzpicture}
       \tkzDefPoints{0/0/A,4/0/B}
@@ -455,7 +459,7 @@ You can redefine this style.
   
 \subsection{Arrows on  middle point of a line segment}
 
-Arrows on lines are used to indicate that those lines are parallel. It depends on the country, in France we prefer to indicate outside the figure that $(A,B) \parallel (D,C)$. The code is an adaptation of an answer by \tkzname{Muzimuzhi Z} on the site \href{https://tex.stackexchange.com/questions/632596/how-to-manage-argument-pattern-keys-and-subways}{tex.stackexchange.com}.
+Arrows on lines indicate that the lines are parallel. This depends on the country: in France we prefer to write outside the figure that $(AB) \parallel (DC)$. The code is an adaptation of an answer by \tkzname{Muzimuzhi Z} on the site \href{https://tex.stackexchange.com/questions/632596/how-to-manage-argument-pattern-keys-and-subways}{tex.stackexchange.com}.
 
 \medskip
  Syntax: \\
@@ -500,7 +504,7 @@ Example usages: \\
 \end{tkzexample}
 
 \subsubsection{Arrow on a circle}
-It is possible to place an arrow on the first quarter of a circle. A rotation allows you to move the arrow.
+You can place an arrow on the first quarter of a circle; a rotation moves the arrow.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
 \tkzDefPoints{0/0/A,3/0/B} 
@@ -511,13 +515,13 @@ It is possible to place an arrow on the first quarter of a circle. A rotation al
 \end{tkzexample}
 
 \subsection{Arrows on  all segments of a polygon}
-Some users of my package have asked me to be able to place an arrow on each side of a polygon. I used a style proposed by Paul Gaborit on the site 
+Some users asked me for a way to place an arrow on each side of a polygon. I used a style proposed by Paul Gaborit on the site
 \href{https://tex.stackexchange.com/questions/3161/tikz-how-to-draw-an-arrow-in-the-middle-of-the-line}{tex.stackexchange.com}.
 
 |\tikzset{tkz arrows/.style=|\\
 |{postaction={on each path={tkz arrow={Latex[scale=2,color=black]}}}}}|   
 
-You can change this style. With \tkzname{tkz arrows} you can an arrow on each segment of a polygon
+You can change this style. With \tkzname{tkz arrows} you can place an arrow on each segment of a polygon.
 
 \subsubsection{Arrow on each segment with \tkzname{tkz arrows} }
 \begin{tkzexample}[latex=7cm,small]

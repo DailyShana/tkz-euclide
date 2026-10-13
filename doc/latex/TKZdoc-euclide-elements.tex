@@ -1,34 +1,34 @@
 \section{The Elements of tkz code}
 
-To work with my package, you need to have notions of \LATEX\ as well as \TIKZ.
+To work with this package, you need some knowledge of \LATEX\ and of \TIKZ.
 
-In this paragraph, we start looking at the \code{rules} and \code{symbols} used to create a figure with \tkzname{\tkznameofpack}.
+In this section, we look at the \code{rules} and \code{symbols} used to create a figure with \tkzname{\tkznameofpack}.
 
 \subsection{Objects and language}
 
- The primitive objects are points. You can refer to a point at any time using the name given when defining it. (it is possible to assign a different name later on).
+ The primitive objects are points. You can refer to a point at any time with the name given when it was defined (it is possible to give it another name later).
 
-To get new points you will use macros. \tkzname{\tkznameofpack} macros have a name beginning with tkz. There are four main categories starting with:
+New points are obtained with macros. The names of the \tkzname{\tkznameofpack} macros begin with \code{tkz}. There are four main categories, starting with:
 |\tkzDef...| |\tkzDraw...| |\tkzMark...| and |\tkzLabel...|. 
-The used points are passed as parameters between parentheses while the created points are between braces.
+The points used are passed as arguments between parentheses, while the points created are given between braces.
 
-The code of the figures is placed in an environment \tkzimp{tikzpicture}
+The code of a figure is placed in a \tkzimp{tikzpicture} environment.
 
 
-Contrary to \TIKZ, you should not end a macro with  “;”. We thus lose the important notion which is the \tkzimp{path}. However, it is possible to place some code between the macros \tkzname{\tkznameofpack}.
+Contrary to \TIKZ, a macro must not end with “;”. We thus lose the important notion of \tkzimp{path}. However, you can place some \TIKZ\ code between the \tkzname{\tkznameofpack} macros.
  
 
-Among the first category, |\tkzDefPoint| allows you to define fixed points. It will be studied in detail later. Here we will see in detail the macro  |\tkzDefTriangle|.
+In the first category, |\tkzDefPoint| defines fixed points; it will be studied in detail later. Here we look at the macro |\tkzDefTriangle|.
 
-This macro makes it possible to associate to a pair of points a third point in order to define a certain triangle |\tkzDefTriangle(A,B)|. The obtained point is referenced |tkzPointResult| and it is possible to choose another reference with |\tkzGetPoint{C}| for example.
+This macro associates a third point with a pair of points, in order to define a certain triangle: |\tkzDefTriangle(A,B)|. The point obtained is referenced |tkzPointResult|, and you can choose another reference, for example with |\tkzGetPoint{C}|.
 
 |\tkzDefTriangle[euclid](A,B) \tkzGetPoint{C}|
 
-Parentheses are used to pass arguments. In |(A,B)| $A$ and $B$ are the points with which a third will be defined. However, in |{C}| we use braces to retrieve the new point.
+Parentheses are used to pass arguments: in |(A,B)|, $A$ and $B$ are the points from which a third one will be defined. In |{C}|, braces are used to retrieve the new point.
 
-In order to choose a certain type of triangle among the following choices:
+To choose a type of triangle among the following:
   |equilateral|,  |isosceles right|, |half|, |pythagoras|, |school|, |golden or sublime|, |euclid|, |gold|, |cheops|...
- and |two angles| you just have to choose between hooks, for example:
+ and |two angles|, you just give the option between square brackets, for example:
  
 \begin{minipage}{0.5\textwidth}
   \begin{tikzpicture}[scale=.5]
@@ -61,15 +61,15 @@ In order to choose a certain type of triangle among the following choices:
 
 \subsection{Notations and conventions}
 
-I deliberately chose to use the geometric French and personal  conventions  to describe the geometric objects represented. The objects defined and represented by \tkzname{\tkznameofpack} are points, lines and circles located in a plane. They are the primary objects of Euclidean geometry from which we will construct figures.
+I deliberately chose French geometric conventions, and some personal ones, to describe the objects represented. The objects defined and drawn by \tkzname{\tkznameofpack} are points, lines and circles in a plane. They are the primary objects of Euclidean geometry, from which we construct figures.
 
-According to \tkzimp{Euclid}, these figures will only illustrate pure ideas produced by our brain.
-Thus a point has no dimension and therefore no real existence. In the same way the line has no width and therefore no existence in the real world. The objects that we are going to consider are only representations of ideal mathematical objects. \tkzname{\tkznameofpack} will follow the steps of the ancient Greeks to obtain geometrical constructions using the ruler and the compass. 
+According to \tkzimp{Euclid}, these figures only illustrate pure ideas produced by our mind.
+Thus a point has no dimension and therefore no real existence. In the same way, a line has no width and therefore no existence in the real world. The objects we consider are only representations of ideal mathematical objects. \tkzname{\tkznameofpack} follows the steps of the ancient Greeks to obtain geometric constructions with ruler and compass.
 
-Here are the notations that will be used:
+Here are the notations used:
 
 \begin{itemize}
-\item The points are represented geometrically either by a small disc or by the intersection of two lines (two straight lines, a straight line and a circle or two circles). In this case, the point is represented by a cross. 
+\item Points are represented either by a small disc or by the intersection of two lines (two straight lines, a straight line and a circle, or two circles). In the second case, the point is represented by a cross.
 
 \begin{tkzexample}[latex=6cm, small]     
   \begin{tikzpicture}       
@@ -90,15 +90,15 @@ or else
     \end{tikzpicture}    
     \end{tkzexample}  
 
-The existence of a point being established, we can give it a label which will be a capital letter (with some exceptions) of the Latin alphabet such as $A$, $B$ or $C$. For example:
+Once a point exists, we can give it a label, which is a capital letter of the Latin alphabet (with some exceptions) such as $A$, $B$ or $C$. For example:
 \begin{itemize}
 \item $O$ is a center for a circle, a rotation, etc.;
-\item $M$ defined a midpoint;
-\item $H$ defined the foot of an altitude;
-\item $P'$ is the image of $P$ by a transformation ;
+\item $M$ is a midpoint;
+\item $H$ is the foot of an altitude;
+\item $P'$ is the image of $P$ by a transformation.
 \end{itemize}
 
-It is important to note that the reference name of a point in the code may be different from the label to designate it in the text. So we can define a point A and give it as label $P$. In particular the style will be different, point A will be labeled $A$. 
+Note that the reference name of a point in the code may differ from the label that designates it in the text: we can define a point A and give it the label $P$. The style is also different: the point A is labelled $A$.
 
 \begin{tkzexample}[latex=6cm, small]     
   \begin{tikzpicture}       
@@ -108,45 +108,45 @@ It is important to note that the reference name of a point in the code may be di
   \end{tikzpicture}    
 \end{tkzexample}
 
-Exceptions: some points such as the middle of the sides of a triangle share a characteristic, so it is normal that their names also share a common character. We will designate these points by $M_a$, $M_b$ and $M_c$ or $M_A$, $M_B$ and $M_C$.
+Exceptions: some points, such as the midpoints of the sides of a triangle, share a property, so their names also share a common letter. We designate these points by $M_a$, $M_b$ and $M_c$, or $M_A$, $M_B$ and $M_C$.
 
-In the code, these points will be referred to as: M\_A, M\_B and M\_C.
+In the code, these points are referred to as M\_A, M\_B and M\_C.
 
-Another exception relates to intermediate construction points which will not be labelled. They will often be designated by a lowercase letter in the code.
+Another exception concerns intermediate construction points, which are not labelled. They are often designated by a lowercase letter in the code.
 
-\item The line segments are designated by two points representing their ends in square brackets: $[AB]$. 
+\item Segments are designated by their two endpoints in square brackets: $[AB]$.
 
-\item The straight lines are in Euclidean geometry defined by two points so $A$ and $B$ define the straight line $(AB)$. We can also designate this stright line using the Greek alphabet and name it $(\delta)$ or $(\Delta)$. It is also possible to designate the straight line with lowercase letters such as $d$ and $d'$.
+\item In Euclidean geometry, a straight line is defined by two points: $A$ and $B$ define the line $(AB)$. We can also name a line with a Greek letter, $(\delta)$ or $(\Delta)$, or with a lowercase letter such as $d$ or $d'$.
 
-\item The semi-straight line is designated as follows $[AB)$.
+\item A ray (half-line) is written $[AB)$.
 
-\item Relation between the straight lines. Two perpendicular $(AB)$ and $(CD)$ lines will be written $(AB) \perp (CD)$ and if they are parallel we will write $(AB) \parallelslant (CD)$.
+\item Relations between lines: if $(AB)$ and $(CD)$ are perpendicular we write $(AB) \perp (CD)$, and if they are parallel we write $(AB) \parallelslant (CD)$.
 
-\item The lengths of the sides of triangle ABC are $AB$, $AC$ and $BC$. The numbers are also designated by a lowercase letter so we will write: $AB=c$, $AC=b$ and $BC=a$. The letter $a$ is also used to represent an angle, and $r$ is frequently used to represent a radius, $d$ a diameter, $l$ a length, $d$ a distance.
+\item The lengths of the sides of the triangle $ABC$ are $AB$, $AC$ and $BC$. Numbers are also designated by lowercase letters, so we write $AB=c$, $AC=b$ and $BC=a$. The letter $a$ is also used for an angle; $r$ is often used for a radius, $d$ for a diameter or a distance, $l$ for a length.
 
-\item Polygons are designated afterwards by their vertices so $ABC$ is a triangle, $EFGH$ a quadrilateral.
+\item Polygons are designated by their vertices: $ABC$ is a triangle, $EFGH$ a quadrilateral.
 
-\item Angles are generally measured in degrees (ex $60^\circ$) and in an equilateral $ABC$ triangle we will write $\widehat{ABC}=\widehat{B}=60^\circ$.
+\item Angles are generally measured in degrees (for example $60^\circ$); in an equilateral triangle $ABC$ we write $\widehat{ABC}=\widehat{B}=60^\circ$.
 
-\item The arcs are designated by their extremities. For example if $A$ and $B$ are two points of the same circle then $\widearc{AB}$.
+\item Arcs are designated by their endpoints: if $A$ and $B$ are two points of a circle, we write $\widearc{AB}$.
 
-\item Circles are noted either $\mathcal{C}$ if there is no possible confusion or $\mathcal{C}$ $(O~;~A)$ for a circle with center $O$ and passing through the point $A$ or $\mathcal{C}$ $(O~;~1)$ for a circle with center O and radius 1 cm.
+\item A circle is written $\mathcal{C}$ if there is no possible confusion, $\mathcal{C}$ $(O~;~A)$ for the circle with center $O$ through the point $A$, or $\mathcal{C}$ $(O~;~1)$ for the circle with center $O$ and radius 1 cm.
 
-\item  Name of the particular lines of a triangle: I used the terms bisector, bisector out, mediator (sometimes called perpendicular bisectors), altitude, median and symmedian.
+\item Names of the special lines of a triangle: I use the terms bisector, bisector out (external bisector), mediator (usually called perpendicular bisector), altitude, median and symmedian.
 
-\item ($x_1$,$y_1$) coordinates of the point $A_1$, ($x_A$,$y_A$) coordinates of the point $A$.
+\item ($x_1$,$y_1$) are the coordinates of the point $A_1$, ($x_A$,$y_A$) those of the point $A$.
 \end{itemize}
 
 \subsection{\tkzname{Set, Calculate, Draw, Mark, Label}}
-The title could have been: \texttt{Separation of Calculus and Drawings}
+This section could also have been called \texttt{Separation of calculations and drawings}.
 
-When a document is prepared using the \LATEX\ system, the source code of the document can be divided into two parts: the document body and the preamble.
-Under this methodology,  publications can be structured, styled and typeset with minimal effort.
-I propose a similar methodology for creating figures with \tkzname{\tkznameofpack}.
+When a document is prepared with \LATEX, its source code is divided into two parts: the preamble and the body of the document.
+With this method, documents can be structured, styled and typeset with minimal effort.
+I propose a similar method to create figures with \tkzname{\tkznameofpack}.
 
-The first part defines the fixed points, the second part allows the creation of new points. \tkzname{Set and Calculate} are the two main parts. All that is left to do is to draw (or fill), mark and label. It is possible that \tkzname{\tkznameofpack} is insufficient for some of these latter actions but you can use \TIKZ
+The first part defines the fixed points, the second one creates new points: \tkzname{Set and Calculate} are the two main parts. Then all that is left to do is to draw (or fill), mark and label. \tkzname{\tkznameofpack} may be insufficient for some of these last actions, but you can always use \TIKZ.
 
-One last remark that I think is important, it is best to avoid introducing coordinates within a code as much as possible. I think that the coordinates should appear at the beginning of the code with the fixed points. Then the use of references is recommended. Most macros have the option \tkzname{nodes} or \tkzname{with nodes}.
+One last remark, which I think is important: avoid coordinates in the code as much as possible. Coordinates should only appear at the beginning, with the fixed points; after that, use the references of the points. Most macros have the option \tkzname{nodes} or \tkzname{with nodes}.
 
-I also think it's best to define the styles of the different objects from the beginning.
+It is also best to define the styles of the different objects at the beginning.
 \endinput

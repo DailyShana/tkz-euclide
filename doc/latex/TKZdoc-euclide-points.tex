@@ -2,11 +2,11 @@
 
 The first step in a geometric construction is to define the fixed points from which the figure will be constructed.
 
-The general idea is to avoid manipulating coordinates and to prefer to use the references of the points fixed in the first step or obtained using the tools provided by the package. Even if it's possible, I think it's a bad idea to work directly with coordinates. Preferable is to use named points.
+The general idea is to avoid manipulating coordinates, and to use instead the references of the points fixed in the first step or obtained with the tools of the package. Even if it is possible, I think it's a bad idea to work directly with coordinates: it is better to use named points.
 
-\tkzname{\tkznameofpack} uses macros and vocabulary specific to geometric construction. It is of course possible to use the tools of \TIKZ\ but it seems more logical to me not to mix the different syntaxes.
+\tkzname{\tkznameofpack} uses macros and a vocabulary specific to geometric construction. You can of course use the tools of \TIKZ, but it seems more logical to me not to mix the two syntaxes.
 
-A point in \tkzname{\tkznameofpack} is a particular \code{node} for \TIKZ. In the next section we will see how to define points using coordinates. The style of the points (color and shape) will not be discussed. You will find some indications in some examples; for more information you can read the following section \ref{custom}.
+For \TIKZ, a point of \tkzname{\tkznameofpack} is a particular \code{node}. In the next section we will see how to define points with coordinates. The style of the points (color and shape) is not discussed here: you will find some indications in the examples, and more information in section \ref{custom}.
 
 
 \section{Definition of a point: \tkzcname{tkzDefPoint} or \tkzcname{tkzDefPoints}}
@@ -20,21 +20,21 @@ A point in \tkzname{\tkznameofpack} is a particular \code{node} for \TIKZ. In th
 \end{itemize}
 
 
-A point is defined if it has a name linked to a unique pair of decimal numbers. 
- Let $(x,y)$ or $(a:d)$  i.e. ($x$ abscissa, $y$ ordinate) or  ($a$ angle: $d$ distance).
- This is possible because the plan has been provided with an orthonormed Cartesian coordinate system.   The working axes are  (ortho)normed with unity equal to $1$~cm.
+A point is defined when its name is linked to a unique pair of decimal numbers:
+ $(x,y)$ ($x$ abscissa, $y$ ordinate) or $(a:d)$ ($a$ angle, $d$ distance).
+ This is possible because the plane is given an orthonormal Cartesian coordinate system, whose unit is $1$~cm.
  
  The Cartesian coordinate $(a,b)$ refers to the
  point $a$ centimeters in the $x$-direction and $b$ centimeters in the
  $y$-direction.
 
  A point in polar coordinates requires an angle $\alpha$, in degrees,
- and a distance  $d$ from the origin with a dimensional
- unit by default it's the \texttt{cm}.
+ and a distance $d$ from the origin; the default unit
+ is the \texttt{cm}.
  
- The \tkzNameMacro{tkzDefPoint} macro is used to define a point by assigning coordinates to it. This macro is based on 
+ The macro \tkzNameMacro{tkzDefPoint} defines a point by assigning coordinates to it. This macro is based on
  
- \tkzNameMacro{coordinate}, a macro of \TIKZ. It can use \TIKZ-specific options such as \tkzname{shift}. If calculations are required then the \tkzNamePack{xfp} package is chosen. We can use Cartesian or polar coordinates.
+ \tkzNameMacro{coordinate}, a macro of \TIKZ, and accepts \TIKZ\ options such as \tkzname{shift}. Calculations are done with the package \tkzNamePack{xfp}. We can use Cartesian or polar coordinates.
  
 \begin{minipage}[t]{0.48\textwidth}
  Cartesian coordinates 
@@ -129,7 +129,7 @@ arguments &  default & definition  \\
 \end{tabular}
 
 \medskip
-\emph{The obligatory arguments of this macro are two dimensions expressed with decimals, in the first case they are two measures of length, in the second case they are a measure of length and the measure of an angle in degrees. Do not confuse the reference with the name of a point. The reference is used by calculations, but frequently, the name is identical to the reference.}
+\emph{The mandatory arguments of this macro are two decimal numbers: in the first case two lengths, in the second case an angle in degrees and a length. Do not confuse the reference of a point with its name: the reference is used by the calculations, but the name is frequently identical to the reference.}
 
 \medskip
 \begin{tabular}{lll}%
@@ -218,7 +218,7 @@ options &  default & definition \\
 \end{NewMacroBox}
 
 \subsubsection{Isosceles triangle}
-This macro allows you to place one point relative to another. This is equivalent to a translation. Here is how to construct an isosceles triangle with main vertex $A$ and angle at vertex of $30^{\circ} $.
+This macro places a point relative to another one; it is equivalent to a translation. Here is how to construct an isosceles triangle with main vertex $A$ and an angle of $30^{\circ}$ at this vertex.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[rotate=-30]
@@ -234,7 +234,7 @@ This macro allows you to place one point relative to another. This is equivalent
 \end{tkzexample}
 
 \subsubsection{Equilateral triangle}
-Let's see how to get an equilateral triangle (there is much simpler)
+Let's see how to get an equilateral triangle (there is a much simpler way, see \tkzcname{tkzDefTriangle}).
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=1]
@@ -250,7 +250,7 @@ Let's see how to get an equilateral triangle (there is much simpler)
 \end{tkzexample}
 
 \subsubsection{Parallelogram}
-There's a simpler way
+There is a simpler way, see \tkzcname{tkzDefParallelogram}.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
  \tkzDefPoint(0,0){A}
@@ -264,8 +264,8 @@ There's a simpler way
 
 \subsection{Definition of multiple points: \tkzcname{tkzDefPoints}}
 
-\begin{NewMacroBox}{tkzDefPoints}{\oarg{local options}\marg{$x_1/y_1/n_1,x_2/y_2/r_2$, ...}}%
-$x_i$ and $y_i$ are the coordinates of a referenced point $r_i$
+\begin{NewMacroBox}{tkzDefPoints}{\oarg{local options}\marg{$x_1/y_1/r_1,x_2/y_2/r_2$, ...}}%
+$x_i$ and $y_i$ are the coordinates of the point with reference $r_i$.
 
 \begin{tabular}{lll}%
 \toprule

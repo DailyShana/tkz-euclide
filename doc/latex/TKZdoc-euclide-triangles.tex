@@ -1,26 +1,28 @@
 \section{Triangles}
 
 \subsection{Definition of triangles \tkzcname{tkzDefTriangle}}
-The following macros will allow you to define or construct a triangle from \tkzname{at least} two points.
+The following macros define or construct a triangle from \tkzname{at least} two points.
 
- At the moment, it is possible to define the following triangles:
+ The following triangles can be defined:
  \begin{itemize}
 \item  \tkzname{two angles}  determines a triangle with two angles;
 \item  \tkzname{equilateral}  determines an equilateral triangle;
-\item  \tkzname{isosceles right}  determines an isoxsceles right triangle;
-\item \tkzname{half} determines a right-angled triangle such that the ratio of the measurements of the two adjacent sides to the right angle is equal to $2$;
-\item \tkzname{pythagore} determines a right-angled triangle whose side measurements are proportional to 3, 4 and 5;
-\item \tkzname{school} determines a right-angled triangle whose angles are 30, 60 and 90 degrees;
-\item \tkzname{golden} determines a right-angled triangle such that the ratio of the measurements on the two adjacent sides to the right angle is equal to $\Phi=1.618034$, I chose "golden triangle" as the denomination because it comes from the golden rectangle and I kept the denomination "gold triangle" or "Euclid's triangle" for the isosceles triangle whose angles at the base are 72 degrees;
+\item  \tkzname{isosceles right}  determines an isosceles right triangle;
+\item \tkzname{half} determines a right triangle whose legs (the two sides of the right angle) are in the ratio $2$;
+\item \tkzname{pythagore} determines a right triangle whose sides are proportional to 3, 4 and 5;
+\item \tkzname{school} determines a right triangle whose angles are 30, 60 and 90 degrees;
+\item \tkzname{golden} (or \tkzname{sublime}) determines the golden triangle: an isosceles triangle whose base is $[AB]$ and whose base angles are 72 degrees;
 
-\item  \tkzname{euclid} or \tkzname{gold} for the gold triangle; in the previous version the option was "euclide" with an "e".
+\item \tkzname{euclid} determines Euclid's triangle, which has the same angles but whose side is $[AB]$ (36 degrees at $A$); in previous versions the option was "euclide" with an "e";
 
-\item \tkzname{cheops} determines a third point such that the triangle is isosceles with side measurements proportional to $2$, $\Phi$ and $\Phi$.
+\item \tkzname{gold} determines a right triangle, with the right angle at $B$, whose legs are in the ratio $\Phi=1.618034$: $AB/BC=\Phi$. This triangle comes from the golden rectangle.
+
+\item \tkzname{cheops} determines a third point such that the triangle is isosceles, with sides proportional to $2$, $\Phi$ and $\Phi$.
 \end{itemize}
 
 \newpage
 \begin{NewMacroBox}{tkzDefTriangle}{\oarg{local options}\parg{A,B}}%
-The points are ordered because the triangle is constructed following the direct direction of the trigonometric circle. This macro is either used in partnership with \tkzcname{tkzGetPoint} or by using \tkzname{tkzPointResult} if it is not necessary to keep the name.
+The order of the points matters, because the triangle is constructed counterclockwise. The macro is used either with \tkzcname{tkzGetPoint}, or directly with \tkzname{tkzPointResult} if you don't need to keep the point.
 
 \medskip
 \begin{tabular}{lll}%
@@ -45,7 +47,7 @@ options             & default & definition                        \\
 \end{tabular}
 
 \medskip
-\emph{\tkzcname{tkzGetPoint} allows you to store the point otherwise \tkzname{tkzPointResult} allows for immediate use.}
+\emph{\tkzcname{tkzGetPoint} stores the point; otherwise \tkzname{tkzPointResult} can be used immediately.}
 \end{NewMacroBox}
 
 \subsubsection{Option \tkzname{equilateral}}
@@ -153,7 +155,7 @@ This triangle has sides whose lengths are proportional to 3, 4 and 5.
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{euclid}}
-\tkzimp{Euclid} and \tkzimp{golden} are identical but the segment AB is a base in one and a side in the other. 
+The \tkzimp{euclid} and \tkzimp{golden} triangles have the same shape, but the segment $[AB]$ is a side in the first one and the base in the second one.
 
 \begin{tkzexample}[latex=7 cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -195,17 +197,17 @@ This triangle has sides whose lengths are proportional to 3, 4 and 5.
  \tkzLabelPoints[above](A,B) 
  \tkzLabelPoints[below](C)
  \tkzMarkRightAngle(A,B,C)
- \tkzText(0,-2){$\dfrac{AC}{AB}=\varphi$}
+ \tkzText(0,-2){$\dfrac{AB}{BC}=\varphi$}
 \end{tikzpicture}
 \end{tkzexample}
 
 \clearpage
 \subsection{Specific triangles with \tkzcname{tkzDefSpcTriangle}}
 
-The centers of some triangles have been defined in the "points" section, here it is a question of determining the three vertices of specific triangles.
+The centers of some triangles have been defined in the section on special points; here we determine the three vertices of specific triangles.
 
 \begin{NewMacroBox}{tkzDefSpcTriangle}{\oarg{local options}\parg{p1,p2,p3}\marg{r1,r2,r3}}
-The order of the points is important! p1p2p3 defines a triangle then the result is a triangle whose vertices have as reference a combination with \tkzname{name} and r1,r2, r3. If \tkzname{name} is empty then the references are  r1,r2 and r3.
+The order of the points is important! p1p2p3 defines a triangle; the result is a triangle whose vertices have as references \tkzname{name} followed by r1, r2 and r3. If \tkzname{name} is empty, the references are r1, r2 and r3.
 
 \medskip
 \begin{tabular}{lll}%
@@ -233,17 +235,17 @@ options             & default & definition                        \\
 
 With \tkzcname{tkzDefSpcTriangle[medial,name=M](A,B,C)\{\_A,\_B,\_C\}} you get three vertices named $M_A$, $M_B$ and $M_C$.
 
-With \tkzcname{tkzDefSpcTriangle[medial](A,B,C)\{a,b,c\}} you get three vertices named and labeled $a$, $b$ and $c$.
+With \tkzcname{tkzDefSpcTriangle[medial](A,B,C)\{a,b,c\}} you get three vertices named $a$, $b$ and $c$.
 
-Possible \tkzcname{tkzDefSpcTriangle[medial,name=M\_](A,B,C)\{A,B,C\}} you get three vertices named $M_A$, $M_B$ and $M_C$.
+With \tkzcname{tkzDefSpcTriangle[medial,name=M\_](A,B,C)\{A,B,C\}} you also get three vertices named $M_A$, $M_B$ and $M_C$.
 
 \subsubsection{Option \tkzname{medial} or \tkzname{centroid}}
-The geometric centroid  of the polygon vertices of a triangle is the point $G$ (sometimes also denoted $M$) which is also the intersection of the triangle's three triangle medians. The point is therefore sometimes called the median point. The centroid is always in the interior of the triangle.
+The centroid of a triangle is the point $G$ (sometimes also denoted $M$) where the three medians of the triangle meet; it is therefore sometimes called the median point. The centroid always lies inside the triangle.
 \\
 
 \href{http://mathworld.wolfram.com/TriangleCentroid.html}{Weisstein, Eric W. "Centroid triangle" From MathWorld--A Wolfram Web Resource.}
 
-In the following example, we obtain the Euler circle which passes through the previously defined points.
+In the following example, we get the Euler circle, which passes through the points defined above.
 
 \begin{tkzexample}[latex=7cm,small]
   \begin{tikzpicture}[rotate=90,scale=.75]
@@ -312,10 +314,10 @@ The excentral triangle of a triangle $ABC$ is the triangle $J_aJ_bJ_c$ with vert
 
 
 \subsubsection{Option \tkzname{intouch} or \tkzname{contact}}
-The contact triangle of a triangle $ABC$, also called the intouch triangle, is the triangle  formed by the points of tangency of the incircle of $ABC$ with $ABC$.\\
+The contact triangle of a triangle $ABC$, also called the intouch triangle, is the triangle formed by the points of tangency of the incircle of $ABC$ with its sides.\\
 \href{http://mathworld.wolfram.com/ContactTriangle.html}{Weisstein, Eric W. "Contact triangle" From MathWorld--A Wolfram Web Resource.}
 
-We obtain the intersections of the bisectors with the sides.
+We get the points where the incircle touches the sides.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
  \tkzDefPoints{0/0/A,6/0/B,0.8/4/C}          
@@ -335,10 +337,10 @@ We obtain the intersections of the bisectors with the sides.
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{extouch}}
-The extouch triangle  $T_aT_bT_c$ is the triangle formed by the points of tangency of a triangle $ABC$ with its excircles $J_a$, $J_b$, and $J_c$. The points  $T_a$, $T_b$, and $T_c$ can also be constructed as the points which bisect the perimeter of $A_1A_2A_3$ starting at $A$, $B$, and $C$.\\
+The extouch triangle $T_aT_bT_c$ is the triangle formed by the points of tangency of the sides of a triangle $ABC$ with its excircles, with centers $J_a$, $J_b$ and $J_c$. The points $T_a$, $T_b$ and $T_c$ can also be constructed as the points which bisect the perimeter of $ABC$ starting at $A$, $B$ and $C$.\\
 \href{http://mathworld.wolfram.com/ExtouchTriangle.html}{Weisstein, Eric W. "Extouch triangle" From MathWorld--A Wolfram Web Resource.}
 
-We obtain the points of contact of the exinscribed circles as well as the triangle formed by the centers of the exinscribed circles.
+We get the points of contact of the excircles, and the triangle formed by the centers of the excircles.
 
 \begin{tkzexample}[latex=8cm,small]
 \begin{tikzpicture}[scale=.7]
@@ -374,7 +376,7 @@ We obtain the points of contact of the exinscribed circles as well as the triang
 
 \subsubsection{Option \tkzname{orthic}}
 
-Given a triangle $ABC$, the triangle $H_AH_BH_C$ whose vertices are endpoints of the altitudes from each of the vertices of ABC is called the orthic triangle, or sometimes the altitude triangle. The three lines $AH_A$, $BH_B$, and $CH_C$ are concurrent at the orthocenter H of ABC.
+Given a triangle $ABC$, the triangle $H_AH_BH_C$ whose vertices are endpoints of the altitudes from each of the vertices of ABC is called the orthic triangle, or sometimes the altitude triangle. The three lines $AH_A$, $BH_B$ and $CH_C$ are concurrent at the orthocenter $H$ of $ABC$.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.75]
@@ -435,7 +437,7 @@ The Feuerbach triangle is the triangle formed by the three points of tangency of
 \end{tkzexample}
 
 \subsubsection{Option   \tkzname{tangential}} 
-The tangential triangle is the triangle $T_aT_bT_c$ formed by the lines tangent to the circumcircle of a given triangle $ABC$ at its vertices. It is therefore antipedal triangle of $ABC$ with respect to the circumcenter $O$.\\ 
+The tangential triangle is the triangle $T_aT_bT_c$ formed by the lines tangent to the circumcircle of a given triangle $ABC$ at its vertices. It is therefore the antipedal triangle of $ABC$ with respect to the circumcenter $O$.\\ 
 \href{http://mathworld.wolfram.com/TangentialTriangle.html}{Weisstein, Eric W. "Tangential Triangle." From MathWorld--A Wolfram Web Resource. }
 
 
@@ -521,7 +523,7 @@ The Euler triangle of a triangle $ABC$ is the triangle $E_AE_BE_C$ whose vertice
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{symmedial}}
-The symmedial triangle$ K_AK_BK_C$ is the triangle whose vertices are the intersection points of the symmedians with the reference triangle $ABC$. 
+The symmedial triangle $K_AK_BK_C$ is the triangle whose vertices are the intersection points of the symmedians with the reference triangle $ABC$. 
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -555,9 +557,9 @@ arguments             & example & explanation                         \\
 \end{NewMacroBox}
 
 \subsubsection{Modification of the \tkzname{school} triangle}
-This triangle is constructed from the segment $[AB]$ on $[A,x)$.
+This triangle is constructed from the segment $[AB]$ on the ray $[Ax)$.
 
-If we want the segment $[AC]$ to be on $[A,x)$, we just have to swap $B$ and $C$.
+If we want the segment $[AC]$ to be on $[Ax)$, we just have to swap $B$ and $C$.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -574,6 +576,6 @@ If we want the segment $[AC]$ to be on $[A,x)$, we just have to swap $B$ and $C$
 \end{tikzpicture}
 \end{tkzexample}
 
-Remark: Only the first point is unchanged. The order of the last two parameters is not important.
+Remark: only the first point is unchanged. The order of the last two arguments does not matter.
 
 \endinput

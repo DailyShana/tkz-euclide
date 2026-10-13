@@ -1,6 +1,6 @@
 \section{Filling}
 \subsection{Coloring a disc}
-This was possible with the macro \tkzcname{tkzDrawCircle}, but disk tracing was mandatory, this is no longer the case.
+This was possible with the macro \tkzcname{tkzDrawCircle}, but the circle had to be drawn; this is no longer the case.
   
 \begin{NewMacroBox}{tkzFillCircle}{\oarg{local options}\parg{A,B}}%
 \begin{tabular}{lll}%
@@ -175,7 +175,7 @@ options          & default & definition      \\
 \end{tabular} 
 
 \medskip
-Of course, you have to add all the styles of \TIKZ\ for the tracings...
+Of course, you can add all the \TIKZ\ styles for the drawings.
 
 \medskip
 \begin{tabular}{lll}%
@@ -229,7 +229,7 @@ $O$ is the vertex of the angle. $OA$ and $OB$ are the sides. Attention the angle
 \toprule
 options             & default & definition                        \\ 
 \midrule
-\TOline{size}{1}{this option determines the radius of the coloured angular sector.}
+\TOline{size}{1}{this option determines the radius of the colored angular sector.}
 
 \bottomrule
 \end{tabular} 
@@ -294,7 +294,7 @@ With common options, there is a macro for multiple angles.
   \tkzLabelPoints[above](M,A,D)
   \tkzLabelPoints(L,B,C)
   \tkzMarkAngles(C,B,M B,M,C M,C,B D,L,N L,N,D N,D,L)
-  \tkzFillAngles[fill=red!20,opacity=.2](C,B,M%
+  \tkzFillAngles[fill=red!20,opacity=.2](C,B,M
       B,M,C M,C,B D,L,N L,N,D N,D,L)
 \end{tikzpicture}
 \end{tkzexample} 

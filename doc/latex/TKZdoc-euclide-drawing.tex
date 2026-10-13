@@ -1,11 +1,11 @@
 \section{Drawing}
-\tkzname{\tkznameofpack} can draw 5 types of objects : point, line or line segment, circle, arc and sector.
+\tkzname{\tkznameofpack} can draw five types of objects: points, lines or segments, circles, arcs and sectors.
 
 %<---------------------------------------------------------------------------->
 %    POINT(S)
 %<---------------------------------------------------------------------------->
 \subsection{Draw a point or some points}
-There are two possibilities : \tkzcname{tkzDrawPoint} for a single point or \tkzcname{tkzDrawPoints} for one or more points.
+There are two possibilities: \tkzcname{tkzDrawPoint} for a single point or \tkzcname{tkzDrawPoints} for one or more points.
 
 \subsubsection{Drawing points \tkzcname{tkzDrawPoint}} \hypertarget{tdrp}{}
 
@@ -18,7 +18,7 @@ arguments &  default & definition                 \\
 \end{tabular}
 
 \medskip
-The argument is required. The disc takes the color of the circle, but  lighter. It is possible to change everything. The point is a node and therefore it is invariant if the drawing is modified by scaling.
+The argument is required. The disc takes the color of the circle, but lighter; everything can be changed. The point is a node, so it is not affected when the drawing is scaled.
 
 \medskip
 \begin{tabular}{lll}%
@@ -36,7 +36,7 @@ options             & default & definition \\
 {We can create other forms such as \tkzname{cross}}
 \end{NewMacroBox}
 
-By default, \tkzname{point style } is defined  like this :
+By default, \tkzname{point style } is defined  like this:
 
 \begin{tkzltxexample}[]
   \tikzset{point style/.style = {%
@@ -50,7 +50,7 @@ By default, \tkzname{point style } is defined  like this :
 \end{tkzltxexample}
 
 \subsubsection{Example of point drawings}
-Note that \tkzname{scale} does not affect the shape of the dots. Which is normal.  Most of the time, we are satisfied with a single point shape that we can define from the beginning, either with a macro or by modifying a configuration file.
+Note that \tkzname{scale} does not affect the shape of the points, which is normal. Most of the time, a single shape of point is enough; it can be defined at the beginning, either with a macro or in a configuration file.
 
 \begin{tkzexample}[latex=5cm,small]
   \begin{tikzpicture}[scale=.5]
@@ -63,7 +63,7 @@ Note that \tkzname{scale} does not affect the shape of the dots. Which is normal
   \end{tikzpicture}
 \end{tkzexample}
 
-It is possible to draw several points at once but this macro is a little slower than the previous one. Moreover, we have to make do with the same options for all the points.
+You can draw several points at once, but this macro is a little slower than the previous one, and all the points get the same options.
 \newpage
 \hypertarget{tdrps}{}
 \begin{NewMacroBox}{tkzDrawPoints}{\oarg{local options}\parg{liste}}%
@@ -85,10 +85,10 @@ options             & default & definition \\
 \end{tabular}
 
 \medskip
-\tkzHandBomb\ Beware of the final \code{s}, an oversight leads to cascading errors if you try to draw multiple points. The options are the same as for the previous macro.
+\tkzHandBomb\ Beware of the final \code{s}: forgetting it leads to cascading errors when you draw several points. The options are the same as for the previous macro.
 \end{NewMacroBox}
 
-\subsubsection{Points with size, colour and fill}
+\subsubsection{Points with size, color and fill}
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -100,11 +100,11 @@ options             & default & definition \\
 %    LINE(S)
 %<---------------------------------------------------------------------------->
 \section{Drawing the lines}
-The following macros are simply used to draw, name lines.
+The following macros draw and label lines.
 \subsection{Draw a straight line}
-To draw a normal straight line, just give a couple of points. You can  use the \tkzname{add} option to extend the line (This option is due to \tkzimp{Mark Wibrow}, see the code below). 
+To draw a straight line, just give a pair of points. You can use the option \tkzname{add} to extend the line (this option is due to \tkzimp{Mark Wibrow}, see the code below).
 
-The style of a line is by default :
+The style of a line is by default:
 
 \begin{tkzltxexample}[]
   \tikzset{line style/.style = {%
@@ -124,11 +124,11 @@ with
   \tikztonodes}}}
 \end{tkzltxexample}
 
-You can modify this style with \tkzcname{tkzSetUpLine} see \ref{tkzsetupline}
+You can modify this style with \tkzcname{tkzSetUpLine}, see \ref{tkzsetupline}.
 
 \newpage
 \begin{NewMacroBox}{tkzDrawLine}{\oarg{local options}\parg{pt1,pt2} }%
-The arguments are a list of two points or three points. It would be possible, as for a half line, to create a style with \tkzcname{add}.
+The arguments are a list of two or three points. As for a ray, you could create a style with \tkzname{add}.
 
 \begin{tabular}{lll}%
 \toprule
@@ -140,7 +140,7 @@ options             & default & definition                         \\
 \bottomrule
 \end{tabular}
 
-\tkzname{add} defines the length of the line passing through the points pt1 and pt2. Both numbers are percentages. The styles of \TIKZ\ are accessible for plots.
+\tkzname{add} defines the length of the line through the points pt1 and pt2. Both numbers are percentages. The \TIKZ\ styles are available for the drawings.
 \end{NewMacroBox}
 
 \subsubsection{Examples  with \tkzname{add}}
@@ -160,9 +160,9 @@ options             & default & definition                         \\
 \end{tikzpicture}
 \end{tkzexample} 
 
-It is possible to draw several lines, but with the same options. 
+You can draw several lines at once, with the same options.
 \begin{NewMacroBox}{tkzDrawLines}{\oarg{local options}\parg{pt1,pt2 pt3,pt4 ...}}% 
-Arguments are a list of pairs of  points separated by spaces.  The styles of \TIKZ\ are available for the draws. 
+The arguments are a list of pairs of points separated by spaces. The \TIKZ\ styles are available for the drawings.
 \end{NewMacroBox}      
 
 \subsubsection{Example with \tkzcname{tkzDrawLines}}    
@@ -181,11 +181,11 @@ Arguments are a list of pairs of  points separated by spaces.  The styles of \TI
 %    SEGMENT(S)
 %<---------------------------------------------------------------------------->
 \section{Drawing a segment}
-There is, of course, a macro to simply draw a segment.
+There is, of course, a macro to draw a segment.
 
 \subsection{Draw a segment \tkzcname{tkzDrawSegment}} 
 \begin{NewMacroBox}{tkzDrawSegment}{\oarg{local options}\parg{pt1,pt2}}%
-The arguments are a list of two points. The styles of \TIKZ\ are available for the drawings.
+The arguments are a list of two points. The \TIKZ\ styles are available for the drawings.
  
 \medskip
 \begin{tabular}{lll}%
@@ -236,11 +236,11 @@ This is of course equivalent to \tkzcname{draw (A)--(B);}. You can also use the 
 \end{tkzexample}
 
 \subsubsection{Adding dimensions with option \tkzname{dim} (code by Muzimuzhi Z)} 
-This code comes from an answer to this question on tex.stackexchange.com 
+This code comes from an answer to a question on tex.stackexchange.com
 (change-color-and-style-of-dimension-lines-in-tkz-euclide ).
-The code of \tkzname{dim} is based on options of TikZ, you must add the units.
-You can use now two styles : |dim style| and |dim fence style|. You have several ways to use them.
-I'll let you look at the examples to see what you can do with these styles.
+The code of \tkzname{dim} is based on \TIKZ\ options, so you must give the units.
+You can now use two styles, |dim style| and |dim fence style|, in several ways.
+Look at the examples to see what you can do with these styles.
 
 \begin{verbatim}
    \tikzset{dim style/.append style={dashed}} % append if you want to keep precedent style.
@@ -311,10 +311,10 @@ I'll let you look at the examples to see what you can do with these styles.
 \end{tkzexample}
 
 \subsection{Drawing segments \tkzcname{tkzDrawSegments}} 
-If the options are the same we can plot several segments with the same macro. 
+If the options are the same, several segments can be drawn with one macro.
 
 \begin{NewMacroBox}{tkzDrawSegments}{\oarg{local options}\parg{pt1,pt2 pt3,pt4 ...}}%
-The arguments are a two-point couple list. The styles of \TIKZ\ are available for the plots.
+The arguments are a list of pairs of points. The \TIKZ\ styles are available for the drawings.
 \end{NewMacroBox}
 
 \begin{tkzexample}[latex=6cm,small]
@@ -379,7 +379,7 @@ The arguments are a two-point couple list. The styles of \TIKZ\ are available fo
 
 \subsection{Drawing a polygon} 
  \begin{NewMacroBox}{tkzDrawPolygon}{\oarg{local options}\parg{points list}}%
-Just give a list of points and the macro plots the polygon using the \TIKZ\ options present. You can  replace $(A,B,C,D,E)$ by $(A,...,E)$ and $(P_1,P_2,P_3,P_4,P_5)$ by $(P_1,P...,P_5)$
+Just give a list of points: the macro draws the polygon with the \TIKZ\ options given. You can replace $(A,B,C,D,E)$ by $(A,...,E)$ and $(P_1,P_2,P_3,P_4,P_5)$ by $(P_1,P...,P_5)$.
 
 \begin{tabular}{lll}%
 \toprule
@@ -440,7 +440,7 @@ line join=round](p0,p2,p4)
 
 \subsection{Drawing a polygonal chain} 
  \begin{NewMacroBox}{tkzDrawPolySeg}{\oarg{local options}\parg{points list}}%
-Just give a list of points and the macro plots the polygonal chain using the \TIKZ\ options present.
+Just give a list of points: the macro draws the polygonal chain with the \TIKZ\ options given.
 
 \begin{tabular}{lll}%
 \toprule
@@ -469,7 +469,7 @@ options             & default & example                         \\
 \end{tkzexample}
 
 \subsubsection{The idea is to inscribe two squares in a semi-circle.}
-A Sangaku look! It is a question of proving that one can inscribe in a half-disc, two squares, and to determine the length of their respective sides according to the radius.
+A Sangaku! The problem is to prove that two squares can be inscribed in a half-disc, and to determine the lengths of their sides from the radius.
 
 \begin{tkzexample}[latex=7 cm,small]
 \begin{tikzpicture}[scale=.75] 
@@ -504,7 +504,7 @@ A Sangaku look! It is a question of proving that one can inscribe in a half-disc
 
 \subsection{Draw one circle}
 \begin{NewMacroBox}{tkzDrawCircle}{\oarg{local options}\parg{A,B}}%
-\tkzHandBomb\ Attention you need only two points to define a radius.  An additional option \tkzname{R} is available  to give a measure directly.
+\tkzHandBomb\ Note that only two points are needed to define a radius. The option \tkzname{R} lets you give the radius directly as a measure.
 
 \medskip
 \begin{tabular}{lll}%
@@ -516,11 +516,11 @@ arguments           & example & explanation                         \\
 \end{tabular}   
 
 \medskip
-Of course, you have to add all the styles of \TIKZ\ for the tracings...
+Of course, you can add all the \TIKZ\ styles for the drawings.
 \end{NewMacroBox}
  
  \subsubsection{Circles and styles, draw a circle and color the disc}
- We'll see that it's possible to colour in a disc while tracing the circle.
+ We'll see that it's possible to color a disc while drawing the circle.
  
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -540,7 +540,7 @@ Of course, you have to add all the styles of \TIKZ\ for the tracings...
 
 \subsection{Drawing circles}  
 \begin{NewMacroBox}{tkzDrawCircles}{\oarg{local options}\parg{A,B C,D \dots}}%
-\tkzHandBomb\ Attention, the arguments are lists of two points. The circles that can be drawn are the same as in the previous macro. An additional option \tkzname{R} is available to give  a measure directly.
+\tkzHandBomb\ Note that the arguments are lists of pairs of points. The circles that can be drawn are the same as with the previous macro. The option \tkzname{R} lets you give the radius directly as a measure.
 
 \medskip
 \begin{tabular}{lll}%
@@ -562,7 +562,7 @@ options             & default & definition                         \\
 
 \medskip
 You do not need to use the default option \tkzname{through}.
-Of course, you have to add all the styles of \TIKZ\ for the tracings...
+Of course, you can add all the \TIKZ\ styles for the drawings.
 \end{NewMacroBox}
 
  \subsubsection{Circles defined by a triangle.} 
@@ -605,9 +605,9 @@ Of course, you have to add all the styles of \TIKZ\ for the tracings...
 \end{tkzexample}
  
 \subsubsection{Cardioid}  
-Based on an idea by O. Reboux made with pst-eucl (Pstricks module) by D. Rodriguez.
+Based on an idea of O. Reboux, made with pst-eucl (a PSTricks module) by D. Rodriguez.
 
- Its name comes from the Greek \textit{kardia (heart)}, in reference to its shape, and was given to it by Johan Castillon (Wikipedia).     
+ Its name comes from the Greek \textit{kardia} (heart), in reference to its shape; it was given by Johan Castillon (Wikipedia).     
  
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=.5]
@@ -634,7 +634,7 @@ arguments           & example & explanation                         \\
 \bottomrule
 \end{tabular} 
     
-$O$ center $A$ extremity of the semicircle
+$O$ is the center and $A$ an endpoint of the semicircle.
 \end{NewMacroBox}  
 
 \subsubsection{Use of \tkzcname{tkzDrawSemiCircle}}   
@@ -665,7 +665,7 @@ arguments           & example & explanation                         \\
     
 \end{NewMacroBox}  
 
-\subsubsection{Use of \tkzcname{tkzDrawSemiCircles} : Golden arbelos}  
+\subsubsection{Use of \tkzcname{tkzDrawSemiCircles}: Golden arbelos}  
 
 \begin{tkzexample}[vbox,small]
 \begin{tikzpicture}[scale=.75]
@@ -707,7 +707,7 @@ arguments           & example & explanation                         \\
 \end{tabular}  
  
 \medskip
-Of course, you have to add all the styles of \TIKZ\ for the tracings...
+Of course, you can add all the \TIKZ\ styles for the drawings.
 \end{NewMacroBox}
 
 \subsubsection{Example of drawing an ellipse }
@@ -725,7 +725,7 @@ Of course, you have to add all the styles of \TIKZ\ for the tracings...
 \section{Drawing arcs} 
 \subsection{The macro \tkzcname{tkzDrawArc}}
 \begin{NewMacroBox}{tkzDrawArc}{\oarg{local options}\parg{O,\dots}\parg{\dots}}%
-This macro traces the arc of center $O$. Depending on the options, the arguments differ.   It is a question of determining a starting point and an end point. Either the starting point is given, which is the simplest, or the radius of the arc is given. In the latter case, it is necessary to have two angles. Either the angles can be given directly, or nodes associated with the center can be given to determine them. The angles are in degrees.
+This macro draws an arc with center $O$; the arguments depend on the options. We need a starting point and an end point. Either the starting point is given, which is the simplest, or the radius of the arc is given; in the latter case, two angles are needed. The angles can be given directly, or with points which, together with the center, determine them. The angles are in degrees.
 
 \medskip
 \begin{tabular}{lll}%
@@ -743,7 +743,7 @@ options             & default & definition                        \\
 \end{tabular}
 
 \medskip
-Of course, you have to add all the styles of \TIKZ\ for the tracings...
+Of course, you can add all the \TIKZ\ styles for the drawings.
 
 \medskip
 
@@ -762,7 +762,7 @@ options             & arguments & example                         \\
 Here are a few examples: 
 
 \subsubsection{Option \tkzname{towards}: arc from $A$ to $B$}
-It's useless to put \tkzname{towards}. In this first example the arc starts from $A$ and goes to $B$. The arc going from $B$ to $A$ is different. The salient is obtained by going in the direct direction of the trigonometric circle.
+You don't need to write \tkzname{towards}. In this first example, the arc starts from $A$ and goes to $B$. The arc from $B$ to $A$ is different: arcs are always drawn counterclockwise.
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.75]
   \tkzDefPoint(0,0){O}
@@ -778,7 +778,7 @@ It's useless to put \tkzname{towards}. In this first example the arc starts from
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{towards}: arc stopping on a line}
-In this one, the arc starts from A but stops on the right (OB).
+In this one, the arc starts from $A$ but stops on the line $(OB)$.
  
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=0.75] 
@@ -831,7 +831,7 @@ In this one, the arc starts from A but stops on the right (OB).
 \end{tkzexample}
 
 \subsubsection{Option \tkzname{delta}}
-This option allows a bit like \tkzcname{tkzCompass} to place an arc and overflow on either side. delta is a measure in degrees.
+As with \tkzcname{tkzCompass}, this option extends the arc on both sides; \tkzname{delta} is an angle in degrees. It can also be set for all the arcs with \tkzcname{tkzSetUpArc}.
 
 \begin{tkzexample}[latex=7cm,small] 
 \begin{tikzpicture} 
@@ -917,7 +917,7 @@ This option allows a bit like \tkzcname{tkzCompass} to place an arc and overflow
 %<---------------------------------------------------------------------------->
 \section{Drawing a sector or sectors}
 \subsection{\tkzcname{tkzDrawSector}} 
-\tkzHandBomb\  Attention the arguments vary according to the options.
+\tkzHandBomb\  Note that the arguments depend on the options.
 \begin{NewMacroBox}{tkzDrawSector}{\oarg{local options}\parg{O,\dots}\parg{\dots}}%
 \begin{tabular}{SlSlSl}%
 options             & default & definition                         \\ 
@@ -930,7 +930,7 @@ options             & default & definition                         \\
 \end{tabular} 
 
 \medskip
-\emph{You have to add, of course, all the styles of \TIKZ\ for tracings...}
+\emph{Of course, you can add all the \TIKZ\ styles for the drawings.}
 
 \begin{tabular}{lll}%
 
@@ -946,7 +946,7 @@ options             & arguments & example                         \\
 Here are a few examples: 
 
 \subsubsection{\tkzcname{tkzDrawSector} and \tkzname{towards}} 
-There's no need to put \tkzname{towards}. You can use \tkzname{fill} as an option.
+You don't need to write \tkzname{towards}. You can use \tkzname{fill} as an option.
 
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}
@@ -985,7 +985,7 @@ There's no need to put \tkzname{towards}. You can use \tkzname{fill} as an optio
 \end{tkzexample}
 
 \subsubsection{\tkzcname{tkzDrawSector} and \tkzname{R with nodes}: two sectors}
-In this example I use the option \tkzname{fill} but \tkzcname{tkzFillSector} is possible.
+In this example I use the option \tkzname{fill}, but \tkzcname{tkzFillSector} would also work.
 \begin{tkzexample}[latex=7cm,small]
 \begin{tikzpicture}[scale=1.25]
  \tkzDefPoint(0,0){O}

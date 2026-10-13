@@ -7,28 +7,27 @@ If you want Lua to do the calculations, the recommended way is now the package \
 \label{ssub:option_code_lua}
 
 % subsubsection option_code_lua (end)
-You can now use the \ItkzPopt{tkz-euclide}{lua} option with \tkzname{\tkznameofpack} version 5.
-You just have to write in your preamble
+Since version 5, you can use the option \ItkzPopt{tkz-euclide}{lua} of \tkzname{\tkznameofpack}. Just write in your preamble
 
- |usepackage[lua]{tkz-euclide}|. 
- Obviously, you'll need to compile with LuaLaTeX. Nothing changes for the syntax.
+ |\usepackage[lua]{tkz-euclide}|.
+ You must then compile with LuaLaTeX. The syntax does not change.
 
-Without the option you can use \tkzname{\tkznameofpack} with the proposed code of version 4.25.
+Without this option, \tkzname{\tkznameofpack} uses the code of version 4, with \tkzNamePack{xfp}.
 
-This version is not yet finalized although the documentation you are currently reading has been compiled with this option.
+The documentation you are reading has been compiled with this option.
 
-Some information about the method used and the results obtained. Concerning the method, I considered two possibilities. The first one was simply to replace everywhere I could the calculations made by \code{xfp} or sometimes by \code{lua}. This is how I went from \code{fp} to \code{xfp} and now to \code{lua}. The second and more ambitious possibility would have been to associate to each point a complex number and to make the calculations on the complexes with \code{lua}. Unfortunately for that I have to use libraries for which I don't know the license. 
+A few words about the method and the results. I considered two possibilities. The first one was simply to replace, wherever I could, the calculations made by \code{xfp} with calculations made by \code{lua}: this is how I went from \code{fp} to \code{xfp} and now to \code{lua}. The second, more ambitious, would have been to associate a complex number with each point and to compute with complex numbers in \code{lua}; this is what \tkzNamePack{tkz-elements} now does.
 
-Otherwise the results are good. This documentation with \code{LualaTeX} and \code{xfp} compiles in 47s while with \code{lua} it takes only 30s for 236 pages.
+The results are good: this documentation (236 pages at the time) compiled in 47\,s with \code{LuaLaTeX} and \code{xfp}, and in only 30\,s with \code{lua}.
 
-Another document of 61 pages is compiled 16s with \code{pdflaTeX} and \code{xfp} and 13s with  \code{LualaTeX} and \code{xfp}.
+Another document of 61 pages compiles in 16\,s with \code{pdfLaTeX} and \code{xfp}, and in 13\,s with \code{LuaLaTeX} and \code{xfp}.
 
-This documentation compiles with |\usepackage{tkz-base}|  and |\usepackage[lua]{tkz-euclide}| but I didn't test all the interactions thoroughly. 
+This documentation compiles with |\usepackage{tkz-base}| and |\usepackage[lua]{tkz-euclide}|, but I did not test all the interactions thoroughly.
 
 \subsection{Option \code{mini}} % (fold)
 \label{ssub:option_code_mini}
 
-When you use \tkzNamePack{tkz-elements} solely to determine the points in your figures, it is not necessary to load all the modules of \tkzname{\tkznameofpack}. In this case, by using the \ItkzPopt{tkz-euclide}{mini} option |\usepackage[mini]{tkz-euclide}| , you will only load the modules necessary for the drawings.
+When you use \tkzNamePack{tkz-elements} to compute the points of your figures, you do not need all the modules of \tkzname{\tkznameofpack}. With the option \ItkzPopt{tkz-euclide}{mini}, |\usepackage[mini]{tkz-euclide}|, only the modules needed for the drawings are loaded. Some macros, such as those of the section \emph{The Show}, still require the complete package.
 
 % subsubsection option_code_mini (end)
 \endinput

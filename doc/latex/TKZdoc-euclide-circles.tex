@@ -73,7 +73,7 @@ We obtain with the macro \tkzcname{tkzGetPoint} a point of the circle which is t
 
 
 \subsubsection{Example with option \tkzname{diameter}}  
- It is simpler here to search directly for the middle of $[AB]$. The result is the center and if necessary 
+ It is simpler here to search directly for the midpoint of $[AB]$. The result is the center and if necessary 
 \begin{tkzexample}[latex=7cm,small]  
 \begin{tikzpicture}
   \tkzDefPoint(0,0){O}
@@ -129,7 +129,7 @@ We want to define an excircle of a  triangle relatively to point $C$
   \tkzDrawPolygon(A,B,C)
   \tkzDrawLines[add=0 and 1.5](C,A C,B)
   \tkzDrawSegments(J_c,X_c I,D  I,F J_c,Y_c)
-  \tkzMarkRightAngles(A,F,I B,D,I J_c,X_c,A%
+  \tkzMarkRightAngles(A,F,I B,D,I J_c,X_c,A
      J_c,Y_c,B)
   \tkzDrawPoints(B,C,A,I,D,F,X_c,J_c,Y_c)
   \tkzLabelPoints(B,A,J_c,I,D)
@@ -142,7 +142,7 @@ We want to define an excircle of a  triangle relatively to point $C$
 
 \subsubsection{Euler's circle for a given triangle with option \tkzname{euler}}
  
-We verify that this circle passes through the middle of each side.
+We verify that this circle passes through the midpoint of each side.
 \begin{tkzexample}[latex=6cm,small]  
 \begin{tikzpicture}[scale=.75]
    \tkzDefPoint(5,3.5){A} 

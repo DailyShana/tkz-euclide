@@ -1,17 +1,18 @@
 \section{News and compatibility}\label{news}
 
 \subsection{With version 5.14}
+\begingroup\sloppy
 
 This version only corrects bugs; the syntax does not change and no macro has been added.
 
 \begin{itemize}
   \item \tkzcname{tkzDefCircle} with the options \tkzname{orthogonal from} or \tkzname{orthogonal through} no longer disturbs the following calls of \tkzcname{tkzDefCircle}.
-  \item The options of \tkzcname{tkzShowLine}, \tkzcname{tkzDefSimilitudeCenter}, \tkzcname{tkzCalcLength}, \tkzcname{tkzGrid}, \tkzcname{tkzClip}, \tkzcname{tkzDefEquiPoints} and \tkzcname{tkzLegend} now only apply to the current call.
+  \item The options of the following macros now only apply to the current call: \tkzcname{tkzShowLine}, \tkzcname{tkzDefSimilitudeCenter}, \tkzcname{tkzCalcLength}, \tkzcname{tkzGrid}, \tkzcname{tkzClip}, \tkzcname{tkzDefEquiPoints}, \tkzcname{tkzLegend}.
   \item \tkzcname{tkzIsLinear} gave a wrong answer (always true); \tkzcname{tkzIsLinear} and \tkzcname{tkzIsOrtho} now use a tolerance that depends on the lengths.
   \item The result of \tkzcname{tkzPowerCircle} no longer changes after another calculation.
-  \item The inversion of a circle (\tkzcname{tkzDefCircleBy}) gives a line only if the circle passes through the centre of inversion.
+  \item The inversion of a circle (\tkzcname{tkzDefCircleBy}) gives a line only if the circle passes through the center of inversion.
   \item \tkzcname{tkzDefCircle}\code{[spieker]} gives the radius in cm, like the other options.
-  \item The Feuerbach point (\tkzcname{tkzDefTriangleCenter}\code{[feuerbach]}) and the Feuerbach triangle (\tkzcname{tkzDefSpcTriangle}\code{[feuerbach]}) are now exact.
+  \item The Feuerbach point and the Feuerbach triangle, obtained with the option \tkzname{feuerbach} of \tkzcname{tkzDefTriangleCenter} and \tkzcname{tkzDefSpcTriangle}, are now exact.
   \item \tkzcname{tkzDrawPolySeg}: the arrow at the start of the path has the right direction.
   \item \tkzcname{tkzCompass} accepts a decimal value for \tkzname{delta}; \tkzcname{tkzProtractor}\code{[return]} works; \tkzcname{tkzLabelRegPolygon} uses its option \tkzname{sep}; \tkzcname{tkzDrawX} uses its option \tkzname{step}.
   \item The old syntax of version 3, for example |\tkzDrawCircle[euler](A,B,C)|, now gives an error message instead of an endless compilation.
@@ -23,6 +24,8 @@ Two changes may modify your figures:
   \item \tkzcname{tkzSetUpCompass}\code{[delta=...]} only acts on the compass marks. To extend the arcs drawn by \tkzcname{tkzDrawArc}, \tkzcname{tkzMarkArc} and \tkzcname{tkzLabelArc}, use \tkzcname{tkzSetUpArc}\code{[delta=...]}. Before this version, the same value was used for both.
   \item The \TIKZ\ style \tkzname{help lines} is no longer modified by the package.
 \end{itemize}
+
+\endgroup
 
 \subsection{With version 5.10}
 \begin{itemize}

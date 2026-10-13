@@ -202,7 +202,7 @@ Inversion is the process of transforming points to a corresponding set of points
  
 (\url{https://mathworld.wolfram.com/Inversion.html})
 
-Some propositions :
+Some propositions:
 \begin{itemize}
 \item The inverse of a circle (not through the center of inversion) is a circle.
 \item The inverse of a circle through the center of inversion is a line.
@@ -315,7 +315,7 @@ Directly
 \begin{tikzpicture}[scale=.7]
 \tkzDefPoints{0/0/O,3/2/A,2/1/P}
 \tkzDefLine[tangent from = O](A,P) \tkzGetPoints{T}{X}
-\tkzDefPointsBy[homothety = center O%
+\tkzDefPointsBy[homothety = center O
                 ratio 1.25](A,P,T){}
 \tkzInterCC(A,P)(A',P') \tkzGetPoints{C}{D}
 \tkzCalcLength(A,P)
