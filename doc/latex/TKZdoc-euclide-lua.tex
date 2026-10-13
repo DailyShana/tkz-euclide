@@ -1,7 +1,9 @@
 \newpage
 \section{Working with lua} \label{calc_with_lua}
 
-\subsubsection{Option \code{lua}} % (fold)
+If you want Lua to do the calculations, the recommended way is now the package \tkzNamePack{tkz-elements}: it computes the points with Lua and \tkzname{\tkznameofpack} draws them (see the option \code{mini} below). The option \code{lua} of \tkzname{\tkznameofpack} remains available and maintained, but new Lua developments go into \tkzNamePack{tkz-elements}.
+
+\subsection{Option \code{lua}} % (fold)
 \label{ssub:option_code_lua}
 
 % subsubsection option_code_lua (end)
@@ -23,7 +25,7 @@ Another document of 61 pages is compiled 16s with \code{pdflaTeX} and \code{xfp}
 
 This documentation compiles with |\usepackage{tkz-base}|  and |\usepackage[lua]{tkz-euclide}| but I didn't test all the interactions thoroughly. 
 
-\subsubsection{Option \code{mini}} % (fold)
+\subsection{Option \code{mini}} % (fold)
 \label{ssub:option_code_mini}
 
 When you use \tkzNamePack{tkz-elements} solely to determine the points in your figures, it is not necessary to load all the modules of \tkzname{\tkznameofpack}. In this case, by using the \ItkzPopt{tkz-euclide}{mini} option |\usepackage[mini]{tkz-euclide}| , you will only load the modules necessary for the drawings.

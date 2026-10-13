@@ -50,7 +50,8 @@
       pdfsubject={Euclidean Geometry},
       pdfauthor={\tkzauthorofpack},
       pdftitle={\tkznameofpack},
-      pdfcreator={\tkzengine}
+      pdfcreator={\tkzengine},
+      bookmarksdepth=3
 }
 \usepackage{tkzexample}
 \usepackage{fontspec}
@@ -93,7 +94,7 @@
 % settings styles
 \tkzSetUpColors[background=white,text=black]
 \tkzSetUpCompass[color=orange, line width=.2pt,delta=10]
-\tkzSetUpArc[color=gray,line width=.2pt]
+\tkzSetUpArc[color=gray,line width=.2pt,delta=10]
 \tkzSetUpPoint[size=2,color=teal]
 \tkzSetUpLine[line width=.2pt,color=teal]
 \tkzSetUpStyle[color=orange,line width=.2pt]{new}
@@ -146,42 +147,44 @@ This file can be redistributed and/or modified under the terms of the \LaTeX{}
 Project Public License Distributed from \href{http://www.ctan.org/}{CTAN}\  archives.
 
 \clearpage
+\setcounter{tocdepth}{2}% sections and subsections; subsubsections stay in the PDF bookmarks
 \tableofcontents
 \clearpage
 \newpage
 
-\part{General survey : a brief but comprehensive review}
-\input{TKZdoc-euclide-news.tex}
-\input{TKZdoc-euclide-lua.tex}
-\input{TKZdoc-euclide-installation.tex}
+\part{Getting started}
 \input{TKZdoc-euclide-presentation.tex}
+\input{TKZdoc-euclide-installation.tex}
 \input{TKZdoc-euclide-elements.tex}
 \input{TKZdoc-euclide-documentation.tex}
-\part{Setting}
-\input{TKZdoc-euclide-points.tex}
 
-\part{Calculating}
+\part{Points}
+\input{TKZdoc-euclide-points.tex}
 \input{TKZdoc-euclide-pointsSpc.tex}
 \input{TKZdoc-euclide-pointby.tex}
 \input{TKZdoc-euclide-pointwith.tex}
+\input{TKZdoc-euclide-rnd.tex}
+
+\part{Lines, triangles and polygons}
 \input{TKZdoc-euclide-lines.tex}
 \input{TKZdoc-euclide-triangles.tex}
 \input{TKZdoc-euclide-polygons.tex}
+
+\part{Circles}
 \input{TKZdoc-euclide-circles.tex}
 \input{TKZdoc-euclide-circleby.tex}
+
+\part{Intersections and angles}
 \input{TKZdoc-euclide-intersection.tex}
 \input{TKZdoc-euclide-angles.tex}
-\input{TKZdoc-euclide-rnd.tex}
 
-\part{Drawing and Filling}
+\part{Drawing, filling and clipping}
 \input{TKZdoc-euclide-drawing.tex}
 \input{TKZdoc-euclide-filling.tex}
 \input{TKZdoc-euclide-clipping.tex}
 
-\part{Marking}
+\part{Marking and labelling}
 \input{TKZdoc-euclide-marking.tex}
-
-\part{Labelling}
 \input{TKZdoc-euclide-labelling.tex}
 
 \part{Complements}
@@ -190,7 +193,7 @@ Project Public License Distributed from \href{http://www.ctan.org/}{CTAN}\  arch
 \input{TKZdoc-euclide-rapporteur.tex}
 \input{TKZdoc-euclide-tools.tex}
 
-\part{Working with style}
+\part{Working with styles}
 \input{TKZdoc-euclide-styles.tex}
 
 \part{Examples}
@@ -199,6 +202,10 @@ Project Public License Distributed from \href{http://www.ctan.org/}{CTAN}\  arch
 
 \part{FAQ}
 \input{TKZdoc-euclide-FAQ.tex}
+
+\part{News, compatibility and options}
+\input{TKZdoc-euclide-news.tex}
+\input{TKZdoc-euclide-lua.tex}
 
 \clearpage\newpage
 \small\printindex

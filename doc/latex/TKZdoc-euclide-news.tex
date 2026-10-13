@@ -1,12 +1,40 @@
-\section*{News and compatibility}
+\section{News and compatibility}\label{news}
 
-\subsection{With 5.10 version}
+\subsection{With version 5.14}
+
+This version only corrects bugs; the syntax does not change and no macro has been added.
+
 \begin{itemize}
-  \item Added french documentation
-  
-  \item Added the \code{mini} option. You can use this option with the \tkzNamePack{tkz-elements} package. Only the modules required for tracing will be loaded. This option is currently only available if you are using \tkzNamePack{tkz-elements}.
+  \item \tkzcname{tkzDefCircle} with the options \tkzname{orthogonal from} or \tkzname{orthogonal through} no longer disturbs the following calls of \tkzcname{tkzDefCircle}.
+  \item The options of \tkzcname{tkzShowLine}, \tkzcname{tkzDefSimilitudeCenter}, \tkzcname{tkzCalcLength}, \tkzcname{tkzGrid}, \tkzcname{tkzClip}, \tkzcname{tkzDefEquiPoints} and \tkzcname{tkzLegend} now only apply to the current call.
+  \item \tkzcname{tkzIsLinear} gave a wrong answer (always true); \tkzcname{tkzIsLinear} and \tkzcname{tkzIsOrtho} now use a tolerance that depends on the lengths.
+  \item The result of \tkzcname{tkzPowerCircle} no longer changes after another calculation.
+  \item The inversion of a circle (\tkzcname{tkzDefCircleBy}) gives a line only if the circle passes through the centre of inversion.
+  \item \tkzcname{tkzDefCircle}\code{[spieker]} gives the radius in cm, like the other options.
+  \item The Feuerbach point (\tkzcname{tkzDefTriangleCenter}\code{[feuerbach]}) and the Feuerbach triangle (\tkzcname{tkzDefSpcTriangle}\code{[feuerbach]}) are now exact.
+  \item \tkzcname{tkzDrawPolySeg}: the arrow at the start of the path has the right direction.
+  \item \tkzcname{tkzCompass} accepts a decimal value for \tkzname{delta}; \tkzcname{tkzProtractor}\code{[return]} works; \tkzcname{tkzLabelRegPolygon} uses its option \tkzname{sep}; \tkzcname{tkzDrawX} uses its option \tkzname{step}.
+  \item The old syntax of version 3, for example |\tkzDrawCircle[euler](A,B,C)|, now gives an error message instead of an endless compilation.
+  \item The aliases \tkzcname{tkzDefNinePointsCircle}, \tkzcname{tkzFeuerBachCircle} and \tkzcname{tkzIncentralTriangle} work again.
 \end{itemize}
 
+Two changes may modify your figures:
+\begin{itemize}
+  \item \tkzcname{tkzSetUpCompass}\code{[delta=...]} only acts on the compass marks. To extend the arcs drawn by \tkzcname{tkzDrawArc}, \tkzcname{tkzMarkArc} and \tkzcname{tkzLabelArc}, use \tkzcname{tkzSetUpArc}\code{[delta=...]}. Before this version, the same value was used for both.
+  \item The \TIKZ\ style \tkzname{help lines} is no longer modified by the package.
+\end{itemize}
+
+\subsection{With version 5.10}
+\begin{itemize}
+  \item Added a French documentation.
+  \item Added the \code{mini} option. You can use this option with the \tkzNamePack{tkz-elements} package. Only the modules required for drawing will be loaded. This option is currently only useful if you are using \tkzNamePack{tkz-elements}.
+\end{itemize}
+
+\subsection{From version 3 to version 5}
+
+\tkzname{\tkznameofpack} 4 was a simplified version of its predecessor, independent of \tkzname{tkz-base}. Most macros of \tkzname{tkz-euclide} 3 have been retained, but the special circles are now defined with \tkzcname{tkzDefCircle} and then drawn with \tkzcname{tkzDrawCircle}. The unit is now the \tkzname{cm}. If you need some macros from \tkzname{tkz-base}, you may need to use \tkzcname{tkzInit}.
+
+Version 5 does not change anything for the user. With the option \code{lua} (|\usepackage[lua]{tkz-euclide}|), the calculations are done by Lua: you must then compile with LuaLaTeX. See section \ref{calc_with_lua}.
 
 % \subsection{With 5.06 version}
 %      \begin{itemize}

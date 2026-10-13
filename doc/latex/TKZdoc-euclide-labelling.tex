@@ -1,4 +1,4 @@
-\section{Labelling} 
+\section{Labelling points}
 \subsection{Label for a point} 
 \hypertarget{tlp}{}
 It is possible to add several labels at the same point by using this macro several times.  
@@ -102,7 +102,8 @@ Here the points are positioned relative to the center of gravity of $A,B,C \text
 
 
 
-\section{Label for a segment} 
+\section{Labelling segments}
+\subsection{The macros \tkzcname{tkzLabelSegment} and \tkzcname{tkzLabelSegments}}
 \hypertarget{tls}{}  
 \begin{NewMacroBox}{tkzLabelSegment}{\oarg{local options}\parg{pt1,pt2}\marg{label}}
 This macro allows you to place a label along a segment or a line. The options are those of \TIKZ\ for example \tkzname{pos}.
@@ -201,7 +202,8 @@ The arguments are a two-point couple list. The styles of \TIKZ\ are available fo
 \end{tikzpicture}
 \end{tkzexample}  
 
-\section{Add labels on a straight line \tkzcname{tkzLabelLine}}% 
+\section{Labelling lines}
+\subsection{The macro \tkzcname{tkzLabelLine}}
 
 \begin{NewMacroBox}{tkzLabelLine}{\oarg{local options}\parg{pt1,pt2}\marg{label}}
 \begin{tabular}{lll}%
@@ -234,7 +236,8 @@ An important option is \tkzname{pos}, it's the one that allows you to place the 
 \end{tikzpicture}
 \end{tkzexample}
 
-\subsection{Label at an angle : \tkzcname{tkzLabelAngle}}
+\section{Labelling angles}
+\subsection{The macros \tkzcname{tkzLabelAngle} and \tkzcname{tkzLabelAngles}}
 
 \begin{NewMacroBox}{tkzLabelAngle}{\oarg{local options}\parg{A,O,B}}%
 There is only one option, dist (with or without unit), which can be replaced by the TikZ's pos option (without unit for the latter). By default, the value is in centimeters.
@@ -323,7 +326,8 @@ With common options, there is a macro for multiple angles.
 
 It finally remains to be able to give a label to designate a circle and if several possibilities are offered, we will see here \tkzcname{tkzLabelCircle}.
 
-\subsection{Giving a label to a circle}
+\section{Labelling circles}
+\subsection{The macro \tkzcname{tkzLabelCircle}}
 \begin{NewMacroBox}{tkzLabelCircle}{\oarg{tikz options}\parg{O,A}\parg{angle}\marg{label}}%
 \begin{tabular}{lll}%
 options             & default & definition                         \\
@@ -356,7 +360,8 @@ options             & default & definition                         \\
 \end{tikzpicture}      
 \end{tkzexample} 
 
-\section{Label for an arc} 
+\section{Labelling arcs}
+\subsection{The macro \tkzcname{tkzLabelArc}}
 \hypertarget{tls}{}  
 \begin{NewMacroBox}{tkzLabelArc}{\oarg{local options}\parg{pt1,pt2,pt3}\marg{label}}
 This macro allows you to place a label along an arc. The options are those of \TIKZ\ for example \tkzname{pos}.
