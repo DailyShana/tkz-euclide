@@ -193,10 +193,19 @@
 \def\tkzDrawPolySeg{\pgfutil@ifnextchar[{\tkz@DrawPolySeg}{\tkz@DrawPolySeg[]}}
 \def\tkz@DrawPolySeg[#1](#2,#3){%
 \begingroup
-\draw[line style,#1] (#2)
-     \foreach \pt in {#3}{--(\pt)};%
+% the path is built first: (P1)--(P2)--... without a zero-length first
+% segment (it gave a wrong start arrow); lists such as (P1,P...,P5) still work
+\global\let\tkz@polypath\pgfutil@empty
+\foreach \pt [count=\tkz@cnt] in {#2,#3}{%
+  \ifnum\tkz@cnt=1
+    \xdef\tkz@polypath{(\pt)}%
+  \else
+    \xdef\tkz@polypath{\tkz@polypath--(\pt)}%
+  \fi}%
+\expandafter\tkz@@DrawPolySeg\expandafter{\tkz@polypath}{#1}%
 \endgroup
 }
+\def\tkz@@DrawPolySeg#1#2{\draw[line style,#2] #1;}
 
 
 %<--------------------------------------------------------------------------–>
