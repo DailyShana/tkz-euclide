@@ -43,13 +43,13 @@
 \global\def\tkz@numsh{0}
 \pgfkeys{/show/.cd,
     mediator/.code             =          \def\tkz@numsh{0},
-    perpendicular/.code args   =  {through #1} {\global\def\tkz@numsh{1}%
+    perpendicular/.code args   =  {through #1} {\def\tkz@numsh{1}%
                                               \def\tkz@through{#1}},
-    orthogonal/.code args      =  {through #1} {\global\def\tkz@numsh{1}%
-                                                \global\def\tkz@through{#1}},
-    parallel/.code args        = {through #1} {\global\def\tkz@numsh{2}%
-                                            \global\def\tkz@through{#1}},
-    bisector/.code             =           \global\def\tkz@numsh{3},
+    orthogonal/.code args      =  {through #1} {\def\tkz@numsh{1}%
+                                                \def\tkz@through{#1}},
+    parallel/.code args        = {through #1} {\def\tkz@numsh{2}%
+                                            \def\tkz@through{#1}},
+    bisector/.code             =           \def\tkz@numsh{3},
     K/.code                    =   \def\tkz@koeff{#1},
     length/.code               =   \def\tkz@show@length{#1},
     ratio/.code                =   \def\tkz@show@ratio{#1},
@@ -64,6 +64,7 @@
 \def\tkzShowLine{\pgfutil@ifnextchar[{\tkz@ShowLine}{\tkz@ShowLine[]}}
 \def\tkz@ShowLine[#1](#2){%
 \begingroup
+\def\tkz@numsh{0}% mediator by default at each call
 \pgfqkeys{/show}{ K   = 1,
           gap         = 2,
           ratio       = .5,
