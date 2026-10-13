@@ -78,8 +78,9 @@
   }
 
 \def\tkzDrawX{\pgfutil@ifnextchar[{\tkz@DrawX}{\tkz@DrawX[]}}
-\def\tkz@DrawX[#1]{
+\def\tkz@DrawX[#1]{%
 \begingroup%
+\pgfkeys{/tkzdrawX/.cd,step = \tkz@init@xstep}% as for \tkzDrawY
 \pgfqkeys{/tkzdrawX}{#1}
 \edef\tkz@posmax{\fpeval{trunc(\tkz@xb,\tkz@init@xdec)}}
 \edef\tkz@posmin{\fpeval{trunc(\tkz@xa,\tkz@init@xdec)}}
@@ -96,7 +97,7 @@
  \else
   \edef\tkz@posmax{\fpeval{trunc(\tkz@posmax,\tkz@init@xdec)}}
   \edef\tkz@posnext{\fpeval{\tkz@posnext/\tkz@init@xstep+\tkz@posmin}}
-     \foreach \pos in {\tkz@posmin,...,\tkz@posmax}{%
+     \foreach \pos in {\tkz@posmin,\tkz@posnext,...,\tkz@posmax}{% the step option is used
          \edef\tkz@pos{\fpeval{\pos*1}}% ???
          \draw[ color         = \tkz@X@color,
                 line width    = \tkz@X@tickwd,

@@ -68,7 +68,7 @@
 \begingroup
 \pgfqkeys{/deflabelregpoly}{#1}
  \foreach \v [count=\vi from 1]  in {#3}  {%
-  \path (#2) to [pos=1.1] node {$\v$} (\tkz@regpolname\vi) ;
+  \path (#2) to [pos=\tkz@regpolsep] node {$\v$} (\tkz@regpolname\vi) ;
   \pgfnodealias{\v}{\tkz@regpolname\vi}
   }
 \endgroup
