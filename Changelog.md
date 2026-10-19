@@ -4,7 +4,7 @@ All notable changes to this project will be documented here.
 The version suffix **c** indicates the CTAN release.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ---
-## [5.14c] — unreleased
+## [5.14c] — 2026/10/16
 ### Fixed
 - `\tkzDefCircle[orthogonal from=…]` / `[orthogonal through=…]`: the choice leaked globally; every later `\tkzDefCircle(A,B,C)` without option failed.
 - `\tkzShowLine`: options were global (`parallel`, `orthogonal`, `bisector` stayed active in the following pictures); the mediator is again the default at each call.
