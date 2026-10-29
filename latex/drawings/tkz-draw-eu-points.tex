@@ -15,7 +15,7 @@
       shape/.store in      =  \tkz@pt@shape,
       size                 =  \tkz@euc@pointsize,
       color                =  \tkz@euc@pointcolor,
-      fill                 =  \tkz@euc@pointfillcolor,
+      fill                 =  \tkz@euc@pointcolor,
       shape                =  \tkz@euc@pointshape,
    /tkzsetuppt/.search also  = {/tikz},
  }
@@ -90,7 +90,7 @@
 \begingroup
 \pgfqkeys{/tkzautolab}{#1}
  \foreach \point in {#2}{
- \path (\tkz@center) -- ($ (\point) + \tkz@dist*($(\point)-(\tkz@center)$) $) node[/tkzautolab/.cd,label style,#1]{$\point$};}
+ \path (\tkz@center) -- ($ (\point) + \tkz@dist*($(\point)-(\tkz@center)$) $) node[/tkzautolab/.cd,label style,centered,#1]{$\point$};}
 \endgroup
 }%
 %<--------------------------------------------------------------------------->
