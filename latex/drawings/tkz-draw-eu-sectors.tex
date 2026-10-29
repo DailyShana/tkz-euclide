@@ -51,7 +51,7 @@
      \edef\tkz@SecondAngle{\pgfmathresult}%
  \fi
  \fi
- \draw[shift = {(#2)},/drawsector/.cd,#1]%
+ \draw[shift = {(#2)},arc style,/drawsector/.cd,#1]%
    (#2) --(\tkz@FirstAngle:#3) arc (\tkz@FirstAngle:\tkz@SecondAngle:#3)--cycle;
  \endgroup
   } %  revoir il y a plus simple que ce shift !!!
