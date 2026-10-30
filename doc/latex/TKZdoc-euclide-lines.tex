@@ -18,6 +18,7 @@ arguments           & example & explanation                         \\
 \TAline{\parg{pt1,pt2,pt3}}{[altitude]\parg{A,B,C}} {altitude from $B$}
 \TAline{\parg{pt1}}{[tangent at=A]\parg{O}} {tangent at $A$ on the circle center $O$}
 \TAline{\parg{pt1,pt2}}{[tangent from=A]\parg{O,B}} {circle center $O$ through $B$}
+\TAline{\parg{P,B}}{[common tangent from=\dots]\parg{P,B}}{common tangent of two circles}
 \end{tabular}
 
 \medskip
@@ -35,6 +36,7 @@ options             & default & definition                         \\
 \TOline{euler}{mediator}{euler line of a triangle   }
 \TOline{tangent at}{mediator}{tangent at a point of a circle  }
 \TOline{tangent from}{mediator}{tangent from an exterior point  }
+\TOline{common tangent from}{}{common tangent of two circles (see syntax below)}
 \TOline{K}{1}{coefficient for the perpendicular line}
 \TOline{normed}{false}{normalizes the created segment}
 \end{tabular}
@@ -185,6 +187,43 @@ Archimedes' Book of Lemmas, Proposition 1.
 \end{tikzpicture}
 \end{tkzexample}
 % subsection eulerline (end)
+
+\subsubsection{Common tangents of two circles}
+
+Use the complete option
+\code{common tangent from=center O through A type ext side left}
+with the argument \code{(P,B)}. The option defines the first circle with centre
+$O$ through $A$; the argument defines the second circle with centre $P$ through $B$.
+
+The value after \code{type} is \code{ext} for an external common tangent or
+\code{int} for an internal common tangent. The value after \code{side} is
+\code{left} or \code{right}, determined by the contact point on the first circle
+relative to the directed line from $O$ to $P$, independently of the page orientation.
+For an internal tangent, the second contact point lies on the opposite side of
+that line. Both values must be given, in the order
+\code{center ... through ... type ... side ...}.
+Retrieve the contact points in circle order with \tkzcname{tkzGetPoints}:
+the first result belongs to the circle specified in the option, and the second
+to the circle specified in parentheses.
+
+If the contact points coincide, the first result remains the common contact
+point. The second result is instead another point on the tangent, 1\,cm away
+in canvas coordinates, so the two results can still be passed to
+\tkzcname{tkzDrawLine}. In this case both side choices describe the same line.
+
+\begin{tkzexample}[latex=7cm,small]
+\begin{tikzpicture}
+  \tkzDefPoints{0/0/O,0/1/A,5/0/P,5/1.5/B}
+  \tkzDrawCircles(O,A P,B)
+  \tkzDefLine[common tangent from=center O through A type ext side left](P,B)
+  \tkzGetPoints{T_1}{T_2}
+  \tkzDefLine[common tangent from=center O through A type int side right](P,B)
+  \tkzGetPoints{S_1}{S_2}
+  \tkzDrawLines(T_1,T_2 S_1,S_2)
+  \tkzDrawPoints(O,P,T_1,T_2,S_1,S_2)
+  \tkzLabelPoints(O,P,T_1,T_2,S_1,S_2)
+\end{tikzpicture}
+\end{tkzexample}
 
 \subsubsection{Tangent passing through a point on the circle \tkzname{tangent at}} 
 \begin{tkzexample}[latex=7cm,small]

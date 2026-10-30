@@ -24,6 +24,18 @@
   euler/.code              =  \def\tkz@numline{7},
   tangent from/.code       =  \def\tkz@numline{8} \def\tkz@ptfrom{#1},
   tangent at/.code         =  \def\tkz@numline{9} \def\tkz@ptat{#1},
+  common tangent from/.code args = {center #1 through #2 type #3 side #4}{%
+    \def\tkz@numline{10}%
+    \def\tkz@ct@center{#1}%
+    \def\tkz@ct@point{#2}%
+    \pgfqkeys{/tkzdefline/common tangent}{type=#3,side=#4}},
+  common tangent from/.value required,
+  common tangent/type/.is choice,
+  common tangent/type/ext/.code = \def\tkz@ct@sign{1},
+  common tangent/type/int/.code = \def\tkz@ct@sign{-1},
+  common tangent/side/.is choice,
+  common tangent/side/left/.code = \def\tkz@ct@side{1},
+  common tangent/side/right/.code = \def\tkz@ct@side{-1},
   K/.code                  =  \def\tkz@koeff{#1},
   K                        =  1,
   normed/.is if            =  tkz@line@normed,
@@ -57,6 +69,8 @@
    \tkzTgtFromP(#2)(\tkz@ptfrom)
  \or% 9
    \tkzTgtAt(#2)(\tkz@ptat)
+ \or% 10
+   \tkz@DefCommonTangent(\tkz@ct@center,\tkz@ct@point)(#2)
   \fi
 \endgroup
 }
@@ -212,6 +226,71 @@
    \pgfnodealias{tkzSecondPointResult}{euler@pt2}
    \pgfnodealias{tkzFirstPointResult}{euler@pt1}
    \endpgfinterruptboundingbox
+\endgroup
+}
+%<--------------------------------------------------------------------------–>
+% Common tangent of (O,A) and (O',A'). Work in pt, as for intersections.
+% sign = 1 for external, -1 for internal tangents; side refers to the
+% first contact point relative to the directed line O -> O'.
+\def\tkz@ct@extract#1#2{%
+  \tkz@@extractxy{#1}%
+  \expandafter\edef\csname tkz@ct@#2x\endcsname{\strip@pt\pgf@x}%
+  \expandafter\edef\csname tkz@ct@#2y\endcsname{\strip@pt\pgf@y}%
+}
+\def\tkz@DefCommonTangent(#1,#2)(#3,#4){%
+\begingroup
+  % Construct in canvas coordinates to avoid repeated inverse transforms.
+  \pgftransformreset
+  \tkz@ct@extract{#1}{o}%
+  \tkz@ct@extract{#2}{a}%
+  \tkz@ct@extract{#3}{p}%
+  \tkz@ct@extract{#4}{b}%
+  \edef\tkz@ct@r{\fpeval{sqrt((\tkz@ct@ax-\tkz@ct@ox)^2+
+                                      (\tkz@ct@ay-\tkz@ct@oy)^2)}}%
+  \edef\tkz@ct@s{\fpeval{sqrt((\tkz@ct@bx-\tkz@ct@px)^2+
+                                      (\tkz@ct@by-\tkz@ct@py)^2)}}%
+  \edef\tkz@ct@dx{\fpeval{\tkz@ct@px-\tkz@ct@ox}}%
+  \edef\tkz@ct@dy{\fpeval{\tkz@ct@py-\tkz@ct@oy}}%
+  \edef\tkz@ct@d{\fpeval{sqrt((\tkz@ct@dx)^2+(\tkz@ct@dy)^2)}}%
+  \edef\tkz@ct@ux{\fpeval{\tkz@ct@dx/\tkz@ct@d}}%
+  \edef\tkz@ct@uy{\fpeval{\tkz@ct@dy/\tkz@ct@d}}%
+  \edef\tkz@ct@delta{\fpeval{\tkz@ct@r-\tkz@ct@sign*\tkz@ct@s}}%
+  \edef\tkz@ct@gap{\fpeval{\tkz@ct@d-abs(\tkz@ct@delta)}}%
+  % Allow only the rounding error of TeX coordinates at tangency.
+  % Equal radii with distinct, very close centres still have two tangents.
+  \edef\tkz@ct@merged{\fpeval{(abs(\tkz@ct@gap)<0.0001) &&
+                                      (abs(\tkz@ct@delta)>0)}}%
+  \ifnum\tkz@ct@merged=1\relax
+    \def\tkz@ct@h{0}%
+    \edef\tkz@ct@c{\fpeval{sign(\tkz@ct@delta)}}%
+  \else
+    \edef\tkz@ct@c{\fpeval{\tkz@ct@delta/\tkz@ct@d}}%
+    % No real tangent: sqrt reports an arithmetic error, as in intersections.
+    \edef\tkz@ct@h{\fpeval{sqrt((\tkz@ct@d-abs(\tkz@ct@delta))*
+                      (\tkz@ct@d+abs(\tkz@ct@delta)))/\tkz@ct@d}}%
+  \fi
+  \edef\tkz@ct@nx{\fpeval{\tkz@ct@c*\tkz@ct@ux-
+                                  \tkz@ct@side*\tkz@ct@h*\tkz@ct@uy}}%
+  \edef\tkz@ct@ny{\fpeval{\tkz@ct@c*\tkz@ct@uy+
+                                  \tkz@ct@side*\tkz@ct@h*\tkz@ct@ux}}%
+  \edef\tkz@ct@tx{\fpeval{\tkz@ct@ox+\tkz@ct@r*\tkz@ct@nx}}%
+  \edef\tkz@ct@ty{\fpeval{\tkz@ct@oy+\tkz@ct@r*\tkz@ct@ny}}%
+  \ifdim\tkz@ct@h pt=0pt\relax
+    % Coincident contacts: return another point 1 cm along the tangent.
+    \edef\tkz@ct@vx{\fpeval{\tkz@ct@tx-28.45274*\tkz@ct@uy}}%
+    \edef\tkz@ct@vy{\fpeval{\tkz@ct@ty+28.45274*\tkz@ct@ux}}%
+  \else
+    \edef\tkz@ct@vx{\fpeval{\tkz@ct@px+
+                              \tkz@ct@sign*\tkz@ct@s*\tkz@ct@nx}}%
+    \edef\tkz@ct@vy{\fpeval{\tkz@ct@py+
+                              \tkz@ct@sign*\tkz@ct@s*\tkz@ct@ny}}%
+  \fi
+  \pgfinterruptboundingbox
+    \path[coordinate](\tkz@ct@tx pt,\tkz@ct@ty pt)
+      coordinate (tkzFirstPointResult);
+    \path[coordinate](\tkz@ct@vx pt,\tkz@ct@vy pt)
+      coordinate (tkzSecondPointResult);
+  \endpgfinterruptboundingbox
 \endgroup
 }
 %<--------------------------------------------------------------------------–>
