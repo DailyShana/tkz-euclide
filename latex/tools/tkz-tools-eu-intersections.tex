@@ -145,6 +145,7 @@
 \begingroup
 \pgfqkeys{/linecircle}{#1}
  \pgfinterruptboundingbox
+\ifx\tkz@common\tkzutil@empty
 \ifcase\tkz@numlc%
     % first case 0
   \tkz@@CalcLength(#4,#5){tkzLengthResult}
@@ -156,6 +157,13 @@
 \or% 2
     \tkzInterLCWithNodes(#2,#3)(#4,#5){tkzFirstPointResult}%
                         {tkzSecondPointResult}%
+\fi
+\else
+  % Reflect the known intersection about the midpoint of the chord.
+  \pgfnodealias{tkz@common@point}{\tkz@common}%
+  \tkz@Projection(#2,#3)(#4){tkz@common@mid}%
+  \tkzCSym(tkz@common@mid)(tkz@common@point){tkzFirstPointResult}%
+  \pgfnodealias{tkzSecondPointResult}{tkz@common@point}%
 \fi
 \iftkz@near
   \tkz@@CalcLength(#2,tkzFirstPointResult){tkzLengthFirst}
@@ -187,14 +195,6 @@
               \pgfnodealias{tkzFirstPointResult}{tkzPointTmp}
              \fi
        \fi
-    \else
-         \tkz@@CalcLength(\tkz@common,tkzSecondPointResult){tkz@mathLen}
-         \ifdim\tkz@mathLen pt<1pt\relax%
-         \else
-          \pgfnodealias{tkzPointTmp}{tkzSecondPointResult}
-          \pgfnodealias{tkzSecondPointResult}{tkzFirstPointResult}
-          \pgfnodealias{tkzFirstPointResult}{tkzPointTmp}
-         \fi
      \fi
 \fi%near
 \endpgfinterruptboundingbox
@@ -397,6 +397,7 @@
 \def\tkz@InterCC[#1](#2,#3)(#4,#5){%
 \begingroup
 \pgfqkeys{/circlecircle}{#1}
+\ifx\tkz@common\tkzutil@empty
 \ifcase\tkz@numcc%
  % first case 0
   \tkz@save@length
@@ -409,7 +410,6 @@
   \or%2
  \tkzInterCCWithNodes(#2,#3)(#4,#5){tkzFirstPointResult}{tkzSecondPointResult}
 \fi
- \ifx\tkz@common\tkzutil@empty
  \tkzFindAngle(#2,tkzFirstPointResult,#4)   \tkzGetAngle{tkz@an}
  \ifdim\tkz@an pt<180 pt\relax%
  \else
@@ -418,13 +418,12 @@
  \pgfnodealias{tkzFirstPointResult}{tkzPointTmp}
  \fi
  \else
-\tkz@@CalcLength(\tkz@common,tkzSecondPointResult){tkz@mathLen}
- \ifdim\tkz@mathLen pt<0.05pt\relax%
- \else
-  \pgfnodealias{tkzPointTmp}{tkzSecondPointResult}
-   \pgfnodealias{tkzSecondPointResult}{tkzFirstPointResult}
-  \pgfnodealias{tkzFirstPointResult}{tkzPointTmp}
-  \fi
+  % Reflect the known intersection across the line of centres.
+  \pgfinterruptboundingbox
+    \pgfnodealias{tkz@common@point}{\tkz@common}%
+    \tkzSymOrth(#2,#4)(tkz@common@point){tkzFirstPointResult}%
+    \pgfnodealias{tkzSecondPointResult}{tkz@common@point}%
+  \endpgfinterruptboundingbox
   \fi
 \endgroup
 }
