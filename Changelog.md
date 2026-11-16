@@ -4,6 +4,18 @@ All notable changes to this project will be documented here.
 The version suffix **c** indicates the CTAN release.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ---
+## [5.14c-mod1] — 2026/11/16
+### Added
+- Common tangents: `\tkzDefLine[common tangent from=center O through A type ext side left](P,B)`; supports `int`/`ext`, `left`/`right`, and an auxiliary line point when contacts coincide.
+- Font-aware `\tkzAutoLabelPoints` spacing: default `dist=auto` matches `above` at the top of a circle; physical lengths are supported and explicit unitless ratios retain their old meaning.
+### Changed
+- Default points use solid fill; line/circle/arc width is 0.6pt, circles use the main line colour, and compass width is 0.4pt.
+- Automatic labels use a centred anchor; sector outlines inherit `arc style`.
+- `common` intersections use symmetry instead of a full circle-intersection calculation.
+- Shared commands and configuration override tkz-base when it is loaded first.
+### Distribution
+- Based on upstream 5.14c. The bundled PDF remains the upstream manual; modified interfaces are documented in the updated LaTeX sources.
+
 ## [5.14c] — 2026/10/16
 ### Fixed
 - `\tkzDefCircle[orthogonal from=…]` / `[orthogonal through=…]`: the choice leaked globally; every later `\tkzDefCircle(A,B,C)` without option failed.

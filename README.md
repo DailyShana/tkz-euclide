@@ -1,5 +1,8 @@
 # tkz-euclide — Euclidean Geometry with TikZ
-Release 5.14c — 2026/10/16
+Release 5.14c-mod1 — 2026/11/16
+
+Personal modified release based on upstream 5.14c. See Changelog.md for fork changes.
+The bundled PDF is the upstream manual; updated interfaces are documented in doc/latex.
 
 ## Description
 
@@ -53,6 +56,7 @@ Add the following lines to your preamble:
   % your code here
 \end{tikzpicture}
 \end{document}
+```
 
 
 ## Author
