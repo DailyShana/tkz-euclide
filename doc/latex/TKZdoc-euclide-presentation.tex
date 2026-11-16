@@ -567,6 +567,8 @@ The following code consists of several parts:
   \item The second part creates new points from the fixed points:
   a point $B$ is placed $10$~cm from $A$. The midpoint of $[AB]$ is $M$, then we define the line orthogonal to $(AB)$ at the point $I$. Then we look for the intersection of this line with the semicircle with center $M$ through $A$.
   
+\begingroup
+\mdfsetup{nobreak=true}
 \begin{tkzltxexample}[]
    \tkzDefPointBy[homothety=center A ratio  10 ](I)
       \tkzGetPoint{B}
@@ -576,7 +578,8 @@ The following code consists of several parts:
       \tkzGetPoint{H}
    \tkzInterLC(I,H)(M,B)             
    \tkzGetSecondPoint{C}
- \end{tkzltxexample}  
+ \end{tkzltxexample}
+\endgroup
      
 
  \item The third part contains the drawings;

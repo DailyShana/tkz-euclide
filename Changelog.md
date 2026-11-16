@@ -14,7 +14,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `common` intersections use symmetry instead of a full circle-intersection calculation.
 - Shared commands and configuration override tkz-base when it is loaded first.
 ### Distribution
-- Based on upstream 5.14c. The bundled PDF remains the upstream manual; modified interfaces are documented in the updated LaTeX sources.
+- Based on upstream 5.14c. The bundled PDF has been rebuilt from the updated LaTeX sources, including modified interfaces and fixes to fonts, layout, bookmarks and indexing.
 
 ## [5.14c] — 2026/10/16
 ### Fixed

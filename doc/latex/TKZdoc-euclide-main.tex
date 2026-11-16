@@ -7,7 +7,7 @@
 \PassOptionsToPackage{unicode}{hyperref}
 
 \documentclass[DIV         = 14,
-               fontsize    = 10,
+               fontsize    = 10pt,
                index       = totoc,
                twoside,
                cadre,
@@ -54,6 +54,15 @@
       bookmarksdepth=3
 }
 \usepackage{tkzexample}
+\makeatletter
+\let\tkzdoc@result\tkz@result
+\renewcommand\tkz@result{%
+  \ifdim\wd\tkzexamplebox>\dimexpr\linewidth-2\fboxsep\relax
+    \setbox\tkzexamplebox=\hbox{%
+      \resizebox{\dimexpr\linewidth-2\fboxsep\relax}{!}{\box\tkzexamplebox}}%
+  \fi
+  \tkzdoc@result}
+\makeatother
 \usepackage{fontspec}
 \setmainfont{texgyrepagella}[
   Extension = .otf,
@@ -80,12 +89,20 @@
 %% (La)TeX font-related declarations:
 \linespread{1.05}      % Pagella needs more space between lines
 \usepackage[math-style=literal,bold-style=literal]{unicode-math}
-\usepackage{fourier-otf}
+\usepackage[no-text]{fourier-otf}
+% Use explicit font files: name-based lookup can select legacy TeX fonts.
+\setmainfont{Erewhon}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  BoldFont = *-Bold,
+  BoldItalicFont = *-BoldItalic
+]
 \let\rmfamily\ttfamily
 \usepackage{multicol,lscape}
 \usepackage[english]{babel}
 \usepackage[normalem]{ulem}
-\usepackage{multirow,multido,booktabs,cellspace}
+\usepackage{multirow,multido,booktabs,cellspace,tabularx,needspace}
 \usepackage{shortvrb,fancyvrb,bookmark}
 \usepackage{makeidx}
 \makeindex
@@ -107,6 +124,10 @@
 \setlength{\emergencystretch}{3em}% fewer overfull lines with long macro names
 \def\code{\texttt}
 \newcommand*{\ItkzPopt}[2]{\texttt{#2}\index{#1_3@\texttt{#1: options}!\texttt{#2}}}
+
+% Keep random examples (and therefore pagination) identical across runs.
+\pgfmathsetseed{2026}
+\directlua{math.randomseed(2026)}
 
 \begin{document}
 

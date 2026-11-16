@@ -55,7 +55,7 @@ arguments             & example & explanation                         \\
 \end{tkzexample}
 
 \subsubsection{Golden triangle or sublime triangle} 
-\begin{tkzexample}[latex=7cm,small]
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}[scale=.75] 
   \tkzDefPoints{0/0/A,5/0/C,0/5/B} 
   \tkzDefMidPoint(A,C)\tkzGetPoint{H} 
@@ -112,7 +112,7 @@ There is only one option.
 
 \subsubsection{Compass square construction}
 
-\begin{tkzexample}[latex=7cm,small]
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}[scale=1]
   \tkzDefPoint(0,0){A} \tkzDefPoint(4,0){B}
   \tkzCalcLength(A,B)\tkzGetLength{dAB}
@@ -283,7 +283,7 @@ arguments             & example & explanation                         \\
 \subsubsection{Simple example} % (fold)
 \label{ssub:simple_example}
 
-\begin{tkzexample}[small,latex=7cm]
+\begin{tkzexample}[small,width=0pt]
 \begin{tikzpicture}
   \tkzDefPoints{-2/-3/A,4/0/B,1/3/C}
   \tkzDefPointBy[projection= onto A--B](C)  
@@ -309,7 +309,7 @@ arguments             & example & explanation                         \\
 \subsubsection{Cocyclic points} % (fold)
 \label{ssub:cocyclicpts}
 
-\begin{tkzexample}[small,latex=7cm]
+\begin{tkzexample}[small,width=0pt]
 \begin{tikzpicture}[scale=.75]
   \tkzDefPoints{1/2/O,5/2/B,2/2/P,3/3/Q}
   \tkzInterLC[common=B](O,B)(O,B) \tkzGetFirstPoint{A}

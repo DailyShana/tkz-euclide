@@ -97,8 +97,9 @@ loading the package:
 \begin{verbatim}
 \pgfkeys{/tkzautolab/dist=0.15}
 \end{verbatim}
+\Needspace{14\baselineskip}
 \begin{NewMacroBox}{tkzAutoLabelPoints}{\oarg{local options}\parg{$A_1,A_2,...$}}%
-\begin{tabular}{lll}
+\begin{tabularx}{\linewidth}{llX}
 arguments &  example & result      \\ 
 \midrule
 \TAline{list of points}{\tkzcname{tkzAutoLabelPoints(A,B,C)}}{Display of $A$, $B$ and $C$}
@@ -106,7 +107,7 @@ arguments &  example & result      \\
 options & default & definition \\
 \TOline{center}{}{centre defining the outward direction}
 \TOline{dist}{auto}{automatic offset, physical length, or legacy unitless ratio}
-\end{tabular}
+\end{tabularx}
 \end{NewMacroBox}
 
 \subsubsection{Label for points with \tkzcname{tkzAutoLabelPoints}} 

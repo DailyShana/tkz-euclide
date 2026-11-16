@@ -144,7 +144,7 @@ options             & default & definition                         \\
 \end{NewMacroBox}
 
 \subsubsection{Examples  with \tkzname{add}}
-\begin{tkzexample}[latex=5cm,small]
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}
  \tkzInit[xmin=-2,xmax=3,ymin=-2.25,ymax=2.25]
  \tkzClip[space=.25]
@@ -222,7 +222,7 @@ This is of course equivalent to \tkzcname{draw (A)--(B);}. You can also use the 
 
 \subsubsection{Extending a segment with option \tkzname{add}} 
 
-\begin{tkzexample}[latex=7cm,small]
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}
   \tkzDefPoints{0/0/A,6/0/B,0.8/4/C}
   \tkzDefTriangleCenter[euler](A,B,C) 
@@ -295,7 +295,7 @@ Look at the examples to see what you can do with these styles.
 \end{tkzexample}
 
 \subsubsection{Adding dimensions with option \tkzname{dim}: part II} 
-\begin{tkzexample}[latex=6cm,small]
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}[scale=.5]
   \tkzDefPoints{0/0/O,-2/0/A,2/0/B,
                 -2/4/C,2/4/D,2/-4/E,-2/-4/F}
@@ -439,7 +439,8 @@ line join=round](p0,p2,p4)
 \end{tkzexample}
 
 \subsection{Drawing a polygonal chain} 
- \begin{NewMacroBox}{tkzDrawPolySeg}{\oarg{local options}\parg{points list}}%
+ \Needspace{14\baselineskip}
+\begin{NewMacroBox}{tkzDrawPolySeg}{\oarg{local options}\parg{points list}}%
 Just give a list of points: the macro draws the polygonal chain with the \TIKZ\ options given.
 
 \begin{tabular}{lll}%
@@ -590,7 +591,7 @@ Of course, you can add all the \TIKZ\ styles for the drawings.
 
 \subsubsection{Exinscribed circles.} 
 
-\begin{tkzexample}[latex=8cm,small] 
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}[scale=1] 
 \tkzDefPoints{0/0/A,4/0/B,1/2.5/C}
 \tkzDrawPolygon(A,B,C)
@@ -761,7 +762,7 @@ options             & arguments & example                         \\
 
 Here are a few examples: 
 
-\subsubsection{Option \tkzname{towards}: arc from $A$ to $B$}
+\subsubsection{\texorpdfstring{Option \tkzname{towards}: arc from $A$ to $B$}{Option towards: arc from A to B}}
 You don't need to write \tkzname{towards}. In this first example, the arc starts from $A$ and goes to $B$. The arc from $B$ to $A$ is different: arcs are always drawn counterclockwise.
 \begin{tkzexample}[latex=6cm,small]
 \begin{tikzpicture}[scale=.75]

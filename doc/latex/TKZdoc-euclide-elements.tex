@@ -20,7 +20,7 @@ Contrary to \TIKZ, a macro must not end with “;”. We thus lose the important
 
 In the first category, |\tkzDefPoint| defines fixed points; it will be studied in detail later. Here we look at the macro |\tkzDefTriangle|.
 
-This macro associates a third point with a pair of points, in order to define a certain triangle: |\tkzDefTriangle(A,B)|. The point obtained is referenced |tkzPointResult|, and you can choose another reference, for example with |\tkzGetPoint{C}|.
+This macro defines a third point from a pair of points to form a triangle: |\tkzDefTriangle(A,B)|. The point obtained is referenced |tkzPointResult|, and you can choose another reference, for example with |\tkzGetPoint{C}|.
 
 |\tkzDefTriangle[euclid](A,B) \tkzGetPoint{C}|
 

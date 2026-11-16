@@ -2,7 +2,7 @@
 Release 5.14c-mod1 — 2026/11/16
 
 Personal modified release based on upstream 5.14c. See Changelog.md for fork changes.
-The bundled PDF is the upstream manual; updated interfaces are documented in doc/latex.
+The bundled PDF is the rebuilt manual, including the modified interfaces documented in doc/latex.
 
 ## Description
 
@@ -58,6 +58,32 @@ Add the following lines to your preamble:
 \end{document}
 ```
 
+
+## Building the manual
+
+Compile `doc/latex/TKZdoc-euclide-main.tex` with LuaLaTeX and MakeIndex.
+In addition to the package dependencies, install `tkz-doc`, `tkz-base`,
+`tkzexample`, `pgfornament`, `ulem`, `fourier-otf` (including Erewhon,
+Erewhon Math and Fourier ornaments), TeX Gyre and Latin Modern fonts.
+A complete TeX Live installation supplies these dependencies.
+
+From the repository root, build outside the checkout:
+
+```sh
+repo="$PWD"
+build="$(mktemp -d)"
+cp -R doc/latex/. "$build/"
+cd "$build"
+export TEXINPUTS="$repo/latex//:${TEXINPUTS-}"
+lualatex -interaction=nonstopmode -halt-on-error TKZdoc-euclide-main.tex
+makeindex TKZdoc-euclide-main.idx
+lualatex -interaction=nonstopmode -halt-on-error TKZdoc-euclide-main.tex
+makeindex TKZdoc-euclide-main.idx
+lualatex -interaction=nonstopmode -halt-on-error TKZdoc-euclide-main.tex
+```
+
+Rerun LuaLaTeX and MakeIndex if the log still requests updated references
+or the index page numbers have changed.
 
 ## Author
 

@@ -81,7 +81,7 @@ Sometimes the results consist of a point and a dimension. You get the point with
 \toprule
 arguments & default & example \\
 \midrule
-\TAline{name of a macro}{no default}{ \tkzcname{tkzGetLength\{rAB\} \tkzcname{rAB} gives the length in cm}}
+\TAline{name of a macro}{no default}{ \tkzcname{tkzGetLength}\code{\{rAB\}}; \tkzcname{rAB} gives the length in cm}
 \end{tabular}
 \end{NewMacroBox}
 
@@ -668,7 +668,7 @@ The center of the incircle, called the incenter, can be found as the intersectio
  \medskip
  We get the center of the incircle of the triangle. The result is of course in \tkzname{tkzPointResult}; we retrieve it with \tkzcname{tkzGetPoint}.
 
-\begin{tkzexample}[latex=7cm,small]
+\begin{tkzexample}[width=0pt,small]
 \begin{tikzpicture}
 \tkzDefPoints{0/0/A,6/0/B,0.8/4/C}
 \tkzDefTriangleCenter[in](A,B,C)
