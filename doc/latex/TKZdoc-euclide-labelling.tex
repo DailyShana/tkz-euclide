@@ -73,12 +73,39 @@ This macro reduces the number of lines of code, but all the points rarely need t
 %                       tkzAutoLabelPoints
 %<--------------------------------------------------------------------------->
 \subsection{Automatic position of labels \tkzcname{tkzAutoLabelPoints}}
-The label of a point is placed in the direction defined by a center, given with the option \tkzname{center}, and the point. The distance between the label and the point is a percentage of the distance between the center and the point, given by \tkzname{dist}.
+The label of a point is placed outwards in the direction from the centre,
+given by \code{center}, to the point. The option \code{dist} controls the offset
+from the point to the label's positioning anchor. In automatic and physical-length
+modes labels are centred unless an explicit positioning option overrides the anchor.
+
+By default, \code{dist=auto} uses the distance between the actual label node's
+\code{center} and \code{south} anchors. For a point directly above the centre,
+the default label therefore coincides with a label placed using
+\tkzcname{tkzLabelPoints}\code{[above]}. The offset follows the actual font, subscripts,
+node separation and minimum size, independently of the circle radius.
+A physical length such as \code{dist=3mm} gives a fixed offset;
+\code{dist=0.85em} is evaluated using the label's font.
+These offsets are measured in the picture's canvas, so an ordinary geometric
+\code{scale} does not scale the spacing. If the point coincides with the centre,
+the direction is taken to be upwards.
+
+Unitless values retain their original meaning: \code{dist=0.1} places the label
+at an additional 10\% of the centre-to-point distance. Existing explicit ratios
+are unchanged; calls omitting \code{dist} now use \code{auto}.
+To restore the old default for an existing document, use the following after
+loading the package:
+\begin{verbatim}
+\pgfkeys{/tkzautolab/dist=0.15}
+\end{verbatim}
 \begin{NewMacroBox}{tkzAutoLabelPoints}{\oarg{local options}\parg{$A_1,A_2,...$}}%
 \begin{tabular}{lll}
 arguments &  example & result      \\ 
 \midrule
-\TAline{list of points}{\tkzcname{tkzAutoLabelPoint(A,B,C)}}{Display of $A$, $B$ and $C$}
+\TAline{list of points}{\tkzcname{tkzAutoLabelPoints(A,B,C)}}{Display of $A$, $B$ and $C$}
+\midrule
+options & default & definition \\
+\TOline{center}{}{centre defining the outward direction}
+\TOline{dist}{auto}{automatic offset, physical length, or legacy unitless ratio}
 \end{tabular}
 \end{NewMacroBox}
 
@@ -95,7 +122,7 @@ Here the labels are positioned relative to the centroid of $A$, $B$, $C$ and $O$
  \tkzDrawSegments(C,B B,A A,O O,C)
  \tkzDefTriangleCenter[centroid](A,B,C) \tkzGetPoint{G}
  \tkzDrawPoint(tkzPointResult)
- \tkzAutoLabelPoints[center=G,dist=.5](O,A,B,C)
+ \tkzAutoLabelPoints[center=G](O,A,B,C)
 \end{tikzpicture}
 \end{tkzexample}
 

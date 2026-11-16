@@ -82,16 +82,93 @@
 \pgfkeys{/tkzautolab/.cd,
     center/.store in           = \tkz@center,
     dist/.store in             = \tkz@dist,
-    dist                       = 0.15,
+    dist                       = auto,
    /tkzautolab/.search also   = {/tikz},
 }
 \def\tkzAutoLabelPoints{\pgfutil@ifnextchar[{\tkz@AutoLabelPoints}{\tkz@AutoLabelPoints[]}}%
 \def\tkz@AutoLabelPoints[#1](#2){%
 \begingroup
 \pgfqkeys{/tkzautolab}{#1}
- \foreach \point in {#2}{
- \path (\tkz@center) -- ($ (\point) + \tkz@dist*($(\point)-(\tkz@center)$) $) node[/tkzautolab/.cd,label style,centered,#1]{$\point$};}
+\edef\tkz@autolab@value{\tkz@dist}%
+\def\tkz@autolab@auto{auto}%
+\ifx\tkz@autolab@value\tkz@autolab@auto
+  \def\tkz@autolab@mode{2}%
+\else
+  \pgfmathparse{\tkz@dist}%
+  \ifpgfmathunitsdeclared
+    \def\tkz@autolab@mode{1}%
+  \else
+    \def\tkz@autolab@mode{0}%
+  \fi
+\fi
+\foreach \point in {#2}{%
+  \ifcase\tkz@autolab@mode
+    % Keep the original coordinate calculation for unitless ratios.
+    \path (\tkz@center) -- ($ (\point) + \tkz@dist*($(\point)-(\tkz@center)$) $)
+      node[/tkzautolab/.cd,label style,centered,#1]{$\point$};
+  \else
+    \tkz@autolab@direction
+    \begingroup
+      % Typeset once, then position using the finished node's actual size.
+      \pgfpositionnodelater{\tkz@autolab@capture}%
+      \node[/tkzautolab/.cd,label style,centered,#1,
+            /utils/exec=\tikz@fig@mustbenamed] at (\point) {$\point$};
+      \pgfpositionnodelater{\relax}%
+      \tkz@autolab@restore
+      \pgfpositionnodenow{\pgftransformreset\pgfqpoint
+        {\fpeval{\tkz@autolab@distance*\tkz@autolab@ux}pt}%
+        {\fpeval{\tkz@autolab@distance*\tkz@autolab@uy}pt}}%
+    \endgroup
+  \fi
+}
 \endgroup
+}%
+\def\tkz@autolab@direction{%
+  % Normalize in canvas coordinates so a physical distance is not scaled.
+  \pgfgettransform\tkz@autolab@transform
+  \pgftransformreset
+  \pgf@process{\pgfpointdiff{\pgfpointanchor{\tikz@pp@name{\tkz@center}}{center}}%
+                          {\pgfpointanchor{\tikz@pp@name{\point}}{center}}}%
+  \edef\tkz@autolab@length{\fpeval{sqrt((\pgf@x)^2+(\pgf@y)^2)}}%
+  \ifdim\tkz@autolab@length pt=0pt\relax
+    \def\tkz@autolab@ux{0}\def\tkz@autolab@uy{1}%
+  \else
+    \edef\tkz@autolab@ux{\fpeval{\pgf@x/\tkz@autolab@length}}%
+    \edef\tkz@autolab@uy{\fpeval{\pgf@y/\tkz@autolab@length}}%
+  \fi
+  \pgfsettransform\tkz@autolab@transform
+}%
+\newbox\tkz@autolab@box
+\def\tkz@autolab@capture{%
+  % Restore aliases after placement, before any append-after-node code.
+  \ifx\tikz@alias\pgfutil@empty\else
+    \edef\tkz@autolab@aliases{%
+      \noexpand\pgfnodepostsetupcode{\tikz@fig@name}{%
+        \def\noexpand\tikz@fig@name{\tikz@fig@name}%
+        \unexpanded\expandafter{\tikz@alias}}}%
+    \tkz@autolab@aliases
+  \fi
+  \ifnum\tkz@autolab@mode=2\relax
+    \pgftransformreset
+    \pgfpointdiff{\pgfpointanchor{\pgfpositionnodelatername}{south}}%
+                {\pgfpointanchor{\pgfpositionnodelatername}{center}}%
+    \xdef\tkz@autolab@distance{\fpeval{sqrt((\pgf@x)^2+(\pgf@y)^2)}}%
+  \else
+    % Evaluate em/ex using the same font as the label text.
+    \begingroup
+      \tikz@textfont
+      \pgfmathparse{\tkz@dist}%
+      \xdef\tkz@autolab@distance{\pgfmathresult}%
+    \endgroup
+  \fi
+  \global\setbox\tkz@autolab@box=\box\pgfpositionnodelaterbox
+  \xdef\tkz@autolab@restore{%
+    \let\noexpand\pgfpositionnodelaterbox\noexpand\tkz@autolab@box
+    \def\noexpand\pgfpositionnodelatername{\pgfpositionnodelatername}%
+    \def\noexpand\pgfpositionnodelaterminx{\pgfpositionnodelaterminx}%
+    \def\noexpand\pgfpositionnodelaterminy{\pgfpositionnodelaterminy}%
+    \def\noexpand\pgfpositionnodelatermaxx{\pgfpositionnodelatermaxx}%
+    \def\noexpand\pgfpositionnodelatermaxy{\pgfpositionnodelatermaxy}}%
 }%
 %<--------------------------------------------------------------------------->
 %                                 PointShowCoord

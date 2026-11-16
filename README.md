@@ -40,6 +40,9 @@ local `TEXMFHOME` or system `TDS` tree.
 
 ## Usage
 
+If you also use `tkz-base`, load it before `tkz-euclide`. Shared commands
+and configuration are always provided by `tkz-euclide`.
+
 Add the following lines to your preamble:
 
 ```latex

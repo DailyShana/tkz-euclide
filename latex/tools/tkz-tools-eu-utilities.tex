@@ -61,7 +61,7 @@ space    = {}}
 %              Pour savoir le nombre de décimales d'un nombre
 % le nombre dans #1 et le résultat dans \c@pgfmath@countb
 %<--------------------------------------------------------------------------–>
-\newcommand\tkz@getdecimal[1]{\expandafter\@getdecimal#1.\@nil}
+\def\tkz@getdecimal#1{\expandafter\@getdecimal#1.\@nil}
 \def\@getdecimal#1.#2\@nil{%
   \ifx\empty#2\empty
     % Si #2 est vide, c'est qu'il n'y avait pas de point
@@ -79,15 +79,15 @@ space    = {}}
 \def\@@getdecimal#1.\@nil{\gdef\tkz@decpart{#1}}
 %<---------------------------------------------------------–>
 % code from JCC modifi
-\newcommand\CountToken[1]{%
+\def\CountToken#1{%
  \c@pgfmath@countb0 %
   \expandafter\C@untToken#1\@nil
 %modifi ajout du expandafter
 }
-\newcommand\C@untToken{%
+\def\C@untToken{%
   \afterassignment\C@untT@ken\let\CurrT@ken=
 }
-\newcommand\C@untT@ken{%
+\def\C@untT@ken{%
  \ifx\CurrT@ken\@nil \else
    \advance\c@pgfmath@countb by1 %
    \expandafter\C@untToken

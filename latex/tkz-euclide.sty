@@ -17,30 +17,6 @@
 \DeclareOption{mini}{\@tkzminitrue}
 \ProcessOptions\relax
 
-\@ifpackageloaded{tkz-base}{
-\newdimen\tkzRadius
-\newdimen\tkzLength
-\newdimen\tkz@radi
-\newif\iftkz@line@normed
-\newif\ifnormtkzcode@execute% german ? right angle
-%---------------------- semi circle
-\newif\iftkz@swap@sc
-\newif\iftkz@line@normed
-%--------------------- circles
-\newif\iftkzClipOutCircle
-%--------------------- polygons
-\newif\iftkzClipOutPoly
-%--------------------- triangles
-\newif\iftkz@swap@tr
-\newif\iftkz@permute
-%--------------------- intersections
-\newif\iftkzFlagLC\tkzFlagLCfalse
-\newif\iftkzFlagCC\tkzFlagCCfalse
-\newif\iftkz@near\tkz@nearfalse
-%---------------------
-\newif\iftkzLinear\tkzLinearfalse
-\newif\iftkzOrtho\tkzOrthofalse
-}{
 \RequirePackage{tikz}
 \usetikzlibrary{angles,
                 arrows,
@@ -143,7 +119,6 @@
 \InputIfFileExists{tkz-euclide.cfg}{%
 \typeout{Local configuration file tkz-euclide.cfg found and used}}{%
 \typeout{tkz-euclide.cfg not found}}
-}
 %-------------------------------------------------------------------------------
 \def\tkz@tmp@xa{-5}
 \def\tkz@tmp@xb{+5}
@@ -160,7 +135,6 @@
 \if@tkzmini
 \@tkzluatrue
 \RequirePackage{luacode}
-\@ifpackageloaded{tkz-base}{}{%
 % from base
 \input{tkz-tools-eu-base.tex}
 \input{tkz-tools-eu-utilities.tex}
@@ -174,7 +148,6 @@
 \input{tkz-obj-eu-points.tex}
 \input{tkz-draw-eu-points.tex}
 \input{tkz-obj-eu-triangles.tex}
-}
 % next from euclide
 \input{tkz-obj-eu-lua-points-by.tex}
 \input{tkz-tools-eu-lua-math.tex}
@@ -194,7 +167,6 @@
 \input{tkz-draw-eu-show.tex}
 \input{tkz-draw-eu-protractor.tex}
 \else
-\@ifpackageloaded{tkz-base}{}{%
 % from base
 \input{tkz-tools-eu-base.tex}
 \input{tkz-tools-eu-utilities.tex}
@@ -207,7 +179,6 @@
 \input{tkz-tools-eu-colors.tex}
 \input{tkz-obj-eu-points.tex}
 \input{tkz-draw-eu-points.tex}
-}
 % next from euclide
 \makeatletter
 \if@tkzlua

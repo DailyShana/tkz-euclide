@@ -7,7 +7,7 @@
 
 \makeatletter
 \def\removedot#1.{#1}
-\newcommand\tkzgetinteger[1]{\expandafter\tkz@getinteger#1.\@nil}
+\def\tkzgetinteger#1{\expandafter\tkz@getinteger#1.\@nil}
 \def\tkz@getinteger#1.#2\@nil{%
   \ifx\empty#2\empty
     \tkz@integertrue
